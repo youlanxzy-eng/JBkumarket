@@ -1,0 +1,1872 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="theme-color" content="#ffffff">
+<title>JB KU Market</title>
+<meta name="description" content="Cari & jual akun game anak JB. Posting akun sepuasnya, transaksi aman lewat rekber admin terverifikasi.">
+<meta property="og:title" content="JB KU Market"><meta property="og:description" content="Cari & jual akun game anak JB — masuk langsung sebagai @namastore.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M32%206C17.6%206%206%2016.9%206%2030.4c0%205%201.6%209.6%204.4%2013.4L7%2056l12.8-3.9c3.7%202%207.8%203%2012.2%203%2014.4%200%2026-10.9%2026-24.4S46.4%206%2032%206z%22%20fill%3D%22%231DAA61%22/%3E%3Cpath%20d%3D%22M20%2024h24l-2.2%2016.6a3%203%200%200%201-3%202.6H25.2a3%203%200%200%201-3-2.6z%22%20fill%3D%22%23fff%22/%3E%3Cpath%20d%3D%22M26%2024v-2.6a6%206%200%200%201%2012%200V24%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.2%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap">
+<link rel="preconnect" href="https://tkuuqpjeelgczgfriiee.supabase.co">
+<style>html,body{margin:0;height:100%;background:#fff;overscroll-behavior:none}@media (prefers-color-scheme:dark){html,body{background:#0B141A}}</style>
+<style id="mk-css">
+/* ===== JB KU MARKET — UI gaya WhatsApp (fase 1) ===== */
+#mk{--g:#1DAA61;--g2:#008069;--gd:#0A3B1F;--bg:#fff;--bg2:#F7F8FA;--hd:#fff;--ink:#111B21;--sub:#667781;--mut:#8696A0;--line:#E9EDEF;--chip:#F0F2F5;--chipon:#D8FDD2;--chiptx:#15603E;--wall:#EFEAE2;--in:#fff;--out:#D9FDD3;--lnk:#027EB5;--bad:#EA0038;--warn:#FFB400;--shadow:0 1px .5px rgba(11,20,26,.13);--pop:0 6px 24px rgba(11,20,26,.18),0 1px 3px rgba(11,20,26,.12);--dood:.06;--fab:#1DAA61;--fabtx:#fff;--seltx:#fff}
+#mk[data-th="dark"]{--g:#21C063;--g2:#21C063;--gd:#D8FDD2;--bg:#0B141A;--bg2:#111B21;--hd:#0B141A;--ink:#E9EDEF;--sub:#8696A0;--mut:#667781;--line:#222D34;--chip:#202C33;--chipon:#103529;--chiptx:#D8FDD2;--wall:#0B141A;--in:#202C33;--out:#005C4B;--lnk:#53BDEB;--shadow:0 1px .5px rgba(0,0,0,.3);--pop:0 8px 28px rgba(0,0,0,.55);--dood:.05;--fab:#21C063;--fabtx:#0B141A}
+#mk{position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font:400 15px/1.35 Roboto,"Helvetica Neue",Helvetica,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow:hidden;transform:translateY(0);transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .25s;contain:layout}
+#mk.mk-hide{transform:translateY(100%);opacity:.6;pointer-events:none}
+#mk *,#mk *::before,#mk *::after{box-sizing:border-box}
+#mk button{all:unset;box-sizing:border-box;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#mk button:focus-visible,#mk a:focus-visible,#mk input:focus-visible,#mk textarea:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+#mk input,#mk textarea,#mk select{font:inherit;color:inherit}
+#mk svg{display:block}
+#mk img{-webkit-user-drag:none}
+#mk .mk-ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#mk .mk-ib{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--ink);flex:none;position:relative;overflow:hidden}
+#mk .mk-rp{position:relative;overflow:hidden}
+#mk .mk-ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.14;transform:scale(0);animation:mkRip .5s ease-out forwards;pointer-events:none}
+@keyframes mkRip{to{transform:scale(1);opacity:0}}
+
+/* ---------- top bar ---------- */
+#mk .mk-top{flex:none;display:flex;align-items:center;gap:2px;height:60px;padding:calc(env(safe-area-inset-top)) 6px 0 8px;background:var(--hd);position:relative;z-index:3}
+#mk .mk-brand{flex:1;display:flex;align-items:center;gap:9px;min-width:0;padding-left:8px}
+#mk .mk-brand b{font-size:22px;font-weight:500;letter-spacing:-.2px;color:var(--g);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-brand .mk-lg{width:30px;height:30px;flex:none}
+#mk .mk-top .mk-back{margin-right:-6px}
+
+/* ---------- views ---------- */
+#mk .mk-main{flex:1;min-height:0;position:relative}
+#mk .mk-view{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;background:var(--bg);opacity:0;visibility:hidden;transform:translateX(14px);transition:opacity .2s,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s .26s}
+#mk .mk-view.on{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .26s cubic-bezier(.2,.8,.2,1)}
+#mk .mk-search{margin:4px 16px 10px;height:46px;border-radius:24px;background:var(--chip);display:flex;align-items:center;gap:12px;padding:0 16px;color:var(--sub)}
+#mk .mk-search input{all:unset;flex:1;min-width:0;color:var(--ink);font-size:16px}
+#mk .mk-search input::placeholder{color:var(--sub)}
+#mk .mk-search .mk-x{width:28px;height:28px;border-radius:50%;display:grid;place-items:center}
+#mk .mk-search .mk-x[hidden]{display:none}
+#mk .mk-chips{display:flex;gap:8px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none}
+#mk .mk-chips::-webkit-scrollbar{display:none}
+#mk .mk-chip{flex:none;height:34px;padding:0 14px;border-radius:18px;background:var(--chip);color:var(--sub);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:background .18s,color .18s}
+#mk .mk-chip.on{background:var(--chipon);color:var(--chiptx)}
+#mk .mk-chip i{font-style:normal;font-size:12px;opacity:.8}
+#mk .mk-live{display:flex;align-items:center;gap:8px;padding:0 18px 8px;font-size:13px;color:var(--sub)}
+#mk .mk-dot{width:8px;height:8px;border-radius:50%;background:#25D366;box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:mkPulse 1.8s infinite;flex:none}
+@keyframes mkPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 7px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+#mk .mk-live b{color:var(--ink);font-weight:500}
+
+/* ---------- wallpaper + feed ---------- */
+#mk .mk-wall{position:relative;min-height:calc(100% - 140px);background-color:var(--wall);padding:6px 0 96px}
+#mk .mk-wall::before{content:"";position:absolute;inset:0;background-image:var(--doodle);background-size:300px 300px;opacity:var(--dood);pointer-events:none}
+#mk[data-th="dark"] .mk-wall::before{filter:invert(1)}
+#mk .mk-feed{position:relative;display:flex;flex-direction:column;gap:2px;padding:0 10px}
+#mk .mk-day{align-self:center;margin:10px 0 6px;padding:5px 12px;border-radius:8px;background:var(--in);color:var(--sub);font-size:12.5px;font-weight:500;box-shadow:var(--shadow);text-transform:none;position:sticky;top:6px;z-index:2}
+#mk .mk-sys{align-self:center;max-width:86%;margin:6px 0 8px;padding:6px 12px;border-radius:8px;background:#FFEECD;color:#54656F;font-size:12.5px;text-align:center;box-shadow:var(--shadow)}
+#mk[data-th="dark"] .mk-sys{background:#182229;color:#FFD279}
+#mk .mk-newp{position:sticky;top:8px;z-index:4;align-self:center;margin:-2px auto 4px;padding:8px 16px;border-radius:20px;background:var(--g);color:#fff;font-size:13.5px;font-weight:500;box-shadow:var(--pop);display:flex;gap:6px;align-items:center;animation:mkDrop .35s cubic-bezier(.2,.9,.3,1.3)}
+#mk[data-th="dark"] .mk-newp{color:#0B141A}
+@keyframes mkDrop{from{transform:translateY(-16px);opacity:0}}
+
+/* ---------- bubble ---------- */
+#mk .mk-bw{display:flex;align-items:flex-start;gap:6px;margin:3px 0 5px;animation:mkIn .32s cubic-bezier(.2,.8,.2,1) both}
+@keyframes mkIn{from{opacity:0;transform:translateY(10px) scale(.985)}}
+#mk .mk-bav{width:32px;height:32px;border-radius:50%;flex:none;margin-top:2px;overflow:hidden;background:var(--chip);display:grid;place-items:center;font-weight:500;color:#fff;font-size:14px}
+#mk .mk-bav img{width:100%;height:100%;object-fit:cover}
+#mk .mk-b{position:relative;width:min(86%,420px);background:var(--in);border-radius:0 8px 8px 8px;box-shadow:var(--shadow);padding:3px}
+#mk .mk-b::before{content:"";position:absolute;left:-8px;top:0;width:8px;height:13px;background:var(--in);clip-path:polygon(0 0,100% 0,100% 100%)}
+#mk .mk-bh{display:flex;align-items:center;gap:6px;padding:4px 7px 5px;min-width:0}
+#mk .mk-bn{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#mk .mk-tag{flex:none;font-size:10.5px;font-weight:500;letter-spacing:.2px;padding:2px 6px;border-radius:5px;background:var(--chipon);color:var(--chiptx)}
+#mk .mk-tag.gs{background:var(--chip);color:var(--sub)}
+#mk .mk-bh .mk-sp{flex:1}
+#mk .mk-bh .mk-km{width:28px;height:28px;margin:-4px -4px -4px 0;border-radius:50%;display:grid;place-items:center;color:var(--sub)}
+#mk .mk-bh .mk-km svg{width:20px;height:20px}
+#mk .mk-bt{padding:6px 8px 2px}
+#mk .mk-gm{font-size:15px;font-weight:500;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#mk .mk-gm small{font-weight:400;color:var(--sub);font-size:13px}
+#mk .mk-pr{font-size:20px;font-weight:700;color:var(--g2);margin:3px 0 4px;letter-spacing:-.2px}
+#mk[data-th="dark"] .mk-pr{color:#25D366}
+#mk .mk-pills{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 6px}
+#mk .mk-pill{font-size:12px;padding:3px 8px;border-radius:6px;background:var(--bg2);color:var(--sub);border:1px solid var(--line)}
+#mk .mk-spec{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:13.5px;margin:4px 0 6px;padding:7px 9px;border-radius:7px;background:var(--bg2)}
+#mk .mk-spec dt{color:var(--sub)}
+#mk .mk-spec dd{margin:0;font-weight:500;word-break:break-word}
+#mk .mk-cap{white-space:pre-wrap;word-break:break-word;font-size:14.5px;margin:4px 0 2px}
+#mk .mk-cap.cut{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+#mk .mk-more{color:var(--lnk);font-size:14px;font-weight:500;margin:2px 0}
+#mk .mk-bm{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 8px 4px;font-size:11.5px;color:var(--sub)}
+#mk .mk-bm span{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+#mk .mk-bm svg{width:14px;height:14px}
+#mk .mk-bm .mk-tk svg{width:16px;height:11px;fill:none;stroke:#53BDEB;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#mk .mk-bm .mk-clk svg{width:13px;height:13px;stroke:var(--sub)}
+#mk .mk-ba{display:flex;border-top:1px solid var(--line);margin:4px -3px -3px}
+#mk .mk-ba button{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;height:42px;color:var(--lnk);font-size:14.5px;font-weight:500}
+#mk .mk-ba button+button{border-left:1px solid var(--line)}
+#mk .mk-ba svg{width:19px;height:19px}
+#mk .mk-b.sold .mk-al{filter:grayscale(.7)}
+#mk .mk-stamp{position:absolute;top:14px;right:12px;z-index:2;padding:4px 10px;border:2.5px solid var(--bad);color:var(--bad);border-radius:6px;font-weight:900;font-size:14px;letter-spacing:1.5px;transform:rotate(8deg);background:rgba(255,255,255,.85)}
+#mk[data-th="dark"] .mk-stamp{background:rgba(11,20,26,.8)}
+#mk .mk-b.tmp{opacity:.92}
+
+/* ---------- album (ukuran menyesuaikan) ---------- */
+#mk .mk-al{display:grid;gap:3px;border-radius:6px;overflow:hidden;position:relative;background:var(--bg2)}
+#mk .mk-al.n2{grid-template-columns:1fr 1fr}
+#mk .mk-al.n3{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+#mk .mk-al.n3 .mk-ph:first-child{grid-column:1/3}
+#mk .mk-al.n4{grid-template-columns:1fr 1fr}
+#mk .mk-ph{position:relative;overflow:hidden;background:var(--chip);min-height:60px}
+#mk .mk-al.n2 .mk-ph,#mk .mk-al.n4 .mk-ph,#mk .mk-al.n3 .mk-ph:not(:first-child){aspect-ratio:1}
+#mk .mk-al.n3 .mk-ph:first-child{aspect-ratio:16/10}
+#mk .mk-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s}
+#mk .mk-al.n1 .mk-ph{max-height:420px}
+#mk .mk-ph img.ok{opacity:1}
+#mk .mk-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%) var(--chip);background-size:220% 100%;animation:mkSh 1.3s infinite linear;pointer-events:none;transition:opacity .3s}
+#mk[data-th="dark"] .mk-ph::after{background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.06) 50%,transparent 70%) var(--chip);background-size:220% 100%}
+#mk .mk-ph.ok::after{opacity:0}
+@keyframes mkSh{from{background-position:120% 0}to{background-position:-120% 0}}
+#mk .mk-ph .mk-plus{position:absolute;inset:0;z-index:2;display:grid;place-items:center;background:rgba(11,20,26,.5);color:#fff;font-size:30px;font-weight:400}
+#mk .mk-al .mk-cnt{position:absolute;right:6px;bottom:6px;z-index:2;padding:2px 7px;border-radius:10px;background:rgba(11,20,26,.55);color:#fff;font-size:11.5px;display:flex;gap:4px;align-items:center}
+#mk .mk-al .mk-cnt svg{width:13px;height:13px}
+#mk .mk-prog{position:absolute;inset:0;z-index:3;display:grid;place-items:center;background:rgba(11,20,26,.35)}
+#mk .mk-ring{width:52px;height:52px;border-radius:50%;background:conic-gradient(#fff calc(var(--p,0)*1%),rgba(255,255,255,.25) 0);display:grid;place-items:center;transition:--p .3s}
+#mk .mk-ring::before{content:"";width:44px;height:44px;border-radius:50%;background:rgba(11,20,26,.55)}
+#mk .mk-prog small{position:absolute;bottom:10px;color:#fff;font-size:12px;font-weight:500;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+
+/* ---------- list rows (tab Toko) ---------- */
+#mk .mk-row{display:flex;align-items:center;gap:14px;padding:10px 16px;min-height:72px;width:100%}
+#mk .mk-row:active{background:var(--bg2)}
+#mk .mk-av{width:52px;height:52px;border-radius:50%;flex:none;overflow:hidden;display:grid;place-items:center;color:#fff;font-size:20px;font-weight:500;background:#DFE5E7}
+#mk .mk-av img{width:100%;height:100%;object-fit:cover}
+#mk .mk-rb{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+#mk .mk-rt{display:flex;align-items:center;gap:6px}
+#mk .mk-rt b{font-size:16.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+#mk .mk-rt time{font-size:12px;color:var(--sub);flex:none}
+#mk .mk-rt time.g{color:var(--g)}
+#mk .mk-rs{display:flex;align-items:center;gap:6px;color:var(--sub);font-size:14px}
+#mk .mk-rs span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px}
+#mk .mk-rs svg{width:16px;height:16px;flex:none}
+#mk .mk-badge{min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:#25D366;color:#fff;font-size:12px;font-weight:500;display:grid;place-items:center;flex:none}
+#mk[data-th="dark"] .mk-badge{color:#0B141A}
+#mk .mk-sec{padding:16px 16px 8px;font-size:14px;font-weight:500;color:var(--sub)}
+#mk .mk-empty{padding:48px 32px;text-align:center;color:var(--sub);font-size:14.5px;line-height:1.5}
+#mk .mk-empty b{display:block;color:var(--ink);font-size:17px;font-weight:500;margin:12px 0 4px}
+#mk .mk-empty .mk-ei{width:84px;height:84px;margin:0 auto;border-radius:50%;background:var(--chip);display:grid;place-items:center;color:var(--g)}
+#mk .mk-empty .mk-ei svg{width:40px;height:40px}
+#mk .mk-skel{height:14px;border-radius:7px;background:linear-gradient(100deg,var(--chip) 30%,var(--bg2) 50%,var(--chip) 70%);background-size:220% 100%;animation:mkSh 1.3s infinite linear}
+
+/* ---------- bottom nav + fab ---------- */
+#mk .mk-nav{flex:none;display:flex;justify-content:space-around;align-items:flex-start;height:calc(78px + env(safe-area-inset-bottom));padding:10px 4px env(safe-area-inset-bottom);background:var(--hd);border-top:1px solid var(--line);position:relative;z-index:3}
+#mk .mk-nav button{flex:1;max-width:120px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12.5px;font-weight:500;color:var(--ink)}
+#mk .mk-nav .mk-ni{position:relative;width:64px;height:32px;border-radius:16px;display:grid;place-items:center;transition:background .25s}
+#mk .mk-nav .mk-ni::before{content:"";position:absolute;inset:0;border-radius:16px;background:var(--chipon);transform:scaleX(.3);opacity:0;transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .2s}
+#mk .mk-nav .on .mk-ni::before{transform:none;opacity:1}
+#mk .mk-nav .mk-ni svg{position:relative;width:24px;height:24px}
+#mk .mk-nav .on{font-weight:700}
+#mk .mk-nav .on .mk-ni{color:var(--chiptx)}
+#mk .mk-nav .mk-nb{position:absolute;top:-3px;right:8px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#25D366;color:#fff;font-size:11px;display:grid;place-items:center;font-weight:500}
+#mk .mk-fab{position:absolute;right:16px;bottom:16px;z-index:4;width:56px;height:56px;border-radius:16px;background:var(--fab);color:var(--fabtx);display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.22);transition:transform .25s cubic-bezier(.2,.8,.2,1),opacity .2s}
+#mk .mk-fab.off{transform:scale(0);opacity:0;pointer-events:none}
+#mk .mk-fab svg{width:26px;height:26px}
+#mk .mk-fab:active{transform:scale(.93)}
+
+/* ---------- popup menu ---------- */
+#mk .mk-scrim{position:absolute;inset:0;z-index:50}
+#mk .mk-menu{position:absolute;top:calc(8px + env(safe-area-inset-top));right:8px;z-index:51;min-width:220px;padding:8px 0;border-radius:12px;background:var(--bg);box-shadow:var(--pop);transform-origin:top right;animation:mkMenu .18s cubic-bezier(.2,.8,.2,1)}
+#mk[data-th="dark"] .mk-menu{background:#233138}
+@keyframes mkMenu{from{transform:scale(.6);opacity:0}}
+#mk .mk-menu button{display:flex;align-items:center;gap:14px;width:100%;height:48px;padding:0 20px;font-size:15.5px}
+#mk .mk-menu button:active{background:var(--bg2)}
+#mk .mk-menu svg{width:20px;height:20px;color:var(--sub)}
+
+/* ---------- pages (slide) ---------- */
+#mk .mk-page{position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;background:var(--bg);transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);box-shadow:-6px 0 24px rgba(0,0,0,.12);will-change:transform}
+#mk .mk-page.on{transform:none}
+#mk .mk-page.under{transform:translateX(-22%)}
+#mk .mk-ph2{flex:none;display:flex;align-items:center;gap:4px;height:calc(60px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 6px 0 4px;background:var(--hd);border-bottom:1px solid var(--line)}
+#mk .mk-ph2.g{background:var(--g2);color:#fff;border:0}
+#mk[data-th="dark"] .mk-ph2.g{background:#1F2C34;color:var(--ink)}
+#mk .mk-ph2.g .mk-ib{color:inherit}
+#mk .mk-ph2 .mk-pt{flex:1;min-width:0;display:flex;align-items:center;gap:10px}
+#mk .mk-ph2 .mk-pt>div{min-width:0}
+#mk .mk-ph2 .mk-pt b{display:block;font-size:17.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-ph2 .mk-pt small{display:block;font-size:13px;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-ph2 .mk-av{width:40px;height:40px;font-size:16px}
+#mk .mk-pb{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;position:relative}
+#mk .mk-pf{flex:none;padding:8px 12px calc(10px + env(safe-area-inset-bottom));background:var(--hd);border-top:1px solid var(--line)}
+
+/* ---------- buttons / forms ---------- */
+#mk .mk-btn{display:flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:24px;background:var(--g);color:#fff;font-weight:500;font-size:15.5px;transition:transform .15s,filter .15s}
+#mk[data-th="dark"] .mk-btn{color:#0B141A}
+#mk .mk-btn:active{transform:scale(.97);filter:brightness(.95)}
+#mk .mk-btn.ghost{background:transparent;color:var(--g2);border:1px solid var(--line)}
+#mk[data-th="dark"] .mk-btn.ghost{color:var(--g)}
+#mk .mk-btn.bad{background:transparent;color:var(--bad);border:1px solid var(--line)}
+#mk .mk-btn.blk{width:100%}
+#mk .mk-btn[disabled]{opacity:.5;pointer-events:none}
+#mk .mk-btn svg{width:20px;height:20px}
+#mk .mk-fld{display:block;margin:0 16px 18px}
+#mk .mk-fld>span{display:block;font-size:13px;color:var(--g2);font-weight:500;margin-bottom:4px}
+#mk[data-th="dark"] .mk-fld>span{color:var(--g)}
+#mk .mk-fld input,#mk .mk-fld textarea,#mk .mk-fld select{display:block;width:100%;border:0;border-bottom:2px solid var(--line);background:transparent;padding:8px 2px;font-size:16px;outline:0;border-radius:0;transition:border-color .2s}
+#mk .mk-fld textarea{resize:none;min-height:84px;line-height:1.4}
+#mk .mk-fld input:focus,#mk .mk-fld textarea:focus,#mk .mk-fld select:focus{border-color:var(--g)}
+#mk .mk-fld select option{background:var(--bg);color:var(--ink)}
+#mk .mk-two{display:grid;grid-template-columns:1fr 1fr;gap:0}
+#mk .mk-two .mk-fld:first-child{margin-right:8px}
+#mk .mk-two .mk-fld:last-child{margin-left:8px}
+#mk .mk-hint{margin:-10px 16px 16px;font-size:12.5px;color:var(--sub)}
+
+/* ---------- composer (pilih stok) ---------- */
+#mk .mk-sel{display:flex;gap:12px;overflow-x:auto;padding:12px 16px;border-bottom:1px solid var(--line);scrollbar-width:none;min-height:0}
+#mk .mk-sel::-webkit-scrollbar{display:none}
+#mk .mk-sel:empty{display:none}
+#mk .mk-sel>button{flex:none;width:60px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;color:var(--sub);animation:mkPop .25s cubic-bezier(.2,.9,.3,1.4)}
+@keyframes mkPop{from{transform:scale(.4);opacity:0}}
+#mk .mk-sel>button span{width:52px;height:52px;border-radius:50%;overflow:hidden;position:relative;background:var(--chip)}
+#mk .mk-sel>button span img{width:100%;height:100%;object-fit:cover}
+#mk .mk-sel>button span i{position:absolute;right:-1px;bottom:-1px;width:20px;height:20px;border-radius:50%;background:#8696A0;color:#fff;border:2px solid var(--bg);display:grid;place-items:center;font-style:normal;font-size:12px;line-height:1}
+#mk .mk-sel>button em{font-style:normal;width:100%;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-pick{display:flex;align-items:center;gap:14px;padding:9px 16px;width:100%;transition:background .15s}
+#mk .mk-pick:active{background:var(--bg2)}
+#mk .mk-pick .mk-th{width:52px;height:52px;border-radius:50%;flex:none;position:relative;background:var(--chip)}
+#mk .mk-pick .mk-th img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+#mk .mk-pick .mk-ck{position:absolute;right:-2px;bottom:-2px;width:22px;height:22px;border-radius:50%;background:var(--g);color:#fff;border:2px solid var(--bg);display:grid;place-items:center;transform:scale(0);transition:transform .22s cubic-bezier(.2,.9,.3,1.5)}
+#mk .mk-pick .mk-ck svg{width:12px;height:12px;stroke-width:3.4}
+#mk .mk-pick.on .mk-ck{transform:scale(1)}
+#mk .mk-pick.on{background:color-mix(in srgb,var(--g) 7%,transparent)}
+#mk .mk-pick .mk-rb small{color:var(--sub);font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-pick .mk-rb b{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-pick .mk-done{font-size:11px;color:var(--g2);font-weight:500;flex:none;text-align:right}
+#mk[data-th="dark"] .mk-pick .mk-done{color:var(--g)}
+#mk .mk-cmp{display:flex;align-items:flex-end;gap:8px}
+#mk .mk-cmp .mk-inp{flex:1;min-height:48px;display:flex;align-items:center;border-radius:24px;background:var(--bg);border:1px solid var(--line);padding:0 16px}
+#mk[data-th="dark"] .mk-cmp .mk-inp{background:#2A3942;border:0}
+#mk .mk-cmp textarea{all:unset;flex:1;max-height:110px;padding:13px 0;font-size:16px;line-height:1.35;white-space:pre-wrap;overflow-y:auto}
+#mk .mk-send{width:48px;height:48px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;flex:none;position:relative;transition:transform .2s cubic-bezier(.2,.9,.3,1.4)}
+#mk[data-th="dark"] .mk-send{color:#0B141A}
+#mk .mk-send[disabled]{opacity:.45;pointer-events:none}
+#mk .mk-send:active{transform:scale(.9)}
+#mk .mk-send svg{width:22px;height:22px;fill:currentColor;stroke:none;margin-left:3px}
+#mk .mk-send i{position:absolute;top:-6px;right:-4px;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:#fff;color:var(--g2);font-style:normal;font-size:12px;font-weight:700;display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+#mk .mk-selbar{display:flex;align-items:center;gap:10px;padding:8px 16px;font-size:13.5px;color:var(--sub)}
+#mk .mk-selbar button{color:var(--g2);font-weight:500}
+#mk[data-th="dark"] .mk-selbar button{color:var(--g)}
+
+/* ---------- guest upload grid ---------- */
+#mk .mk-ug{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:12px 16px 18px}
+#mk .mk-ug>*{aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;background:var(--chip)}
+#mk .mk-ug img{width:100%;height:100%;object-fit:cover;animation:mkPop .25s}
+#mk .mk-ug .mk-ux{position:absolute;top:4px;right:4px;width:24px;height:24px;border-radius:50%;background:rgba(11,20,26,.6);color:#fff;display:grid;place-items:center}
+#mk .mk-ug .mk-ux svg{width:14px;height:14px;stroke-width:2.6}
+#mk .mk-ug .mk-ua{display:grid;place-items:center;color:var(--g2);border:2px dashed var(--line);background:transparent}
+#mk .mk-ug .mk-ua div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;font-weight:500}
+
+/* ---------- detail ---------- */
+#mk .mk-dimg{display:flex;flex-direction:column;gap:3px;background:#000}
+#mk .mk-dimg button{display:block;position:relative;background:#111}
+#mk .mk-dimg img{display:block;width:100%;height:auto;opacity:0;transition:opacity .35s}
+#mk .mk-dimg img.ok{opacity:1}
+#mk .mk-dcard{padding:16px;border-bottom:8px solid var(--bg2)}
+#mk .mk-dcard h2{margin:0 0 2px;font-size:20px;font-weight:500}
+#mk .mk-dcard .mk-pr{font-size:26px}
+#mk .mk-watch{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:6px 12px;border-radius:16px;background:var(--chipon);color:var(--chiptx);font-size:13px;font-weight:500}
+#mk .mk-watch svg{width:16px;height:16px}
+#mk .mk-seller{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:8px solid var(--bg2);width:100%}
+#mk .mk-seller .mk-av{width:46px;height:46px;font-size:18px}
+#mk .mk-seller .mk-rb small{color:var(--sub);font-size:13px}
+
+/* ---------- profile / saya ---------- */
+#mk .mk-prof{display:flex;flex-direction:column;align-items:center;padding:20px 16px 18px;border-bottom:8px solid var(--bg2);text-align:center}
+#mk .mk-prof .mk-av{width:96px;height:96px;font-size:36px;margin-bottom:10px}
+#mk .mk-prof b{font-size:22px;font-weight:500}
+#mk .mk-prof small{color:var(--sub);font-size:14px;margin-top:2px}
+#mk .mk-stats{display:flex;gap:10px;margin-top:14px;width:100%;max-width:420px}
+#mk .mk-stats div{flex:1;padding:10px 6px;border-radius:12px;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:2px}
+#mk .mk-stats b{font-size:18px;font-weight:700}
+#mk .mk-stats span{font-size:12px;color:var(--sub)}
+#mk .mk-link{margin:14px 16px;padding:14px;border-radius:14px;background:var(--bg2);display:flex;flex-direction:column;gap:10px}
+#mk .mk-link .mk-lu{font-size:13.5px;word-break:break-all;color:var(--lnk);font-family:ui-monospace,Menlo,monospace}
+#mk .mk-link .mk-lt{display:flex;align-items:center;gap:10px;font-weight:500}
+#mk .mk-link .mk-lt svg{width:22px;height:22px;color:var(--g2)}
+#mk .mk-mine{display:flex;gap:12px;padding:10px 16px;align-items:center;border-bottom:1px solid var(--line)}
+#mk .mk-mine .mk-mt{width:64px;height:64px;border-radius:10px;overflow:hidden;flex:none;background:var(--chip)}
+#mk .mk-mine .mk-mt img{width:100%;height:100%;object-fit:cover}
+#mk .mk-mine .mk-rb small{font-size:12.5px;color:var(--sub)}
+#mk .mk-mine .mk-rb b{font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-mine .mk-st{font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;background:var(--chipon);color:var(--chiptx);align-self:flex-start}
+#mk .mk-mine .mk-st.s{background:#FFE1E6;color:var(--bad)}
+#mk[data-th="dark"] .mk-mine .mk-st.s{background:#3a1720}
+
+/* ---------- admin table ---------- */
+#mk .mk-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 16px}
+#mk .mk-kpi div{padding:12px 8px;border-radius:12px;background:var(--bg2);text-align:center}
+#mk .mk-kpi b{display:block;font-size:20px;font-weight:700}
+#mk .mk-kpi span{font-size:11.5px;color:var(--sub)}
+#mk .mk-gr{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line)}
+#mk .mk-gr .mk-av{width:44px;height:44px;font-size:17px}
+#mk .mk-gr .mk-rb small{font-size:12.5px;color:var(--sub)}
+#mk .mk-gr .mk-lc{flex:none;text-align:right;font-size:12px;color:var(--sub)}
+#mk .mk-gr .mk-lc b{display:block;font-size:17px;color:var(--ink);font-weight:700}
+#mk .mk-on{display:inline-block;width:8px;height:8px;border-radius:50%;background:#25D366;margin-right:4px;vertical-align:1px}
+
+/* ---------- welcome / login (web guest) ---------- */
+#mk .mk-splash{position:absolute;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);transition:opacity .35s}
+#mk .mk-splash.out{opacity:0;pointer-events:none}
+#mk .mk-splash .mk-lg{width:84px;height:84px;animation:mkLogo .7s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes mkLogo{from{transform:scale(.5);opacity:0}}
+#mk .mk-splash .mk-from{position:absolute;bottom:calc(42px + env(safe-area-inset-bottom));text-align:center;color:var(--sub);font-size:14px}
+#mk .mk-splash .mk-from b{display:block;color:var(--g);font-size:16px;font-weight:500;letter-spacing:1px;margin-top:2px}
+#mk .mk-wel{position:absolute;inset:0;z-index:90;display:flex;flex-direction:column;align-items:center;background:var(--bg);overflow-y:auto;padding:calc(40px + env(safe-area-inset-top)) 28px calc(24px + env(safe-area-inset-bottom));text-align:center}
+#mk .mk-wel .mk-hero{width:min(260px,64vw);aspect-ratio:1;border-radius:50%;background:var(--chipon);display:grid;place-items:center;margin:20px 0 34px;position:relative}
+#mk .mk-wel .mk-hero .mk-lg{width:46%;height:46%}
+#mk .mk-wel .mk-hero i{position:absolute;border-radius:50%;background:var(--g);opacity:.18}
+#mk .mk-wel h1{margin:0 0 14px;font-size:26px;font-weight:500;line-height:1.25}
+#mk .mk-wel p{margin:0 0 10px;color:var(--sub);font-size:14px;line-height:1.5;max-width:360px}
+#mk .mk-wel p b{color:var(--lnk);font-weight:400}
+#mk .mk-wel .mk-sp{flex:1}
+#mk .mk-wel .mk-btn{width:100%;max-width:360px;margin-top:18px}
+#mk .mk-wel h2{margin:4px 0 14px;font-size:20px;font-weight:500;color:var(--g2)}
+#mk[data-th="dark"] .mk-wel h2{color:var(--g)}
+#mk .mk-at{display:flex;align-items:center;gap:6px;width:100%;max-width:300px;margin:18px auto 6px;border-bottom:2px solid var(--g);padding:6px 2px;font-size:20px}
+#mk .mk-at span{color:var(--sub)}
+#mk .mk-at input{all:unset;flex:1;min-width:0;font-size:20px;letter-spacing:.2px}
+#mk .mk-err{color:var(--bad);font-size:13px;min-height:18px;margin-top:6px}
+#mk .mk-wel .mk-fx{animation:mkIn .45s cubic-bezier(.2,.8,.2,1) both}
+
+/* ---------- viewer ---------- */
+#mk .mk-vw{position:absolute;inset:0;z-index:80;background:#000;display:flex;flex-direction:column;color:#fff;touch-action:none;animation:mkFade .2s}
+@keyframes mkFade{from{opacity:0}}
+#mk .mk-vw .mk-vh{position:relative;z-index:2;display:flex;align-items:center;gap:6px;padding:calc(6px + env(safe-area-inset-top)) 6px 6px;background:linear-gradient(rgba(0,0,0,.6),transparent)}
+#mk .mk-vw .mk-vh .mk-ib{color:#fff}
+#mk .mk-vw .mk-vh div{flex:1;min-width:0}
+#mk .mk-vw .mk-vh b{display:block;font-size:16.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk .mk-vw .mk-vh small{font-size:12.5px;opacity:.75}
+#mk .mk-vw .mk-vp{position:absolute;inset:0;overflow:hidden}
+#mk .mk-vw .mk-vt{display:flex;height:100%;will-change:transform}
+#mk .mk-vw .mk-vs{flex:0 0 100%;height:100%;display:grid;place-items:center;overflow:hidden;position:relative}
+#mk .mk-vw .mk-vs img{max-width:100%;max-height:100%;transform-origin:0 0;will-change:transform;pointer-events:none;user-select:none}
+#mk .mk-vw .mk-vf{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;gap:6px;justify-content:center;padding:10px 10px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(0,0,0,.6));overflow-x:auto}
+#mk .mk-vw .mk-vf button{flex:none;width:46px;height:46px;border-radius:6px;overflow:hidden;opacity:.5;border:2px solid transparent;transition:opacity .2s}
+#mk .mk-vw .mk-vf button.on{opacity:1;border-color:#fff}
+#mk .mk-vw .mk-vf img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- toast + sheet ---------- */
+#mk .mk-toast{position:absolute;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));z-index:200;transform:translate(-50%,20px);max-width:calc(100% - 32px);padding:12px 18px;border-radius:8px;background:#323739;color:#fff;font-size:14.5px;box-shadow:var(--pop);opacity:0;pointer-events:none;transition:opacity .2s,transform .25s cubic-bezier(.2,.8,.2,1)}
+#mk .mk-toast.on{opacity:1;transform:translate(-50%,0)}
+#mk .mk-toast.err{background:#B3261E}
+#mk .mk-sh{position:absolute;inset:0;z-index:120;background:rgba(11,20,26,.4);display:flex;align-items:flex-end;animation:mkFade .2s}
+#mk .mk-sh.out{opacity:0;transition:opacity .2s}
+#mk .mk-shb{width:100%;max-height:86%;overflow-y:auto;background:var(--bg);border-radius:20px 20px 0 0;padding:10px 0 calc(12px + env(safe-area-inset-bottom));animation:mkUp .28s cubic-bezier(.2,.8,.2,1)}
+#mk[data-th="dark"] .mk-shb{background:#1F2C34}
+@keyframes mkUp{from{transform:translateY(100%)}}
+#mk .mk-shb .mk-grab{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 10px}
+#mk .mk-shb h3{margin:4px 22px 12px;font-size:18px;font-weight:500}
+#mk .mk-shb p{margin:0 22px 16px;color:var(--sub);font-size:14.5px;line-height:1.45}
+#mk .mk-shb .mk-sa{display:flex;flex-direction:column}
+#mk .mk-shb .mk-sa button{display:flex;align-items:center;gap:18px;height:54px;padding:0 22px;font-size:16px}
+#mk .mk-shb .mk-sa button:active{background:var(--bg2)}
+#mk .mk-shb .mk-sa svg{width:22px;height:22px;color:var(--sub)}
+#mk .mk-shb .mk-sa .bad,#mk .mk-shb .mk-sa .bad svg{color:var(--bad)}
+#mk .mk-shb .mk-row2{display:flex;gap:10px;padding:0 16px}
+#mk .mk-shb .mk-row2 .mk-btn{flex:1}
+#mk .mk-sentinel{height:1px}
+#mk .mk-loadm{display:flex;justify-content:center;padding:16px}
+#mk .mk-spin{width:26px;height:26px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--g);animation:mkRot .8s linear infinite}
+@keyframes mkRot{to{transform:rotate(360deg)}}
+@media (min-width:760px){#mk .mk-feed{max-width:720px;margin:0 auto}}
+@media (prefers-reduced-motion:reduce){#mk *,#mk *::before,#mk *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ===================== FASE 2/3: CHAT ===================== */
+#mk .mk-nav .mk-nb{top:-4px;right:2px;z-index:2}
+#mk .mk-nav .mk-nb[hidden]{display:none}
+#mk .mk-vt{display:inline-block;width:16px;height:16px;vertical-align:-3px;margin-left:3px;flex:none}
+#mk .mk-role{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:700;letter-spacing:.2px;padding:2px 7px;border-radius:999px;color:#fff;background:var(--rc);vertical-align:1px;white-space:nowrap}
+#mk .mk-gav{background:linear-gradient(135deg,#1D9BF0,#0b6bcb)!important;color:#fff}
+#mk .mk-gav svg{width:55%;height:55%}
+#mk .mk-typ{color:var(--g)!important;font-weight:500}
+#mk .mk-rs .mk-tk svg,#mk .mk-mt .mk-tk svg{width:16px;height:11px;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#mk .mk-tk.sn svg{stroke:var(--sub)}#mk .mk-tk.rd svg{stroke:#53BDEB}
+#mk .mk-rs .mk-vt{width:15px;height:15px;margin:0 2px 0 0}
+#mk .mk-adm-pv{color:#1D9BF0;font-weight:500}
+#mk .mk-pin{color:var(--mut);display:flex}#mk .mk-pin svg{width:15px;height:15px}
+
+/* header chat */
+#mk .mk-chd .mk-pt{cursor:pointer;text-align:left}
+#mk .mk-chd small{font-size:13px}
+#mk .mk-dots{display:inline-flex;gap:3px;margin-left:4px;vertical-align:middle}
+#mk .mk-dots i{width:4px;height:4px;border-radius:50%;background:currentColor;animation:mkDot 1.2s infinite ease-in-out}
+#mk .mk-dots i:nth-child(2){animation-delay:.15s}#mk .mk-dots i:nth-child(3){animation-delay:.3s}
+#mk .mk-dots.big i{width:7px;height:7px;background:var(--mut)}
+@keyframes mkDot{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-4px);opacity:1}}
+
+/* area pesan */
+#mk .mk-cw{background-color:var(--wall);position:relative;scroll-behavior:auto}
+#mk .mk-cw::before{content:"";position:fixed;inset:0;background-image:var(--doodle);background-size:300px 300px;opacity:var(--dood);pointer-events:none}
+#mk[data-th="dark"] .mk-cw::before{filter:invert(1)}
+#mk .mk-cl{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:8px 4% 6px;gap:1px;min-height:calc(100% - 14px)}
+#mk .mk-cl .mk-day{position:relative;top:0}
+#mk .mk-mw{display:flex;margin-top:1px;position:relative}
+#mk .mk-mw.first{margin-top:8px}
+#mk .mk-mw.out{justify-content:flex-end}
+#mk .mk-m{position:relative;max-width:min(80%,520px);padding:6px 8px 7px 9px;border-radius:8px;background:var(--in);box-shadow:var(--shadow);font-size:15.2px;line-height:1.36;word-break:break-word;letter-spacing:.05px}
+#mk .out .mk-m{background:var(--out)}
+#mk .mk-mw.first.in .mk-m{border-top-left-radius:0}
+#mk .mk-mw.first.out .mk-m{border-top-right-radius:0}
+#mk .mk-mw.first.in .mk-m::before,#mk .mk-mw.first.out .mk-m::before{content:"";position:absolute;top:0;width:8px;height:13px;background:inherit}
+#mk .mk-mw.first.in .mk-m::before{left:-8px;clip-path:polygon(0 0,100% 0,100% 100%)}
+#mk .mk-mw.first.out .mk-m::before{right:-8px;clip-path:polygon(0 0,100% 0,0 100%)}
+#mk .mk-mtx{white-space:pre-wrap}
+#mk .mk-mtx a{color:var(--lnk)}
+#mk .mk-mt{float:right;margin:8px 0 -5px 10px;font-size:11px;color:var(--sub);display:inline-flex;align-items:center;gap:3px;line-height:1;position:relative;top:2px}
+#mk[data-th="dark"] .out .mk-mt{color:#8fb7ae}
+#mk .mk-mt .mk-clk svg{width:12px;height:12px}
+#mk .mk-fail{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:50%;background:var(--bad);color:#fff;font-weight:900;font-size:11px;cursor:pointer}
+#mk .mk-mn{font-size:13px;font-weight:500;margin-bottom:2px;display:flex;align-items:center;gap:5px}
+#mk .mk-rl{font-size:10px;padding:1px 6px;border-radius:5px;background:var(--chip);color:var(--sub);font-weight:500}
+#mk .mk-m.md{padding:3px 3px 6px}
+#mk .mk-m.md .mk-mtx{display:block;padding:4px 6px 0}
+#mk .mk-m.md .mk-mt{margin-right:5px}
+#mk .mk-mimg,#mk .mk-mvid{display:block;position:relative;width:min(72vw,300px);border-radius:6px;overflow:hidden;background:var(--chip)}
+#mk .mk-mimg img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .3s}
+#mk .mk-mimg img.ok{opacity:1}
+#mk .mk-mvid video{width:100%;height:100%;display:block;background:#000;object-fit:contain}
+#mk .mk-dur{position:absolute;left:6px;bottom:6px;display:flex;align-items:center;gap:4px;padding:2px 7px;border-radius:9px;background:rgba(0,0,0,.55);color:#fff;font-size:11.5px;pointer-events:none}
+#mk .mk-dur svg{width:14px;height:14px}
+#mk .mk-mq{display:flex;gap:8px;align-items:center;padding:6px;margin:0 0 5px;border-radius:6px;background:rgba(0,0,0,.05);border-left:4px solid var(--g);cursor:pointer}
+#mk[data-th="dark"] .mk-mq{background:rgba(255,255,255,.06)}
+#mk .mk-mq img{width:44px;height:44px;border-radius:5px;object-fit:cover}
+#mk .mk-mq b{display:block;font-size:13.5px;font-weight:500;color:var(--g2)}
+#mk[data-th="dark"] .mk-mq b{color:var(--g)}
+#mk .mk-mq small{font-size:12.5px;color:var(--sub)}
+#mk .mk-mw.live .mk-m{animation:mkMsg .34s cubic-bezier(.2,.9,.3,1.25) both}
+#mk .mk-mw.out .mk-m{transform-origin:100% 100%}#mk .mk-mw.in .mk-m{transform-origin:0 100%}
+@keyframes mkMsg{from{opacity:0;transform:scale(.7) translateY(10px)}}
+#mk .mk-w{display:inline-block;animation:mkWord .38s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d)}
+@keyframes mkWord{from{opacity:0;transform:translateY(6px);filter:blur(3px)}}
+#mk .mk-mw:not(.live) .mk-m{animation:mkSoft .18s ease-out}
+@keyframes mkSoft{from{opacity:.4}}
+
+/* indikator mengetik di dalam chat */
+#mk .mk-tybox{position:relative;padding:0 4% 10px;min-height:4px}
+#mk .mk-tyb{display:inline-flex;flex-direction:column;gap:2px;padding:9px 12px;border-radius:0 10px 10px 10px;background:var(--in);box-shadow:var(--shadow);animation:mkMsg .3s cubic-bezier(.2,.9,.3,1.3);position:relative;margin-left:8px}
+#mk .mk-tyb::before{content:"";position:absolute;left:-8px;top:0;width:8px;height:13px;background:var(--in);clip-path:polygon(0 0,100% 0,100% 100%)}
+#mk .mk-tyb.out{animation:mkFade .2s reverse forwards}
+#mk .mk-tyb small{font-size:12.5px;font-weight:500}
+#mk .mk-tyc{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--sub);font-style:italic;min-height:16px}
+#mk .mk-tyi{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--chipon);color:var(--chiptx)}
+#mk .mk-tyi svg{width:16px;height:16px}
+#mk .pulse{animation:mkBeat 1s infinite}
+@keyframes mkBeat{50%{transform:scale(1.15)}}
+#mk .mk-think i{display:inline-block;font-style:normal;font-size:18px;animation:mkThink 1.6s infinite ease-in-out}
+@keyframes mkThink{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-4px) rotate(6deg)}}
+
+/* kartu OP */
+#mk .mk-opc{min-width:250px;padding:10px 12px 8px!important}
+#mk .mk-oph{display:flex;align-items:center;gap:8px;color:var(--g2);font-weight:900;letter-spacing:1px;font-size:13px;margin-bottom:6px}
+#mk[data-th="dark"] .mk-oph{color:var(--g)}
+#mk .mk-oph svg{width:22px;height:22px}
+#mk .mk-opr{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:3px 0}
+#mk .mk-opr span{color:var(--sub)}
+#mk .mk-opr.t{border-top:1px dashed var(--line);margin-top:4px;padding-top:7px;font-size:15.5px}
+#mk .mk-opr.t b{color:var(--g2);font-family:"Roboto Mono",ui-monospace,monospace}
+#mk[data-th="dark"] .mk-opr.t b{color:var(--g)}
+#mk .mk-opa{font-size:13px;margin:6px 0 8px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+#mk .mk-opg{display:flex;justify-content:center;align-items:center;gap:8px;width:100%;height:40px;border-radius:20px;background:var(--g);color:#fff;font-weight:500;font-size:14px}
+#mk[data-th="dark"] .mk-opg{color:#0B141A}
+#mk .mk-opg svg{width:18px;height:18px}
+
+/* PESAN RESMI ADMIN — beda warna & font agar terlihat asli dari sistem */
+#mk .mk-admsg{align-self:center;width:min(94%,460px);margin:12px 0 8px;border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#F2F8FF,#FFFFFF 60%);box-shadow:0 0 0 1.5px #1D9BF0,0 6px 22px rgba(29,155,240,.18);position:relative}
+#mk[data-th="dark"] .mk-admsg{background:linear-gradient(180deg,#0E2337,#111B21 60%);box-shadow:0 0 0 1.5px #1D9BF0,0 6px 22px rgba(0,0,0,.4)}
+#mk .mk-admsg::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 45%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+#mk .mk-admsg.live{animation:mkAdm .5s cubic-bezier(.2,.9,.3,1.2) both}
+#mk .mk-admsg.live::after{animation:mkShine 1.4s .4s ease-out}
+@keyframes mkAdm{from{opacity:0;transform:translateY(16px) scale(.94)}}
+@keyframes mkShine{to{transform:translateX(120%)}}
+#mk .mk-admh{display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(90deg,#0b6bcb,#1D9BF0);color:#fff}
+#mk .mk-admsg.a-paid .mk-admh,#mk .mk-admsg.a-done .mk-admh{background:linear-gradient(90deg,#0a7a46,#1DAA61)}
+#mk .mk-admsg.a-unpaid .mk-admh{background:linear-gradient(90deg,#b3261e,#e5583e)}
+#mk .mk-admsg.a-paid,#mk .mk-admsg.a-done{box-shadow:0 0 0 1.5px #1DAA61,0 6px 22px rgba(29,170,97,.2)}
+#mk .mk-admsg.a-unpaid{box-shadow:0 0 0 1.5px #e5583e,0 6px 22px rgba(229,88,62,.2)}
+#mk .mk-admi{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;flex:none}
+#mk .mk-admi svg{width:20px;height:20px}
+#mk .mk-admh b{display:flex;align-items:center;font-size:12.5px;font-weight:900;letter-spacing:1.4px}
+#mk .mk-admh b .mk-vt{filter:drop-shadow(0 0 0 #fff);background:#fff;border-radius:50%}
+#mk .mk-admh small{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;margin-top:2px;opacity:.97}
+#mk .mk-admh .mk-role{box-shadow:0 0 0 1.5px rgba(255,255,255,.8)}
+#mk .mk-admb{padding:12px 14px 6px;font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-size:13.6px;line-height:1.55;color:var(--ink);font-weight:500}
+#mk .mk-admb span{display:block}
+#mk .mk-ln{animation:mkLine .4s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d) + 250ms)}
+@keyframes mkLine{from{opacity:0;transform:translateX(-8px);clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+#mk .mk-qris{display:block;margin:6px 14px 4px;width:calc(100% - 28px);border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line);position:relative}
+#mk .mk-qris img{display:block;width:100%;max-height:420px;object-fit:contain;background:#fff}
+#mk .mk-qris span{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;font-size:12.5px;font-weight:500;color:#0b6bcb;background:#EEF6FF}
+#mk .mk-qris span svg{width:16px;height:16px}
+#mk .mk-noq{margin:4px 14px;padding:8px 10px;border-radius:8px;background:#FFF4E5;color:#8a5300;font-size:12.5px}
+#mk .mk-admf{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 14px 10px;font-size:11px;color:var(--sub)}
+#mk .mk-admf span{display:flex;align-items:center;gap:4px}
+#mk .mk-admf svg{width:12px;height:12px}
+
+/* bar kesepakatan & aksi admin */
+#mk .mk-abar{flex:none;background:var(--hd);border-bottom:1px solid var(--line);padding:8px 12px;display:flex;flex-direction:column;gap:8px;position:relative;z-index:2;animation:mkDrop .3s}
+#mk .mk-abar[hidden]{display:none}
+#mk .mk-deal{display:flex;align-items:center;gap:10px}
+#mk .mk-deal>span{width:36px;height:36px;border-radius:10px;background:var(--chipon);color:var(--chiptx);display:grid;place-items:center;flex:none}
+#mk .mk-deal>span svg{width:20px;height:20px}
+#mk .mk-deal b{font-size:14.5px;font-weight:700}
+#mk .mk-deal b small{font-weight:400;color:var(--sub);font-size:12.5px}
+#mk .mk-deal>div>small{display:block;font-size:12.5px;color:var(--sub)}
+#mk .mk-deal i{font-style:normal;font-weight:500}
+#mk .st-open{color:#d39a00}#mk .st-paid{color:#1e88e5}#mk .st-done{color:var(--g2)}
+#mk .mk-aact{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+#mk .mk-aact button{flex:none;display:flex;align-items:center;gap:5px;height:34px;padding:0 12px;border-radius:17px;background:var(--chip);font-size:13px;font-weight:500}
+#mk .mk-aact button svg{width:16px;height:16px}
+#mk .mk-aact .ok{background:#1DAA61;color:#fff}#mk .mk-aact .no{background:#fde3e1;color:#b3261e}
+
+/* composer chat */
+#mk .mk-cf{flex:none;display:flex;align-items:flex-end;gap:6px;padding:6px 6px calc(8px + env(safe-area-inset-bottom));background:transparent;position:relative;z-index:2}
+#mk .mk-chat .mk-cf{background:var(--wall)}
+#mk .mk-op{width:48px;height:48px;border-radius:50%;flex:none;display:grid;place-items:center;background:linear-gradient(135deg,#ffcf3f,#ff9500);color:#3b2400;box-shadow:0 2px 6px rgba(255,149,0,.4);transition:transform .2s}
+#mk .mk-op[hidden]{display:none}
+#mk .mk-op b{font-size:15px;font-weight:900;letter-spacing:.5px}
+#mk .mk-op:active{transform:scale(.9) rotate(-6deg)}
+#mk .mk-inp2{flex:1;min-width:0;display:flex;align-items:flex-end;min-height:48px;border-radius:24px;background:var(--bg);padding:0 4px 0 16px;box-shadow:var(--shadow)}
+#mk[data-th="dark"] .mk-inp2{background:#202C33}
+#mk .mk-inp2 textarea{all:unset;flex:1;min-width:0;max-height:120px;padding:13px 0;font-size:16px;line-height:1.35;white-space:pre-wrap;overflow-y:auto;color:var(--ink)}
+#mk .mk-inp2 textarea::placeholder{color:var(--sub)}
+#mk .mk-ib.sm{width:40px;height:48px;color:var(--sub)}
+#mk .mk-ib.sm svg{width:22px;height:22px}
+#mk .mk-dn{position:absolute;right:12px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:5;width:42px;height:42px;border-radius:50%;background:var(--bg);color:var(--sub);display:grid;place-items:center;box-shadow:var(--pop);animation:mkPop .2s}
+#mk .mk-dn[hidden]{display:none}
+#mk .mk-dn svg{width:22px;height:22px}
+#mk .mk-dn i{position:absolute;top:-6px;right:-2px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:#25D366;color:#fff;font-size:11px;font-style:normal;display:grid;place-items:center}
+#mk .mk-dn i[hidden]{display:none}
+#mk .mk-qt{flex:none;padding:0 62px 0 60px;background:var(--wall)}
+#mk .mk-qt[hidden]{display:none}
+#mk .mk-qc{display:flex;gap:10px;align-items:center;padding:6px 4px 6px 8px;border-radius:12px 12px 0 0;background:var(--bg);border-left:4px solid var(--g);animation:mkUp .25s}
+#mk[data-th="dark"] .mk-qc{background:#202C33}
+#mk .mk-qc img{width:42px;height:42px;border-radius:6px;object-fit:cover}
+#mk .mk-qc div{flex:1;min-width:0}
+#mk .mk-qc b{display:block;font-size:13.5px;color:var(--g2);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mk[data-th="dark"] .mk-qc b{color:var(--g)}
+#mk .mk-qc small{font-size:12.5px;color:var(--sub)}
+
+/* preview kirim foto/video */
+#mk .mk-pv{position:absolute;inset:0;z-index:40;background:#0B141A;display:flex;flex-direction:column;animation:mkFade .2s}
+#mk .mk-pvm{flex:1;min-height:0;display:grid;place-items:center;padding:8px}
+#mk .mk-pvm img,#mk .mk-pvm video{max-width:100%;max-height:100%;border-radius:4px}
+#mk .mk-pvs{display:flex;gap:6px;justify-content:center;padding:6px;overflow-x:auto}
+#mk .mk-pvs button{width:52px;height:52px;border-radius:8px;overflow:hidden;opacity:.55;border:2px solid transparent;flex:none}
+#mk .mk-pvs button.on{opacity:1;border-color:#21C063}
+#mk .mk-pvs img{width:100%;height:100%;object-fit:cover}
+
+/* heads-up notifikasi */
+#mk .mk-hu{position:absolute;left:8px;right:8px;top:calc(8px + env(safe-area-inset-top));z-index:150;display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:16px;background:var(--bg);box-shadow:var(--pop);transform:translateY(-140%);transition:transform .35s cubic-bezier(.2,.9,.3,1.2);text-align:left}
+#mk[data-th="dark"] .mk-hu{background:#233138}
+#mk .mk-hu.on{transform:none}
+#mk .mk-hu .mk-av{width:42px;height:42px;font-size:17px}
+#mk .mk-hu span{min-width:0;display:flex;flex-direction:column}
+#mk .mk-hu b{font-weight:500;font-size:15px}
+#mk .mk-hu small{color:var(--sub);font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* OP sheet & admin picker */
+#mk .mk-shb h3{display:flex;align-items:center;gap:8px}
+#mk .mk-shb h3 svg{width:24px;height:24px;color:var(--g)}
+#mk .mk-opin{display:flex;align-items:baseline;gap:8px;margin:0 22px;padding:6px 2px;border-bottom:2px solid var(--g)}
+#mk .mk-opin span{font-size:22px;color:var(--sub)}
+#mk .mk-opin input{all:unset;flex:1;min-width:0;font-size:32px;font-weight:700;font-family:"Roboto Mono",ui-monospace,monospace;color:var(--ink)}
+#mk .mk-tier{margin:10px 22px 0;font-size:13.5px;color:var(--sub)}
+#mk .mk-tier summary{cursor:pointer;color:var(--lnk);padding:4px 0}
+#mk .mk-btn .mk-ic{width:20px;height:20px}
+#mk .mk-adl{display:flex;flex-direction:column}
+#mk .mk-adr{display:flex;align-items:center;gap:12px;padding:10px 20px;width:100%}
+#mk .mk-adr:active{background:var(--bg2)}
+#mk .mk-adr .mk-av{width:48px;height:48px}
+#mk .mk-adr .mk-rb b{font-size:16px;font-weight:500;display:flex;align-items:center}
+#mk .mk-adr .mk-rb small{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--sub);margin-top:2px}
+#mk .mk-go{width:20px;height:20px;color:var(--mut);transform:rotate(180deg);flex:none}
+#mk .mk-sa .dis{opacity:.6}
+
+/* info grup + admin */
+#mk .mk-lockx{display:flex;gap:12px;align-items:center;margin:16px;padding:14px;border-radius:12px;background:var(--bg2);color:var(--sub)}
+#mk .mk-lockx svg{width:24px;height:24px;color:var(--bad);flex:none}
+#mk .mk-lockx b{display:block;color:var(--bad);font-weight:500}
+#mk .mk-lockx small{font-size:13px}
+#mk .mk-qup{padding:4px 16px 12px}
+#mk .mk-qup .mk-qris{margin:0;width:100%;max-width:320px}
+#mk .mk-ua2{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;padding:22px;border-radius:12px;border:2px dashed var(--line);color:var(--g2)}
+#mk .mk-ua2 svg{width:34px;height:34px}
+#mk .mk-ua2 small{color:var(--sub);font-size:12.5px}
+#mk .mk-sw{display:flex;align-items:center;gap:12px;margin:8px 16px;font-size:15px;cursor:pointer}
+#mk .mk-sw input{position:absolute;opacity:0;pointer-events:none}
+#mk .mk-sw span{width:42px;height:24px;border-radius:12px;background:var(--line);position:relative;transition:background .2s;flex:none}
+#mk .mk-sw span::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+#mk .mk-sw input:checked+span{background:var(--g)}
+#mk .mk-sw input:checked+span::after{transform:translateX(18px)}
+#mk .mk-fee{display:grid;grid-template-columns:1.3fr .8fr 1fr auto;gap:8px;align-items:end;padding:6px 16px}
+#mk .mk-fee label small{display:block;font-size:11.5px;color:var(--sub)}
+#mk .mk-fee input,#mk .mk-fee select{width:100%;border:0;border-bottom:2px solid var(--line);background:transparent;padding:6px 2px;font-size:15px;outline:0}
+#mk .mk-fee input:focus{border-color:var(--g)}
+#mk .mk-fee select option{background:var(--bg)}
+#mk .mk-rs .mk-role,#mk .mk-rs .mk-vt{flex:none}
+</style>
+</head><body>
+<noscript>Aktifkan JavaScript untuk membuka JB KU Market.</noscript>
+<script>
+/* ===== JB KU MARKET — inti (fase 1): feed, toko, posting stok, guest, views, online ===== */
+(function () {
+  'use strict';
+  if (window.MK && window.MK._v) return;
+  const MK = window.MK = { _v: 1 };
+  const C = MK.cfg = { url: 'https://tkuuqpjeelgczgfriiee.supabase.co', key: 'sb_publishable_h3flt3J5xdtuh8w28HcwRw_0XJTjp_4', bucket: 'market', page: 20 };
+  let H = null; // host adapter
+
+  /* ---------- util ---------- */
+  const $ = (s, r) => (r || root).querySelector(s), $$ = (s, r) => [...(r || root).querySelectorAll(s)];
+  const E = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const rp = n => 'Rp ' + (Math.round(+n) || 0).toLocaleString('id-ID');
+  const num = s => +String(s || '').replace(/[^\d]/g, '') || 0;
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); }));
+  const LS = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { } } };
+  const D = t => new Date(t);
+  const two = n => String(n).padStart(2, '0');
+  const HARI = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'], BLN = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'], BLNF = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'], HARIF = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const jam = t => { const d = D(t); return two(d.getHours()) + '.' + two(d.getMinutes()); };
+  const tgl = t => { const d = D(t); return `${HARI[d.getDay()]}, ${d.getDate()} ${BLN[d.getMonth()]} ${d.getFullYear()}`; };
+  const dayKey = t => { const d = D(t); return d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate(); };
+  const dayLbl = t => { const d = D(t), n = new Date(), a = new Date(n.getFullYear(), n.getMonth(), n.getDate()), b = new Date(d.getFullYear(), d.getMonth(), d.getDate()), k = Math.round((a - b) / 864e5); return k === 0 ? 'Hari ini' : k === 1 ? 'Kemarin' : k < 7 ? HARIF[d.getDay()] : `${d.getDate()} ${BLNF[d.getMonth()]} ${d.getFullYear()}`; };
+  const ago = t => { const s = (Date.now() - D(t)) / 1e3; if (s < 60) return 'baru saja'; if (s < 3600) return Math.floor(s / 60) + ' mnt lalu'; if (s < 86400) return Math.floor(s / 3600) + ' jam lalu'; if (s < 172800) return 'kemarin'; return D(t).getDate() + ' ' + BLN[D(t).getMonth()]; };
+  const rowTime = t => { const k = dayLbl(t); return k === 'Hari ini' ? jam(t) : k === 'Kemarin' ? 'Kemarin' : (Date.now() - D(t) < 6048e5 ? k : `${two(D(t).getDate())}/${two(D(t).getMonth() + 1)}/${String(D(t).getFullYear()).slice(2)}`); };
+  const short = n => n >= 1e6 ? (n / 1e6).toFixed(n >= 1e7 ? 0 : 1).replace('.', ',') + ' jt' : n >= 1e3 ? (n / 1e3).toFixed(n >= 1e4 ? 0 : 1).replace('.', ',') + ' rb' : String(n || 0);
+  const COLORS = ['#e5583e', '#0f9d58', '#7b4fd6', '#d63f8c', '#1e88e5', '#ef8a00', '#00897b', '#c2185b', '#5e35b1', '#43a047', '#e53935', '#3949ab'];
+  const colOf = s => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return COLORS[h % COLORS.length]; };
+  const ini = s => String(s || '?').replace(/^@/, '').trim().slice(0, 1).toUpperCase() || '?';
+  const avHtml = (name, src, cls = 'mk-av') => `<span class="${cls}" style="background:${src ? 'var(--chip)' : colOf(name)}">${src ? `<img src="${E(src)}" alt="" loading="lazy">` : E(ini(name))}</span>`;
+  const buzz = ms => { try { navigator.vibrate && navigator.vibrate(ms); } catch (e) { } };
+
+  /* ---------- ikon (gaya Material, buatan sendiri) ---------- */
+  const P = {
+    back: '<path d="M20 12H5m6-7-7 7 7 7"/>', search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/>', more: '<circle cx="12" cy="5" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="19" r="1.4" fill="currentColor"/>',
+    x: '<path d="M6 6l12 12M18 6 6 18"/>', plus: '<path d="M12 5v14M5 12h14"/>', check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+    store: '<path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5 11.5V20h14v-8.5"/><path d="M10 20v-5h4v5"/>',
+    feed: '<circle cx="12" cy="12" r="8.5" stroke-dasharray="3.2 2.2"/><circle cx="12" cy="12" r="4.2"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/>', shield: '<path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.6 4-1.3 7-5.2 7-9.6V6z"/><path d="m9 12 2 2 4-4"/>',
+    eye: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>', chat: '<path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/><path d="M8.5 11h7M8.5 14h4.5"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.2"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    moon: '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.6 6.6 0 0 0 10.5 10.5z"/>', sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    out: '<path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="M10 16l-4-4 4-4M6 12h10"/>', up: '<path d="M12 19V5m-6 6 6-6 6 6"/>', tag: '<path d="M3.5 12.5V4.5a1 1 0 0 1 1-1h8l8 8-9 9z"/><circle cx="8.5" cy="8.5" r="1.5"/>',
+    trash: '<path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13"/>', img: '<rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m20.5 16-5-5-8.5 8.5"/>',
+    edit: '<path d="M4 20h4l10.5-10.5a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/>', stock: '<path d="M4 7.5 12 3.5l8 4v9l-8 4-8-4z"/><path d="m4 7.5 8 4 8-4M12 11.5v9"/>',
+    clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>', copy: '<rect x="8.5" y="8.5" width="11.5" height="11.5" rx="2"/><path d="M15.5 8.5V5.5a1.5 1.5 0 0 0-1.5-1.5H5.5A1.5 1.5 0 0 0 4 5.5V14a1.5 1.5 0 0 0 1.5 1.5h3"/>',
+    bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/>', refresh: '<path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/>', share: '<path d="M14 5l6 6-6 6"/><path d="M20 11H10a6 6 0 0 0-6 6v2"/>'
+  };
+  const ic = (n, c = '') => `<svg class="mk-ic ${c}" viewBox="0 0 24 24" aria-hidden="true">${P[n] || ''}</svg>`;
+  const SEND = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 20.4 21 12 3.4 3.6l-.01 6.53L15 12 3.39 13.87z"/></svg>';
+  const TICKS = '<span class="mk-tk"><svg viewBox="0 0 18 12" aria-label="Terkirim"><path d="M1 6.5 4.2 9.6 10.6 2.4M7.4 9.6l.9.9L16.6 2.4"/></svg></span>';
+  const CLOCK = `<span class="mk-clk">${ic('clock')}</span>`;
+  let lgId = 0;
+  const LOGO = (cls = 'mk-lg') => { const k = 'mkl' + (++lgId); return `<svg class="${cls}" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fe08a"/><stop offset="1" stop-color="#14a65a"/></linearGradient></defs><path d="M32 6C17.6 6 6 16.9 6 30.4c0 5 1.6 9.6 4.4 13.4L7 56l12.8-3.9c3.7 2 7.8 3 12.2 3 14.4 0 26-10.9 26-24.4S46.4 6 32 6z" fill="url(#${k})"/><path d="M20 24h24l-2.2 16.6a3 3 0 0 1-3 2.6H25.2a3 3 0 0 1-3-2.6z" fill="#fff"/><path d="M26 24v-2.6a6 6 0 0 1 12 0V24" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round"/><path d="M27.5 33.5l3.2 3.2 6-6" stroke="#14a65a" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`; };
+  MK.LOGO = LOGO;
+  const DOODLE = "url(\"data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="30" width="44" height="26" rx="13"/><path d="M34 38v10M29 43h10"/><circle cx="51" cy="40" r="2"/><circle cx="55" cy="46" r="2"/><path d="M120 20l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/><path d="M220 40c0-8 12-8 12 0 0-8 12-8 12 0 0 9-12 15-12 15s-12-6-12-15z"/><circle cx="60" cy="140" r="14"/><path d="M55 140h10M60 135v10"/><path d="M150 120h30l-3 22h-24z"/><path d="M158 120v-4a7 7 0 0 1 14 0v4"/><path d="M240 130l20 0-6 30h-8z"/><path d="M30 230l14-14 14 14-14 14z"/><path d="M120 220a14 14 0 1 0 28 0 14 14 0 1 0-28 0M134 210v10l6 4"/><path d="M215 225h40v22h-40zM215 233h40"/><path d="M100 80l8 8M108 80l-8 8"/><path d="M270 90l6 6M276 90l-6 6"/><circle cx="190" cy="75" r="3"/><circle cx="90" cy="275" r="3"/><circle cx="280" cy="270" r="3"/></svg>') + "\")";
+
+  /* ---------- API ---------- */
+  async function req(path, o = {}) {
+    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), o.timeout || 25000);
+    try {
+      const h = { apikey: C.key, ...(o.raw ? {} : { 'Content-Type': 'application/json' }), ...(o.headers || {}) };
+      const r = await fetch(C.url + path, { method: o.method || 'GET', headers: h, body: o.raw || (o.body !== undefined ? JSON.stringify(o.body) : undefined), signal: ctl.signal });
+      const tx = await r.text(); let j = null; try { j = tx ? JSON.parse(tx) : null; } catch (e) { j = tx; }
+      if (!r.ok) { const er = new Error((j && (j.message || j.error || j.hint)) || ('HTTP ' + r.status)); er.st = r.status; er.code = j && j.code; throw er; }
+      return j;
+    } catch (e) { if (e.name === 'AbortError') { const er = new Error('Koneksi terlalu lambat'); er.st = 0; throw er; } if (e.st === undefined) { e.st = -1; e.message = navigator.onLine === false ? 'Tidak ada internet' : 'Server tidak terjangkau'; } throw e; }
+    finally { clearTimeout(t); }
+  }
+  const rest = (p, o) => req('/rest/v1/' + p, o);
+  const rpc = (fn, a) => req('/rest/v1/rpc/' + fn, { method: 'POST', body: a || {} });
+  const errMsg = e => { const m = (e && e.message) || ''; if (e && (e.st === 404 || /relation .* does not exist|Could not find/i.test(m))) return 'Database Market belum dipasang (jalankan market-schema.sql)'; if (e && (e.st === 401 || e.st === 403)) return 'Akses database ditolak (cek RLS)'; return m.slice(0, 90) || 'Gagal'; };
+  MK.api = { rest, rpc };
+
+  /* ---------- gambar ---------- */
+  const loadImage = src => new Promise((res, rej) => { const i = new Image(); i.decoding = 'async'; i.onload = () => res(i); i.onerror = rej; i.src = src; });
+  async function jpeg(src, max, q) {
+    let url = src, made = false;
+    if (src instanceof Blob) { url = URL.createObjectURL(src); made = true; }
+    try {
+      const im = await loadImage(url), k = Math.min(1, max / Math.max(im.naturalWidth, im.naturalHeight)), w = Math.max(1, Math.round(im.naturalWidth * k)), h = Math.max(1, Math.round(im.naturalHeight * k));
+      const c = document.createElement('canvas'); c.width = w; c.height = h; const x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, w, h); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, w, h);
+      const blob = await new Promise(r => c.toBlob(r, 'image/jpeg', q));
+      return { blob, w, h, data: () => c.toDataURL('image/jpeg', q) };
+    } finally { if (made) URL.revokeObjectURL(url); }
+  }
+  async function putObj(path, blob, type) {
+    await req('/storage/v1/object/' + C.bucket + '/' + path, { method: 'POST', raw: blob, timeout: 180000, headers: { 'Content-Type': type || 'image/jpeg', 'x-upsert': 'true', 'cache-control': '31536000' } });
+    return C.url + '/storage/v1/object/public/' + C.bucket + '/' + path;
+  }
+  /* unggah satu foto: versi penuh + thumbnail. Kalau storage belum siap → simpan ringkas di baris (cadangan). */
+  async function upImage(src, base, i) {
+    if (!C.noStore) {
+      try {
+        const full = await jpeg(src, 1600, .84), th = await jpeg(src, 640, .72);
+        const u = await putObj(`${base}/${i}.jpg`, full.blob), t = await putObj(`${base}/${i}_t.jpg`, th.blob);
+        return { u, t, w: full.w, h: full.h };
+      } catch (e) { if (e.st === 0 || e.st === -1) throw e; C.noStore = true; console.warn('storage market', e); }
+    }
+    const s = await jpeg(src, 900, .7), d = s.data();
+    return { u: d, t: d, w: s.w, h: s.h };
+  }
+  function delImages(p) {
+    const paths = (p.images || []).flatMap(x => [x.u, x.t]).filter(u => typeof u === 'string' && u.indexOf('/object/public/' + C.bucket + '/') > 0).map(u => u.split('/object/public/' + C.bucket + '/')[1]);
+    if (paths.length) req('/storage/v1/object/' + C.bucket, { method: 'DELETE', body: { prefixes: [...new Set(paths)] } }).catch(() => { });
+  }
+
+  /* ---------- state ---------- */
+  const S = MK.S = { tab: 'pasar', posts: [], end: false, busy: false, q: '', game: '', games: [], stores: null, mine: null, online: 0, newer: 0, seenTop: '', pages: [], tmp: [] };
+  let root = null, me = null;
+  const isAdmin = () => !!(me && me.admin);
+  const ownerOf = () => me ? me.id : '';
+
+  /* ---------- toast / sheet / menu / ripple ---------- */
+  let tt = 0;
+  function toast(m, err) { const t = $('.mk-toast'); if (!t) return; t.textContent = m; t.classList.toggle('err', !!err); t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 2300); }
+  MK.toast = toast;
+  function sheet(html, onClick) {
+    const ov = document.createElement('div'); ov.className = 'mk-sh'; ov.innerHTML = `<div class="mk-shb" role="dialog" aria-modal="true"><div class="mk-grab"></div>${html}</div>`;
+    root.append(ov);
+    const api = { el: ov, close() { if (!ov.isConnected) return; unback(api); ov.classList.add('out'); setTimeout(() => ov.remove(), 200); } };
+    ov.addEventListener('click', e => { if (e.target === ov) return api.close(); const b = e.target.closest('[data-s]'); if (b && onClick) onClick(b.dataset.s, b, api); });
+    back(api); return api;
+  }
+  function confirmBox(title, msg, ok = 'Ya', bad) {
+    return new Promise(res => { let v = false; const s = sheet(`<h3>${E(title)}</h3><p>${E(msg)}</p><div class="mk-row2"><button class="mk-btn ghost mk-rp" data-s="0">Batal</button><button class="mk-btn ${bad ? 'bad' : ''} mk-rp" data-s="1">${E(ok)}</button></div>`, (k, b, api) => { v = k === '1'; api.close(); });
+      const c0 = s.close; s.close = () => { c0(); res(v); }; });
+  }
+  function popMenu(items) {
+    const sc = document.createElement('div'); sc.className = 'mk-scrim';
+    const m = document.createElement('div'); m.className = 'mk-menu'; m.setAttribute('role', 'menu');
+    m.innerHTML = items.filter(Boolean).map(([k, l, i]) => `<button role="menuitem" class="mk-rp" data-m="${k}">${ic(i)}<span>${E(l)}</span></button>`).join('');
+    root.append(sc, m);
+    const api = { close() { unback(api); sc.remove(); m.remove(); } };
+    sc.addEventListener('click', () => api.close());
+    m.addEventListener('click', e => { const b = e.target.closest('[data-m]'); if (!b) return; api.close(); menuAct(b.dataset.m); });
+    back(api);
+  }
+  function ripple(e) {
+    const b = e.target.closest && e.target.closest('#mk .mk-rp,#mk .mk-ib,#mk .mk-chip,#mk .mk-nav button,#mk .mk-ba button,#mk .mk-row'); if (!b) return;
+    const r = b.getBoundingClientRect(), s = Math.max(r.width, r.height) * 2, sp = document.createElement('span');
+    sp.className = 'mk-ripple'; sp.style.cssText = `width:${s}px;height:${s}px;left:${e.clientX - r.left - s / 2}px;top:${e.clientY - r.top - s / 2}px`;
+    if (getComputedStyle(b).position === 'static') b.style.position = 'relative';
+    b.style.overflow = 'hidden'; b.append(sp); setTimeout(() => sp.remove(), 520);
+  }
+
+  /* ---------- back stack (APK: UI.stack JB KU · Web: history) ---------- */
+  function back(api) { H.backPush(api); }
+  function unback(api) { H.backPop(api); }
+
+  /* ---------- pages ---------- */
+  function page(html, cls = '') {
+    const el = document.createElement('section'); el.className = 'mk-page ' + cls; el.innerHTML = html; root.append(el);
+    const prev = S.pages[S.pages.length - 1];
+    const api = { el, close() { if (!el.isConnected || api._c) return; api._c = 1; unback(api); S.pages = S.pages.filter(x => x !== api); el.classList.remove('on'); if (prev && prev.el.isConnected) prev.el.classList.remove('under'); api.onClose && api.onClose(); setTimeout(() => el.remove(), 320); } };
+    S.pages.push(api); back(api);
+    requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.add('on'); if (prev) prev.el.classList.add('under'); }));
+    el.addEventListener('click', e => { if (e.target.closest('[data-p="back"]')) H.goBack(api); });
+    return api;
+  }
+  const pageHead = (title, sub, extra = '', av = '') => `<header class="mk-ph2"><button class="mk-ib" data-p="back" aria-label="Kembali">${ic('back')}</button><div class="mk-pt">${av}<div><b>${E(title)}</b>${sub ? `<small>${sub}</small>` : ''}</div></div>${extra}</header>`;
+
+  /* ---------- album (ukuran menyesuaikan foto) ---------- */
+  function album(p, prog) {
+    const im = p.images || [], n = im.length; if (!n) return '';
+    const k = Math.min(n, 4), cls = 'n' + k;
+    const one = n !== 1 ? '' : im[0].w && im[0].h ? ` style="aspect-ratio:${Math.max(.8, Math.min(1.9, im[0].w / im[0].h)).toFixed(3)}"` : ' style="aspect-ratio:1"';
+    const cells = im.slice(0, 4).map((x, i) => `<button class="mk-ph" data-v="${i}" aria-label="Lihat foto ${i + 1}"${i === 0 ? one : ''}><img alt="" loading="lazy" decoding="async" src="${E(x.t || x.u)}" onload="this.classList.add('ok');this.parentNode.classList.add('ok')">${i === 3 && n > 4 ? `<span class="mk-plus">+${n - 4}</span>` : ''}</button>`).join('');
+    return `<div class="mk-al ${cls}">${cells}${n > 1 && n <= 4 ? `<span class="mk-cnt">${ic('img')}${n}</span>` : ''}${prog != null ? `<div class="mk-prog"><div class="mk-ring" style="--p:${prog.p || 0}"></div><small>${E(prog.t || '')}</small></div>` : ''}</div>`;
+  }
+
+  /* ---------- bubble postingan (gaya saluran WhatsApp) ---------- */
+  const isMine = p => me && p.owner_id === me.id;
+  function specHtml(p) { const sp = (p.specs || []).filter(x => x && x[1]); return sp.length ? `<dl class="mk-spec">${sp.slice(0, 8).map(([n, v]) => `<dt>${E(n)}</dt><dd>${E(v)}</dd>`).join('')}</dl>` : ''; }
+  function pills(p) { const a = [p.bind, p.type, p.warranty && ('Garansi ' + p.warranty)].filter(Boolean); return a.length ? `<div class="mk-pills">${a.map(x => `<span class="mk-pill">${E(x)}</span>`).join('')}</div>` : ''; }
+  function bubble(p, o = {}) {
+    const sold = p.status === 'sold', tmp = !!p._tmp, cap = String(p.caption || '');
+    const tag = p.owner_kind === 'member' ? '<span class="mk-tag">JB KU</span>' : '<span class="mk-tag gs">Guest</span>';
+    const km = !tmp && (isMine(p) || isAdmin()) ? `<button class="mk-km" data-a="kebab" aria-label="Opsi">${ic('more')}</button>` : '';
+    return `<div class="mk-bw" data-id="${E(p.id)}">${o.noAv ? '' : `<button class="mk-bav" data-a="store" aria-label="Toko ${E(p.store)}" style="background:${p.avatar ? 'var(--chip)' : colOf(p.store)}">${p.avatar ? `<img src="${E(p.avatar)}" alt="" loading="lazy">` : E(ini(p.store))}</button>`}
+<article class="mk-b${sold ? ' sold' : ''}${tmp ? ' tmp' : ''}">
+<div class="mk-bh"><button class="mk-bn" data-a="store" style="color:${colOf(p.store)}">${E(p.store)}</button>${tag}<span class="mk-sp"></span>${km}</div>
+${sold ? '<span class="mk-stamp">TERJUAL</span>' : ''}${album(p, tmp ? p._prog || { p: 0, t: 'Menyiapkan…' } : null)}
+<div class="mk-bt"><div class="mk-gm">🎮 ${E(p.game || 'Akun game')}${p.code ? ` <small>#${E(p.code)}</small>` : ''}</div>
+<div class="mk-pr">${rp(p.price)}</div>${pills(p)}${o.full ? specHtml(p) : (p.specs && p.specs.length ? specHtml({ specs: p.specs.slice(0, 4) }) : '')}
+${cap ? `<div class="mk-cap${!o.full && cap.length > 220 ? ' cut' : ''}">${E(cap)}</div>${!o.full && cap.length > 220 ? '<button class="mk-more" data-a="detail">Baca selengkapnya</button>' : ''}` : ''}</div>
+<div class="mk-bm"><span>Dikirim ${E(tgl(p.bumped_at || p.created_at))}</span><span>${tmp ? '' : `${ic('eye')}<b data-vc>${short(p.views || 0)}</b> · `}${jam(p.bumped_at || p.created_at)} ${tmp ? CLOCK : TICKS}</span></div>
+${tmp ? '' : `<div class="mk-ba"><button data-a="chat">${ic('chat')}Chat Penjual</button><button data-a="detail">${ic('info')}Detail</button></div>`}
+</article></div>`;
+  }
+  function feedHtml(list, o = {}) {
+    let last = '', out = '';
+    for (const p of list) { const k = dayKey(p.bumped_at || p.created_at); if (k !== last) { out += `<div class="mk-day">${E(dayLbl(p.bumped_at || p.created_at))}</div>`; last = k; } out += bubble(p, o); }
+    return out;
+  }
+
+  /* ---------- load feed ---------- */
+  const SEL = 'id,owner_id,owner_kind,store,avatar,stock_id,game,code,price,status,type,bind,warranty,specs,caption,images,wa,views,created_at,bumped_at,sig';
+  function filt() {
+    let f = '&status=eq.ready';
+    if (S.game) f += '&game=eq.' + encodeURIComponent(S.game);
+    const q = S.q.trim().replace(/[,()*%]/g, ' ').trim();
+    if (q) { const w = encodeURIComponent('*' + q + '*'); f += `&or=(game.ilike.${w},code.ilike.${w},store.ilike.${w},caption.ilike.${w})`; }
+    return f;
+  }
+  async function loadFeed(reset) {
+    if (S.busy && !reset) return; if (!reset && S.end) return;
+    const my = ++S._lf; S.busy = true;
+    if (reset) { S.posts = []; S.end = false; paintFeed(true); }
+    try {
+      const rows = await rest(`mk_posts?select=${SEL}${filt()}&order=bumped_at.desc&limit=${C.page}&offset=${S.posts.length}`);
+      if (my !== S._lf) return;
+      S.posts = S.posts.concat(rows); S.end = rows.length < C.page;
+      if (S.posts[0] && !S.q && !S.game) S.seenTop = S.posts[0].bumped_at;
+      S.err = '';
+    } catch (e) { if (my === S._lf) { S.err = errMsg(e); S.end = true; } }
+    finally { if (my === S._lf) { S.busy = false; paintFeed(); } }
+  }
+  S._lf = 0;
+  async function loadGames() {
+    try { const r = await rest('mk_posts?select=game&status=eq.ready&order=bumped_at.desc&limit=400'); const c = {}; r.forEach(x => { if (x.game) c[x.game] = (c[x.game] || 0) + 1; }); S.games = Object.entries(c).sort((a, b) => b[1] - a[1]).slice(0, 12); paintChips(); } catch (e) { }
+  }
+  function paintChips() {
+    const el = $('#mkChips'); if (!el) return;
+    el.innerHTML = `<button class="mk-chip ${!S.game ? 'on' : ''}" data-g="">Semua</button>` + S.games.map(([g, n]) => `<button class="mk-chip ${S.game === g ? 'on' : ''}" data-g="${E(g)}">${E(g)} <i>${n}</i></button>`).join('');
+  }
+  function paintFeed(loading) {
+    const el = $('#mkFeed'); if (!el) return;
+    const tmp = S.tmp.length && !S.q && !S.game ? S.tmp : [];
+    const list = tmp.concat(S.posts);
+    let h = '';
+    if (S.newer > 0) h += `<button class="mk-newp" data-a="newer">${ic('up')}${S.newer} postingan baru</button>`;
+    h += `<div class="mk-sys">🔒 Transaksi aman lewat rekber admin terverifikasi JB KU Market. Jangan transfer di luar admin.</div>`;
+    if (list.length) h += feedHtml(list);
+    else if (loading || S.busy) h += skel(3);
+    else if (S.err) h += `<div class="mk-empty"><div class="mk-ei">${ic('info')}</div><b>Gagal memuat</b>${E(S.err)}<div style="margin-top:16px;display:flex;justify-content:center"><button class="mk-btn mk-rp" data-a="retry">${ic('refresh')}Coba lagi</button></div></div>`;
+    else h += `<div class="mk-empty"><div class="mk-ei">${ic('store')}</div><b>${S.q || S.game ? 'Tidak ditemukan' : 'Belum ada postingan'}</b>${S.q || S.game ? 'Coba kata kunci atau game lain.' : 'Jadilah yang pertama memposting akun. Ketuk tombol + di bawah.'}</div>`;
+    if (list.length) h += S.end ? (S.posts.length > 6 ? '<div class="mk-sys">Sudah sampai postingan paling awal</div>' : '') : '<div class="mk-loadm"><i class="mk-spin"></i></div>';
+    h += '<div class="mk-sentinel" id="mkSent"></div>';
+    el.innerHTML = h; watchViews(el); observeSent();
+  }
+  const skel = n => Array.from({ length: n }, () => `<div class="mk-bw"><span class="mk-bav"></span><div class="mk-b" style="width:78%;padding:10px"><div class="mk-skel" style="width:40%"></div><div class="mk-skel" style="height:150px;margin:10px 0;border-radius:6px"></div><div class="mk-skel" style="width:70%"></div><div class="mk-skel" style="width:30%;margin-top:8px"></div></div></div>`).join('');
+  let sentIO = null;
+  function observeSent() {
+    const s = $('#mkSent'); if (!s) return;
+    if (!sentIO) sentIO = new IntersectionObserver(es => { if (es.some(x => x.isIntersecting) && !S.busy && !S.end && S.tab === 'pasar') loadFeed(); }, { root: $('[data-view="pasar"]'), rootMargin: '600px' });
+    sentIO.disconnect(); sentIO.observe(s);
+  }
+  const findPost = id => S.tmp.find(x => x.id === id) || S.posts.find(x => x.id === id) || (S.mine || []).find(x => x.id === id) || (S.storePosts || []).find(x => x.id === id);
+
+  /* ---------- views asli (sekali per orang per postingan) ---------- */
+  const SEEN_K = 'mk_seen', seen = new Set(LS.get(SEEN_K, [])); let vq = new Set(), vT = 0, vio = null;
+  function watchViews(scope) {
+    if (!vio) vio = new IntersectionObserver(es => es.forEach(x => {
+      const el = x.target; if (x.isIntersecting && x.intersectionRatio >= .55) { el._t = setTimeout(() => countView(el.dataset.id, el), 700); } else clearTimeout(el._t);
+    }), { threshold: [0, .55] });
+    $$('.mk-bw[data-id]', scope).forEach(el => { if (!seen.has(el.dataset.id) && !el.dataset.id.startsWith('tmp')) vio.observe(el); });
+  }
+  function countView(id, el) {
+    if (!id || seen.has(id) || id.startsWith('tmp')) return; const p = findPost(id); if (p && isMine(p)) return;
+    seen.add(id); vq.add(id); if (vio && el) vio.unobserve(el);
+    if (p) { p.views = (p.views || 0) + 1; $$(`.mk-bw[data-id="${CSS.escape(id)}"] [data-vc]`).forEach(b => b.textContent = short(p.views)); }
+    clearTimeout(vT); vT = setTimeout(flushViews, 1800);
+  }
+  async function flushViews() {
+    if (!vq.size) return; const ids = [...vq]; vq = new Set();
+    LS.set(SEEN_K, [...seen].slice(-3000));
+    try { await rpc('mk_view', { p_ids: ids }); } catch (e) { ids.forEach(i => vq.add(i)); }
+  }
+
+  /* ---------- online sekarang + sedang melihat ---------- */
+  let pingT = 0, viewing = null;
+  async function ping() {
+    clearTimeout(pingT); if (!me || document.hidden) { pingT = setTimeout(ping, 25000); return; }
+    try {
+      const r = await rpc('mk_ping', { p_id: me.id, p_name: me.name, p_view: viewing });
+      S.online = (r && r.online) || 1; paintOnline();
+      if (viewing && r) { const w = $('#mkWatch'); if (w) w.innerHTML = `${ic('eye')}<span><b>${Math.max(1, r.viewing)}</b> orang sedang melihat</span>`; }
+    } catch (e) { }
+    checkNewer();
+    pingT = setTimeout(ping, 25000);
+  }
+  function paintOnline() { const el = $('#mkLive'); if (el) el.innerHTML = `<i class="mk-dot"></i><span><b>${S.online}</b> orang online sekarang</span>`; }
+  async function checkNewer() {
+    if (!S.seenTop || S.q || S.game) return;
+    try { const r = await rest(`mk_posts?select=id&status=eq.ready&bumped_at=gt.${encodeURIComponent(S.seenTop)}&limit=50`); const n = r.filter(x => !S.posts.some(p => p.id === x.id)).length; if (n !== S.newer) { S.newer = n; if (S.tab === 'pasar') paintFeed(); } } catch (e) { }
+  }
+  MK.setViewing = id => { viewing = id || null; ping(); };
+
+  /* ---------- tab Toko (daftar toko seperti daftar chat) ---------- */
+  async function loadStores() {
+    const el = $('#mkStores'); if (!el) return;
+    if (!S.stores) el.innerHTML = Array.from({ length: 6 }, () => `<div class="mk-row"><span class="mk-av"></span><div class="mk-rb"><div class="mk-skel" style="width:50%"></div><div class="mk-skel" style="width:75%"></div></div></div>`).join('');
+    try {
+      const r = await rest('mk_posts?select=owner_id,owner_kind,store,avatar,game,price,status,bumped_at,images&order=bumped_at.desc&limit=600');
+      const m = new Map(); r.forEach(p => { let s = m.get(p.owner_id); if (!s) { s = { id: p.owner_id, kind: p.owner_kind, store: p.store, avatar: p.avatar, last: p, ready: 0, total: 0 }; m.set(p.owner_id, s); } s.total++; if (p.status === 'ready') s.ready++; });
+      S.stores = [...m.values()]; paintStores();
+    } catch (e) { el.innerHTML = `<div class="mk-empty"><div class="mk-ei">${ic('info')}</div><b>Gagal memuat</b>${E(errMsg(e))}</div>`; }
+  }
+  function paintStores() {
+    const el = $('#mkStores'); if (!el || !S.stores) return;
+    const q = S.q.trim().toLowerCase(), list = S.stores.filter(s => !q || s.store.toLowerCase().includes(q));
+    el.innerHTML = list.length ? list.map(s => { const l = s.last, fr = Date.now() - D(l.bumped_at) < 864e5;
+      return `<button class="mk-row" data-store="${E(s.id)}">${avHtml(s.store, s.avatar)}<div class="mk-rb"><div class="mk-rt"><b>${E(s.store)}</b><time class="${fr ? 'g' : ''}">${E(rowTime(l.bumped_at))}</time></div><div class="mk-rs"><span>${(l.images || []).length ? ic('img') : ''}${E((l.game || 'Akun') + ' · ' + rp(l.price))}${l.status === 'sold' ? ' · terjual' : ''}</span>${s.ready ? `<b class="mk-badge">${s.ready}</b>` : ''}</div></div></button>`; }).join('')
+      : `<div class="mk-empty"><div class="mk-ei">${ic('store')}</div><b>${q ? 'Toko tidak ditemukan' : 'Belum ada toko'}</b>${q ? '' : 'Toko akan muncul setelah ada yang memposting akun.'}</div>`;
+  }
+
+  /* ---------- halaman toko (seperti saluran) ---------- */
+  async function openStore(id) {
+    const s0 = (S.stores || []).find(x => x.id === id) || (() => { const p = S.posts.find(x => x.owner_id === id) || (S.mine || []).find(x => x.owner_id === id); return p ? { id, store: p.store, avatar: p.avatar, kind: p.owner_kind } : { id, store: 'Toko' }; })();
+    const pg = page(pageHead(s0.store, s0.kind === 'member' ? 'Seller JB KU' : 'Guest seller', '', avHtml(s0.store, s0.avatar)) + `<div class="mk-pb"><div class="mk-wall" style="min-height:100%;--doodle:${DOODLE}"><div class="mk-feed" id="mkSF">${skel(2)}</div></div></div><div class="mk-pf"><button class="mk-btn blk mk-rp" data-a="chatStore">${ic('chat')}Chat Penjual</button></div>`);
+    pg.el.addEventListener('click', e => feedClick(e, pg.el));
+    try {
+      const r = await rest(`mk_posts?select=${SEL}&owner_id=eq.${encodeURIComponent(id)}&order=bumped_at.desc&limit=100`);
+      S.storePosts = r; const ready = r.filter(x => x.status === 'ready').length, v = r.reduce((a, x) => a + (x.views || 0), 0);
+      const sub = $('.mk-pt small', pg.el); if (sub) sub.textContent = `${ready} akun ready · ${short(v)} views`;
+      const f = $('#mkSF', pg.el); f.innerHTML = r.length ? feedHtml(r, { noAv: true }) : `<div class="mk-empty"><b>Belum ada postingan</b></div>`; watchViews(f);
+      pg.el.dataset.owner = id; pg.el.dataset.wa = (r.find(x => x.wa) || {}).wa || '';
+    } catch (e) { $('#mkSF', pg.el).innerHTML = `<div class="mk-empty"><b>Gagal memuat</b>${E(errMsg(e))}</div>`; }
+  }
+
+  /* ---------- detail postingan ---------- */
+  function openDetail(id) {
+    const p = findPost(id); if (!p) return;
+    countView(id);
+    const imgs = (p.images || []).map((x, i) => `<button data-v="${i}" aria-label="Foto ${i + 1}"${x.w && x.h ? ` style="aspect-ratio:${(x.w / x.h).toFixed(3)}"` : ''}><img alt="" decoding="async" src="${E(x.u)}" onload="this.classList.add('ok')"></button>`).join('');
+    const pg = page(pageHead(p.game || 'Detail akun', E(p.store)) + `<div class="mk-pb">${imgs ? `<div class="mk-dimg">${imgs}</div>` : ''}
+<div class="mk-dcard"><h2>${E(p.game)}${p.code ? ` <small style="color:var(--sub);font-size:15px">#${E(p.code)}</small>` : ''}</h2><div class="mk-pr">${rp(p.price)}</div>${p.status === 'sold' ? '<div class="mk-pill" style="display:inline-block;color:var(--bad);border-color:var(--bad)">Sudah terjual</div>' : ''}${pills(p)}${specHtml(p)}${p.caption ? `<div class="mk-cap">${E(p.caption)}</div>` : ''}
+<div style="margin-top:10px;font-size:13px;color:var(--sub)">Dikirim ${E(tgl(p.bumped_at || p.created_at))} pukul ${jam(p.bumped_at || p.created_at)} WIB · ${short(p.views || 0)} views</div>
+<div class="mk-watch" id="mkWatch">${ic('eye')}<span><b>1</b> orang sedang melihat</span></div></div>
+<button class="mk-seller" data-a="store">${avHtml(p.store, p.avatar)}<div class="mk-rb"><b>${E(p.store)}</b><small>${p.owner_kind === 'member' ? 'Seller JB KU · posting dari stok' : 'Guest seller'}</small></div>${ic('back', '')}</button>
+<div class="mk-sys" style="margin:14px auto">Waspada penipuan: jangan pernah kirim kode OTP & selalu pakai rekber admin.</div></div>
+<div class="mk-pf"><button class="mk-btn blk mk-rp" data-a="chat">${ic('chat')}Chat Penjual</button></div>`);
+    pg.el.dataset.id = id; $('.mk-seller .mk-ic', pg.el).style.transform = 'rotate(180deg)';
+    pg.el.addEventListener('click', e => { const v = e.target.closest('[data-v]'); if (v) return viewer(p, +v.dataset.v); const a = e.target.closest('[data-a]'); if (!a) return; if (a.dataset.a === 'store') openStore(p.owner_id); if (a.dataset.a === 'chat') contact(p); });
+    MK.setViewing(id); pg.onClose = () => MK.setViewing(null);
+  }
+
+  /* ---------- hubungi penjual (fase 2: chat pribadi di Market) ---------- */
+  function contact(p) {
+    if (!p) return;
+    if (isMine(p)) return toast('Ini postingan kamu sendiri');
+    openDM({ id: p.owner_id, name: p.store, avatar: p.avatar }, p);
+  }
+
+  /* ---------- viewer foto (geser, ketuk 2x zoom, cubit) ---------- */
+  function viewer(p, start) {
+    const L = p.images || []; if (!L.length) return;
+    const v = document.createElement('div'); v.className = 'mk-vw'; v.setAttribute('role', 'dialog');
+    v.innerHTML = `<div class="mk-vp"><div class="mk-vt">${L.map(x => `<div class="mk-vs"><img alt="" src="${E(x.u)}"></div>`).join('')}</div></div><div class="mk-vh"><button class="mk-ib" data-c aria-label="Tutup">${ic('back')}</button><div><b>${E(p.store)}</b><small>${E(tgl(p.bumped_at || p.created_at))}, ${jam(p.bumped_at || p.created_at)}</small></div><span class="mk-ib" style="width:auto;padding:0 10px;font-size:14px" id="mkVc"></span></div>${L.length > 1 ? `<div class="mk-vf">${L.map((x, i) => `<button data-k="${i}"><img src="${E(x.t || x.u)}" alt=""></button>`).join('')}</div>` : ''}`;
+    root.append(v);
+    const tr = $('.mk-vt', v), vp = $('.mk-vp', v); let ix = start || 0, z = { s: 1, x: 0, y: 0 }, pts = new Map(), g = null, lastTap = 0;
+    const img = () => tr.children[ix] && tr.children[ix].querySelector('img');
+    const apply = an => { const i = img(); if (!i) return; i.style.transition = an ? 'transform .25s' : 'none'; i.style.transform = `translate(${z.x}px,${z.y}px) scale(${z.s})`; };
+    const go = (i, an = true) => { const o = img(); if (o) o.style.transform = ''; z = { s: 1, x: 0, y: 0 }; ix = Math.max(0, Math.min(L.length - 1, i)); tr.style.transition = an ? 'transform .3s cubic-bezier(.2,.8,.2,1)' : 'none'; tr.style.transform = `translateX(${-ix * 100}%)`; $('#mkVc', v).textContent = L.length > 1 ? `${ix + 1}/${L.length}` : ''; $$('.mk-vf button', v).forEach((b, k) => b.classList.toggle('on', k === ix)); };
+    const zoomAt = (s, cx, cy) => { const i = img(); if (!i) return; if (s === 1) { z = { s: 1, x: 0, y: 0 }; return apply(true); } const r = i.getBoundingClientRect(), k = s / z.s; z.x += (cx - r.left) * (1 - k); z.y += (cy - r.top) * (1 - k); z.s = s; apply(true); };
+    vp.addEventListener('pointerdown', e => { vp.setPointerCapture(e.pointerId); pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (pts.size === 1) g = { x: e.clientX, y: e.clientY, zx: z.x, zy: z.y, t: Date.now(), dx: 0 }; else if (pts.size === 2) { const [a, b] = [...pts.values()]; g = { pinch: Math.hypot(a.x - b.x, a.y - b.y), s: z.s, cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 }; } });
+    vp.addEventListener('pointermove', e => { if (!pts.has(e.pointerId) || !g) return; pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (g.pinch && pts.size === 2) { const [a, b] = [...pts.values()], d = Math.hypot(a.x - b.x, a.y - b.y), s = Math.max(1, Math.min(4, g.s * d / g.pinch)); const i = img(); if (i) { const r = i.getBoundingClientRect(), k = s / z.s; z.x += (g.cx - r.left) * (1 - k); z.y += (g.cy - r.top) * (1 - k); z.s = s; apply(); } return; }
+      const dx = e.clientX - g.x, dy = e.clientY - g.y;
+      if (z.s > 1) { z.x = g.zx + dx; z.y = g.zy + dy; apply(); } else { g.dx = dx; tr.style.transition = 'none'; tr.style.transform = `translateX(calc(${-ix * 100}% + ${dx}px))`; } });
+    const up = e => { if (!pts.has(e.pointerId)) return; pts.delete(e.pointerId); if (pts.size || !g) { if (pts.size === 1 && g && g.pinch) { const q = [...pts.values()][0]; g = { x: q.x, y: q.y, zx: z.x, zy: z.y, t: Date.now(), dx: 0 }; } return; }
+      if (g.pinch) { if (z.s <= 1.02) { z = { s: 1, x: 0, y: 0 }; apply(true); } g = null; return; }
+      const dt = Date.now() - g.t, moved = Math.abs(g.dx) > 8 || Math.abs(e.clientY - g.y) > 8;
+      if (z.s === 1) { if (g.dx < -60 || (g.dx < -20 && dt < 250)) go(ix + 1); else if (g.dx > 60 || (g.dx > 20 && dt < 250)) go(ix - 1); else go(ix); }
+      if (!moved && dt < 250) { const now = Date.now(); if (now - lastTap < 300) { zoomAt(z.s > 1 ? 1 : 2.5, e.clientX, e.clientY); lastTap = 0; } else lastTap = now; }
+      g = null; };
+    vp.addEventListener('pointerup', up); vp.addEventListener('pointercancel', up);
+    const api = { close() { unback(api); v.remove(); } };
+    v.addEventListener('click', e => { if (e.target.closest('[data-c]')) H.goBack(api); const k = e.target.closest('[data-k]'); if (k) go(+k.dataset.k); });
+    back(api); go(ix, false);
+  }
+
+  /* ---------- klik di feed ---------- */
+  function feedClick(e, scope) {
+    const bw = e.target.closest('.mk-bw'), a = e.target.closest('[data-a]');
+    if (a && a.dataset.a === 'newer') { S.newer = 0; loadFeed(true); scope.closest('.mk-view') && (scope.closest('.mk-view').scrollTop = 0); return; }
+    if (a && a.dataset.a === 'retry') { loadFeed(true); return; }
+    if (a && a.dataset.a === 'chatStore') { const pg = e.target.closest('.mk-page'); const p = (S.storePosts || [])[0]; if (p) { if (isMine(p)) return toast('Ini toko kamu sendiri'); openDM({ id: p.owner_id, name: p.store, avatar: p.avatar }, null); } else toast('Toko belum punya postingan'); void pg; return; }
+    if (!bw) return; const id = bw.dataset.id, p = findPost(id); if (!p) return;
+    const v = e.target.closest('[data-v]'); if (v && !p._tmp) return viewer(p, +v.dataset.v);
+    if (!a || p._tmp) return;
+    const k = a.dataset.a;
+    if (k === 'store') { if (scope && scope.dataset && scope.dataset.owner === p.owner_id) return; return openStore(p.owner_id); }
+    if (k === 'detail') return openDetail(id);
+    if (k === 'chat') return contact(p);
+    if (k === 'kebab') return postMenu(p);
+  }
+  function postMenu(p) {
+    const mine = isMine(p);
+    sheet(`<h3>${E(p.game)} · ${rp(p.price)}</h3><div class="mk-sa">${mine ? `<button data-s="bump">${ic('up')}Naikkan ke atas</button>${p.stock_id ? '' : `<button data-s="sold">${ic('tag')}${p.status === 'sold' ? 'Tandai ready lagi' : 'Tandai terjual'}</button>`}` : ''}<button data-s="link">${ic('copy')}Salin info akun</button><button data-s="del" class="bad">${ic('trash')}${mine ? 'Hapus postingan' : 'Hapus (admin)'}</button></div>`, async (k, b, api) => {
+      api.close();
+      if (k === 'bump') return bump(p);
+      if (k === 'sold') return setStatus(p, p.status === 'sold' ? 'ready' : 'sold');
+      if (k === 'link') { copy(`${p.game}${p.code ? ' #' + p.code : ''}\n${rp(p.price)}\n${(p.specs || []).map(x => x[0] + ': ' + x[1]).join('\n')}\n${p.caption || ''}\nToko: ${p.store}\n${H.link()}`.replace(/\n{2,}/g, '\n')); return toast('Info akun disalin'); }
+      if (k === 'del') { if (await confirmBox('Hapus postingan?', 'Postingan akan hilang dari Market untuk semua orang.', 'Hapus', true)) delPost(p); }
+    });
+  }
+  async function bump(p) { try { const now = new Date().toISOString(); await rest('mk_posts?id=eq.' + p.id, { method: 'PATCH', body: { bumped_at: now, updated_at: now } }); p.bumped_at = now; toast('Postingan dinaikkan ke atas'); refreshAll(); } catch (e) { toast(errMsg(e), 1); } }
+  async function setStatus(p, st) { try { await rest('mk_posts?id=eq.' + p.id, { method: 'PATCH', body: { status: st, updated_at: new Date().toISOString() } }); p.status = st; toast(st === 'sold' ? 'Ditandai terjual' : 'Ditandai ready'); refreshAll(); } catch (e) { toast(errMsg(e), 1); } }
+  async function delPost(p) { try { await rest('mk_posts?id=eq.' + p.id, { method: 'DELETE' }); delImages(p); S.posts = S.posts.filter(x => x.id !== p.id); if (S.mine) S.mine = S.mine.filter(x => x.id !== p.id); $$(`.mk-bw[data-id="${CSS.escape(p.id)}"]`).forEach(x => { x.style.transition = 'opacity .25s,transform .25s'; x.style.opacity = 0; x.style.transform = 'scale(.95)'; setTimeout(() => x.remove(), 260); }); toast('Postingan dihapus'); S.stores = null; paintMine(); } catch (e) { toast(errMsg(e), 1); } }
+  function copy(t) { let ok = false; try { const a = document.createElement('textarea'); a.value = t; a.style.cssText = 'position:fixed;left:-9999px;opacity:0'; document.body.append(a); a.select(); ok = document.execCommand('copy'); a.remove(); } catch (e) { } try { navigator.clipboard && navigator.clipboard.writeText(t).catch(() => { }); } catch (e) { } return ok; }
+  function refreshAll() { S.stores = null; loadFeed(true); if (S.mine) loadMine(); }
+
+  /* ---------- tab Saya ---------- */
+  async function loadMine() {
+    try { S.mine = await rest(`mk_posts?select=${SEL}&owner_id=eq.${encodeURIComponent(me.id)}&order=bumped_at.desc&limit=200`); S.mineErr = ''; }
+    catch (e) { S.mine = S.mine || []; S.mineErr = errMsg(e); }
+    paintMine();
+  }
+  function paintMine() {
+    const el = $('#mkMine'); if (!el || !me) return;
+    const L = S.mine || [], v = L.reduce((a, x) => a + (x.views || 0), 0), rd = L.filter(x => x.status === 'ready').length;
+    el.innerHTML = `<div class="mk-prof">${avHtml(me.name, me.avatar)}<b>${E(me.name)}</b><small>${me.kind === 'member' ? 'Member JB KU · posting langsung dari stok' : 'Akun guest · ' + E(me.name)}</small>
+<div class="mk-stats"><div><b>${L.length}</b><span>Postingan</span></div><div><b>${rd}</b><span>Ready</span></div><div><b>${short(v)}</b><span>Total views</span></div></div></div>
+<div class="mk-link"><div class="mk-lt">${ic('link')}Link website JB KU Market</div><div class="mk-lu">${E(H.link())}</div><div style="display:flex;gap:8px"><button class="mk-btn mk-rp" style="flex:1" data-a="copyLink">${ic('copy')}Salin link</button><button class="mk-btn ghost mk-rp" style="flex:1" data-a="shareLink">${ic('share')}Bagikan</button></div><small style="color:var(--sub);font-size:12.5px">Anak JB yang belum punya APK bisa buka link ini, masuk sebagai guest @namastore, lalu posting & cari akun.</small></div>
+<div class="mk-sec">Postingan saya</div>${S.mineErr ? `<div class="mk-empty" style="padding:20px">${E(S.mineErr)}</div>` : ''}
+${S.mine == null ? '<div class="mk-loadm"><i class="mk-spin"></i></div>' : L.length ? L.map(p => `<div class="mk-mine" data-id="${E(p.id)}"><button class="mk-mt" data-a="detail">${p.images && p.images[0] ? `<img src="${E(p.images[0].t || p.images[0].u)}" alt="" loading="lazy">` : ''}</button><div class="mk-rb"><span class="mk-st ${p.status === 'sold' ? 's' : ''}">${p.status === 'sold' ? 'TERJUAL' : 'READY'}</span><b>${E(p.game)}${p.code ? ' #' + E(p.code) : ''} · ${rp(p.price)}</b><small>${ic('eye', '')} ${short(p.views || 0)} views · dikirim ${E(ago(p.bumped_at))}${p.stock_id ? ' · tersambung stok' : ''}</small></div><button class="mk-ib" data-a="kebab" aria-label="Opsi">${ic('more')}</button></div>`).join('')
+      : `<div class="mk-empty"><div class="mk-ei">${ic('stock')}</div><b>Belum ada postingan</b>${me.kind === 'member' ? 'Ketuk + lalu pilih stok yang mau diposting. Foto, harga & detail terisi otomatis.' : 'Ketuk + untuk memposting akun pertamamu.'}</div>`}`;
+    $$('.mk-mine small .mk-ic', el).forEach(s => { s.style.cssText = 'width:13px;height:13px;display:inline;vertical-align:-2px'; });
+  }
+
+  /* ---------- posting: member (pilih dari stok) ---------- */
+  function openPickStock() {
+    const all = H.stocks().filter(s => s.status !== 'sold');
+    if (!all.length) return toast('Belum ada stok ready. Tambah stok dulu di JB KU', 1);
+    const posted = new Map((S.mine || []).filter(x => x.stock_id).map(x => [String(x.stock_id), x]));
+    const sel = new Set(); let q = '';
+    const pg = page(`<header class="mk-ph2 g"><button class="mk-ib" data-p="back" aria-label="Kembali">${ic('back')}</button><div class="mk-pt"><div><b>Posting dari stok</b><small id="mkPc">Pilih stok yang mau diposting</small></div></div><button class="mk-ib" data-k="find" aria-label="Cari">${ic('search')}</button></header>
+<div class="mk-search" id="mkPs" hidden style="margin:10px 16px 4px">${ic('search')}<input placeholder="Cari game, kode, harga…" aria-label="Cari stok"></div>
+<div class="mk-sel" id="mkSel"></div><div class="mk-selbar"><span id="mkSc">${all.length} stok ready</span><span style="flex:1"></span><button data-k="all">Pilih semua</button></div>
+<div class="mk-pb" id="mkPl"></div>
+<div class="mk-pf"><div class="mk-cmp"><div class="mk-inp"><textarea rows="1" id="mkCap" placeholder="Tambah keterangan (opsional)…" maxlength="1500"></textarea></div><button class="mk-send" id="mkSend" disabled aria-label="Kirim">${SEND}<i hidden>0</i></button></div></div>`);
+    const L = $('#mkPl', pg.el), thumb = s => (s.images && s.images[0]) || '';
+    const paint = () => {
+      const f = all.filter(s => !q || [s.game, s.code, s.price, s.bind, s.desc].join(' ').toLowerCase().includes(q));
+      L.innerHTML = f.length ? f.map(s => { const ps = posted.get(String(s.id)); return `<button class="mk-pick ${sel.has(s.id) ? 'on' : ''}" data-sid="${E(s.id)}"><span class="mk-th">${thumb(s) ? `<img src="${E(thumb(s))}" alt="" loading="lazy">` : ''}<span class="mk-ck">${ic('check')}</span></span><div class="mk-rb"><b>${E(s.game || 'Akun')}${s.code ? ' #' + E(s.code) : ''}</b><small>${rp(s.price)} · ${E(s.bind || '-')} · ${(s.images || []).length} foto</small></div>${ps ? `<span class="mk-done">Sudah diposting<br>${E(ago(ps.bumped_at))}</span>` : ''}</button>`; }).join('') : `<div class="mk-empty">Tidak ada stok cocok</div>`;
+    };
+    const paintSel = () => {
+      $('#mkSel', pg.el).innerHTML = [...sel].map(id => { const s = all.find(x => x.id === id); return s ? `<button data-un="${E(id)}"><span>${thumb(s) ? `<img src="${E(thumb(s))}" alt="">` : ''}<i>×</i></span><em>${E(s.code || s.game)}</em></button>` : ''; }).join('');
+      const n = sel.size, b = $('#mkSend', pg.el); b.disabled = !n; const i = $('i', b); i.hidden = !n; i.textContent = n;
+      $('#mkPc', pg.el).textContent = n ? `${n} dipilih` : 'Pilih stok yang mau diposting';
+      $('[data-k="all"]', pg.el).textContent = n === all.length ? 'Batal pilih' : 'Pilih semua';
+    };
+    const tog = id => { const s = all.find(x => String(x.id) === String(id)); if (!s) return; sel.has(s.id) ? sel.delete(s.id) : sel.add(s.id); buzz(8); const b = L.querySelector(`[data-sid="${CSS.escape(String(s.id))}"]`); b && b.classList.toggle('on', sel.has(s.id)); paintSel(); };
+    paint(); paintSel();
+    pg.el.addEventListener('click', e => {
+      const p = e.target.closest('[data-sid]'); if (p) return tog(p.dataset.sid);
+      const u = e.target.closest('[data-un]'); if (u) return tog(u.dataset.un);
+      const k = e.target.closest('[data-k]'); if (k && k.dataset.k === 'all') { if (sel.size === all.length) sel.clear(); else all.forEach(s => sel.add(s.id)); paint(); paintSel(); }
+      if (k && k.dataset.k === 'find') { const s = $('#mkPs', pg.el); s.hidden = !s.hidden; if (!s.hidden) $('input', s).focus(); }
+      if (e.target.closest('#mkSend')) { const items = all.filter(s => sel.has(s.id)), cap = $('#mkCap', pg.el).value.trim(); H.goBack(pg); sendStocks(items, cap); }
+    });
+    $('#mkPs input', pg.el).addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); paint(); });
+    const ta = $('#mkCap', pg.el); ta.addEventListener('input', () => { ta.style.height = 'auto'; ta.style.height = Math.min(110, ta.scrollHeight) + 'px'; });
+  }
+  const sigOf = s => (s.images || []).slice(0, 10).map(x => String(x).length + String(x).slice(-20)).join('|');
+  function rowFromStock(s, cap) {
+    return { owner_id: me.id, owner_kind: 'member', store: me.name, avatar: me.avatar || '', stock_id: String(s.id), game: s.game || '', code: s.code || '', price: +s.price || 0, status: 'ready', type: s.type || '', bind: s.bind || '', warranty: s.warranty || '', specs: H.specs(s), caption: [cap, s.desc].filter(Boolean).join('\n\n'), wa: me.wa || '' };
+  }
+  async function sendStocks(items, cap) {
+    if (!items.length) return;
+    switchTab('pasar'); S.q = ''; S.game = ''; const si = $('#mkQ'); if (si) si.value = ''; paintChips();
+    if (S.mine == null) await loadMine();
+    const posted = new Map((S.mine || []).filter(x => x.stock_id).map(x => [String(x.stock_id), x]));
+    const now = () => new Date().toISOString();
+    const jobs = items.map(s => { const row = rowFromStock(s, cap), t = { ...row, id: 'tmp' + uuid(), images: (s.images || []).slice(0, 10).map(u => ({ t: u, u })), views: 0, created_at: now(), bumped_at: now(), _tmp: 1, _prog: { p: 0, t: 'Menunggu…' } }; return { s, row, t }; });
+    S.tmp = jobs.map(j => j.t).reverse().concat(S.tmp); paintFeed(); const v = $('[data-view="pasar"]'); if (v) v.scrollTop = 0;
+    let ok = 0, fail = 0;
+    for (const j of jobs) {
+      const prog = (p, t) => { j.t._prog = { p, t }; const el = $(`.mk-bw[data-id="${j.t.id}"] .mk-prog`); if (el) { $('.mk-ring', el).style.setProperty('--p', p); $('small', el).textContent = t; } };
+      try {
+        const ex = posted.get(String(j.s.id)), sig = sigOf(j.s), src = (j.s.images || []).slice(0, 10);
+        let images = ex && ex.sig === sig ? ex.images : null;
+        if (!images) { images = []; const base = `${me.id}/${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`; for (let i = 0; i < src.length; i++) { prog(Math.round(i / Math.max(1, src.length) * 92), `Mengirim foto ${i + 1}/${src.length}`); images.push(await upImage(src[i], base, i)); } }
+        prog(96, 'Menyimpan…');
+        const body = { ...j.row, images, sig, bumped_at: now(), updated_at: now() };
+        let saved;
+        if (ex) { saved = (await rest('mk_posts?id=eq.' + ex.id, { method: 'PATCH', headers: { Prefer: 'return=representation' }, body }))[0]; if (ex.sig !== sig) delImages(ex); }
+        else saved = (await rest('mk_posts', { method: 'POST', headers: { Prefer: 'return=representation' }, body }))[0];
+        S.tmp = S.tmp.filter(x => x !== j.t); if (saved) { S.posts = [saved].concat(S.posts.filter(x => x.id !== saved.id)); S.seenTop = saved.bumped_at; posted.set(String(j.s.id), saved); }
+        ok++; paintFeed();
+      } catch (e) { fail++; S.tmp = S.tmp.filter(x => x !== j.t); paintFeed(); toast(`Gagal kirim ${j.s.code || j.s.game}: ${errMsg(e)}`, 1); }
+    }
+    if (ok) { toast(ok === 1 ? 'Postingan terkirim ✓' : `${ok} postingan terkirim ✓`); buzz(20); beep('send'); }
+    S.stores = null; loadMine(); loadGames();
+  }
+
+  /* ---------- sinkron stok → postingan (harga/status/dihapus) ---------- */
+  async function reconcile() {
+    if (!me || me.kind !== 'member' || !H.allStocks) return;
+    if (S.mine == null) await loadMine();
+    const st = new Map(H.allStocks().map(s => [String(s.id), s])), now = new Date().toISOString();
+    for (const p of (S.mine || []).filter(x => x.stock_id)) {
+      const s = st.get(String(p.stock_id));
+      try {
+        if (!s || s.deleted) { await rest('mk_posts?id=eq.' + p.id, { method: 'DELETE' }); delImages(p); S.mine = S.mine.filter(x => x !== p); continue; }
+        const want = { status: s.status === 'sold' ? 'sold' : 'ready', price: +(s.status === 'sold' ? (s.soldPrice || s.price) : s.price) || 0, game: s.game || '', code: s.code || '', bind: s.bind || '' };
+        const diff = Object.keys(want).filter(k => String(p[k] ?? '') !== String(want[k]));
+        if (diff.length) { await rest('mk_posts?id=eq.' + p.id, { method: 'PATCH', body: { ...want, updated_at: now } }); Object.assign(p, want); }
+      } catch (e) { }
+    }
+    paintMine();
+  }
+  MK.reconcile = () => reconcile().catch(() => { });
+
+  /* ---------- posting: guest (isi manual + banyak foto) ---------- */
+  const GAMES = ['Free Fire', 'Mobile Legends', 'PUBG Mobile', 'Genshin Impact', 'Honkai Star Rail', 'Roblox', 'Clash of Clans', 'Valorant', 'Call of Duty Mobile', 'eFootball', 'Honor of Kings', 'Stumble Guys', 'Minecraft', 'Lainnya'];
+  function openGuestPost() {
+    const files = [];
+    const pg = page(pageHead('Posting akun', 'Isi detail & pilih foto') + `<div class="mk-pb"><div class="mk-sec">Foto akun (maks 10)</div><div class="mk-ug" id="mkUg"></div>
+<label class="mk-fld"><span>Game</span><input id="gG" list="mkGl" placeholder="mis. Free Fire" maxlength="40"><datalist id="mkGl">${GAMES.map(g => `<option value="${E(g)}">`).join('')}</datalist></label>
+<div class="mk-two"><label class="mk-fld"><span>Kode / judul</span><input id="gC" placeholder="FF-012" maxlength="24"></label><label class="mk-fld"><span>Harga (Rp)</span><input id="gP" inputmode="numeric" placeholder="150.000"></label></div>
+<div class="mk-two"><label class="mk-fld"><span>Bind</span><select id="gB"><option>Bind Kosong</option><option>Bind FB</option><option>Bind Google</option><option>Bind VK</option><option>Bind Moonton</option><option>Bind Email</option><option>Bind X/Twitter</option><option>Bind Lainnya</option></select></label><label class="mk-fld"><span>Tipe</span><select id="gT"><option>Jual</option><option>Jual Cepat</option><option>Tukar Tambah</option></select></label></div>
+<label class="mk-fld"><span>Deskripsi</span><textarea id="gD" maxlength="1500" placeholder="Level, skin, rank, item langka, garansi…"></textarea></label>
+<label class="mk-fld"><span>No. WhatsApp (opsional)</span><input id="gW" inputmode="tel" placeholder="08xxxxxxxxxx" maxlength="16" value="${E(LS.get('mk_gwa', ''))}"></label><p class="mk-hint">Nomor hanya dipakai tombol "Chat Penjual" sampai fitur chat Market aktif.</p></div>
+<div class="mk-pf"><button class="mk-btn blk mk-rp" id="gSend">${SEND.replace('<svg', '<svg style="width:20px;height:20px;fill:currentColor"')}Kirim postingan</button></div>`);
+    const ug = $('#mkUg', pg.el);
+    const paint = () => { ug.innerHTML = files.map((f, i) => `<div><img src="${f.url}" alt=""><button class="mk-ux" data-rm="${i}" aria-label="Hapus foto">${ic('x')}</button></div>`).join('') + (files.length < 10 ? `<button class="mk-ua" data-k="add"><div>${ic('img')}Tambah foto</div></button>` : ''); };
+    paint();
+    const pick = () => { const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*'; i.multiple = true; i.onchange = () => { [...i.files].slice(0, 10 - files.length).forEach(f => files.push({ f, url: URL.createObjectURL(f) })); paint(); }; i.click(); };
+    const pr = $('#gP', pg.el); pr.addEventListener('input', () => { const n = num(pr.value); pr.value = n ? n.toLocaleString('id-ID') : ''; });
+    pg.onClose = () => files.forEach(f => URL.revokeObjectURL(f.url));
+    pg.el.addEventListener('click', async e => {
+      if (e.target.closest('[data-k="add"]')) return pick();
+      const rm = e.target.closest('[data-rm]'); if (rm) { const f = files.splice(+rm.dataset.rm, 1)[0]; f && URL.revokeObjectURL(f.url); return paint(); }
+      if (!e.target.closest('#gSend')) return;
+      const g = $('#gG', pg.el).value.trim(), price = num(pr.value), wa = $('#gW', pg.el).value.replace(/[^\d+]/g, '');
+      if (!files.length) return toast('Tambahkan minimal 1 foto', 1);
+      if (!g) return toast('Isi nama game', 1);
+      if (!price) return toast('Isi harga', 1);
+      LS.set('mk_gwa', wa);
+      const row = { owner_id: me.id, owner_kind: 'guest', store: me.name, avatar: me.avatar || '', game: g, code: $('#gC', pg.el).value.trim(), price, status: 'ready', type: $('#gT', pg.el).value, bind: $('#gB', pg.el).value, warranty: '', specs: [], caption: $('#gD', pg.el).value.trim(), wa };
+      const srcs = files.map(f => f.f), urls = files.map(f => f.url); files.length = 0; pg.onClose = () => setTimeout(() => urls.forEach(u => URL.revokeObjectURL(u)), 60000);
+      H.goBack(pg); sendGuest(row, srcs, urls);
+    });
+  }
+  async function sendGuest(row, srcs, urls) {
+    switchTab('pasar'); S.q = ''; S.game = ''; const si = $('#mkQ'); if (si) si.value = '';
+    const now = () => new Date().toISOString();
+    const t = { ...row, id: 'tmp' + uuid(), images: urls.map(u => ({ t: u, u })), views: 0, created_at: now(), bumped_at: now(), _tmp: 1, _prog: { p: 0, t: 'Menyiapkan…' } };
+    S.tmp.unshift(t); paintFeed(); const v = $('[data-view="pasar"]'); if (v) v.scrollTop = 0;
+    const prog = (p, x) => { t._prog = { p, t: x }; const el = $(`.mk-bw[data-id="${t.id}"] .mk-prog`); if (el) { $('.mk-ring', el).style.setProperty('--p', p); $('small', el).textContent = x; } };
+    try {
+      const images = [], base = `${me.id}/${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+      for (let i = 0; i < srcs.length; i++) { prog(Math.round(i / srcs.length * 92), `Mengirim foto ${i + 1}/${srcs.length}`); images.push(await upImage(srcs[i], base, i)); }
+      prog(96, 'Menyimpan…');
+      const saved = (await rest('mk_posts', { method: 'POST', headers: { Prefer: 'return=representation' }, body: { ...row, images, bumped_at: now(), updated_at: now() } }))[0];
+      S.tmp = S.tmp.filter(x => x !== t); if (saved) { S.posts.unshift(saved); S.seenTop = saved.bumped_at; }
+      paintFeed(); toast('Postingan terkirim ✓'); buzz(20); S.stores = null; loadMine(); loadGames();
+    } catch (e) { S.tmp = S.tmp.filter(x => x !== t); paintFeed(); toast('Gagal kirim: ' + errMsg(e), 1); }
+  }
+
+  /* ---------- admin: data guest ---------- */
+  async function openGuests() {
+    if (!isAdmin()) return;
+    const pg = page(pageHead('Data Guest', 'Login & aktivitas akun guest', `<button class="mk-ib" data-k="rf" aria-label="Muat ulang">${ic('refresh')}</button>`) + `<div class="mk-search" style="margin:10px 16px 0">${ic('search')}<input id="gq" placeholder="Cari @namastore" aria-label="Cari guest"></div><div class="mk-pb" id="gL"><div class="mk-loadm"><i class="mk-spin"></i></div></div>`);
+    let rows = [], cnt = {}, q = '';
+    const paint = () => {
+      const day = Date.now() - 864e5, on = Date.now() - 9e4;
+      const f = rows.filter(r => !q || r.handle.includes(q));
+      $('#gL', pg.el).innerHTML = `<div class="mk-kpi"><div><b>${rows.length}</b><span>Total guest</span></div><div><b>${rows.filter(r => D(r.last_login) > day).length}</b><span>Login 24 jam</span></div><div><b>${rows.reduce((a, r) => a + (r.login_count || 0), 0)}</b><span>Total login</span></div></div>`
+        + (f.length ? f.map(r => `<div class="mk-gr">${avHtml('@' + r.handle, r.avatar)}<div class="mk-rb"><b>${D(r.last_seen || 0) > on ? '<i class="mk-on"></i>' : ''}@${E(r.name || r.handle)}</b><small>Terakhir masuk ${E(tgl(r.last_login))} ${jam(r.last_login)}</small><small>Terakhir aktif ${r.last_seen ? E(ago(r.last_seen)) : '-'} · ${cnt['g_' + r.id] || 0} postingan · gabung ${E(tgl(r.created_at))}</small></div><div class="mk-lc"><b>${r.login_count || 0}×</b>login</div></div>`).join('') : '<div class="mk-empty">Belum ada guest</div>');
+    };
+    const load = async () => {
+      try { rows = await rest('mk_guests?select=*&order=last_login.desc&limit=1000'); const ps = await rest('mk_posts?select=owner_id&owner_kind=eq.guest&limit=5000'); cnt = {}; ps.forEach(p => cnt[p.owner_id] = (cnt[p.owner_id] || 0) + 1); paint(); }
+      catch (e) { $('#gL', pg.el).innerHTML = `<div class="mk-empty"><b>Gagal memuat</b>${E(errMsg(e))}</div>`; }
+    };
+    pg.el.addEventListener('click', e => { if (e.target.closest('[data-k="rf"]')) load(); });
+    $('#gq', pg.el).addEventListener('input', e => { q = e.target.value.trim().toLowerCase().replace(/^@/, ''); paint(); });
+    load();
+  }
+
+  /* ---------- menu ⋮ ---------- */
+  function menuAct(k) {
+    if (k === 'post') return startPost();
+    if (k === 'link') { copy(H.link()); return toast('Link website disalin'); }
+    if (k === 'theme') { const t = root.dataset.th === 'dark' ? 'light' : 'dark'; LS.set('mk_th', t); applyTheme(); return; }
+    if (k === 'guests') return openGuests();
+    if (k === 'adminhub') return openAdminHub();
+    if (k === 'notif') { try { Notification.requestPermission().then(p => toast(p === 'granted' ? 'Notifikasi HP aktif ✓' : 'Izin notifikasi ditolak', p !== 'granted')); } catch (e) { toast('HP tidak mendukung notifikasi', 1); } return; }
+    if (k === 'close') return H.close && H.close();
+    if (k === 'logout') return H.logout && H.logout();
+    if (k === 'refresh') { refreshAll(); loadGames(); return toast('Dimuat ulang'); }
+  }
+  function applyTheme() { const t = LS.get('mk_th', ''); const dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; root.dataset.th = dark ? 'dark' : 'light'; H.themeColor && H.themeColor(dark ? '#0B141A' : '#ffffff'); }
+  async function startPost() { if (!me) return; if (me.kind === 'member') { if (S.mine == null) { toast('Memuat stok…'); await loadMine(); } openPickStock(); } else openGuestPost(); }
+
+  /* ---------- tabs ---------- */
+  function switchTab(t) {
+    if (t === 'admin') return openAdminHub();
+    S.tab = t; $$('.mk-view').forEach(v => v.classList.toggle('on', v.dataset.view === t)); $$('.mk-nav [data-tab]').forEach(b => { b.classList.toggle('on', b.dataset.tab === t); b.setAttribute('aria-selected', b.dataset.tab === t); });
+    $('.mk-fab').classList.toggle('off', t === 'toko' || t === 'chat');
+    if (t === 'chat') { paintInbox(); if (me) loadInbox(true); }
+    if (t === 'toko' && !S.stores) loadStores();
+    if (t === 'saya' && (S.mine == null || !S._mineFresh)) { S._mineFresh = 1; loadMine(); }
+  }
+
+  /* ---------- kerangka utama ---------- */
+  function shell() {
+    root.innerHTML = `<header class="mk-top">${H.mode === 'apk' ? `<button class="mk-ib mk-back" data-t="close" aria-label="Kembali ke JB KU">${ic('back')}</button>` : ''}<div class="mk-brand">${LOGO()}<b>JB KU Market</b></div><button class="mk-ib" data-t="find" aria-label="Cari">${ic('search')}</button><button class="mk-ib" data-t="menu" aria-label="Menu lainnya">${ic('more')}</button></header>
+<main class="mk-main">
+${chatView()}
+<section class="mk-view on" data-view="pasar"><div class="mk-search">${ic('search')}<input id="mkQ" type="search" placeholder="Cari akun, game, kode, toko…" aria-label="Cari" autocomplete="off"><button class="mk-x" id="mkQx" hidden aria-label="Hapus pencarian">${ic('x')}</button></div><div class="mk-chips" id="mkChips"><button class="mk-chip on" data-g="">Semua</button></div><div class="mk-live" id="mkLive"><i class="mk-dot"></i><span>Menghubungkan…</span></div><div class="mk-wall" style="--doodle:${DOODLE}"><div class="mk-feed" id="mkFeed"></div></div></section>
+<section class="mk-view" data-view="toko"><div class="mk-search" style="margin-top:4px">${ic('search')}<input id="mkQs" type="search" placeholder="Cari toko…" aria-label="Cari toko" autocomplete="off"></div><div id="mkStores"></div></section>
+<section class="mk-view" data-view="saya"><div id="mkMine"></div></section>
+<button class="mk-fab" data-t="post" aria-label="Posting akun">${me && me.kind === 'member' ? ic('stock') : ic('plus')}</button>
+</main>
+<nav class="mk-nav" role="tablist"><button data-tab="chat" role="tab"><span class="mk-ni">${ic('chat')}<i class="mk-nb" hidden>0</i></span>Chat</button><button data-tab="pasar" class="on" role="tab" aria-selected="true"><span class="mk-ni">${ic('feed')}</span>Pasar</button><button data-tab="toko" role="tab"><span class="mk-ni">${ic('store')}</span>Toko</button><button data-tab="saya" role="tab"><span class="mk-ni">${ic('user')}</span>Saya</button></nav>
+<div class="mk-toast" role="status" aria-live="polite"></div>`;
+    root.style.setProperty('--doodle', DOODLE);
+    const q = $('#mkQ'); let qt = 0;
+    q.addEventListener('input', () => { $('#mkQx').hidden = !q.value; clearTimeout(qt); qt = setTimeout(() => { S.q = q.value; loadFeed(true); }, 350); });
+    $('#mkQs').addEventListener('input', e => { S.q = e.target.value; paintStores(); });
+  }
+  function onRootClick(e) {
+    const q = $('#mkQ'); if (!q) return;
+    if (!e.target.closest('.mk-page') && chatRootClick(e)) return;
+      const t = e.target.closest('[data-t]');
+      if (t && !t.closest('.mk-page')) { const k = t.dataset.t;
+        if (k === 'close') return H.close && H.close();
+        if (k === 'find') { if (S.tab === 'toko') $('#mkQs').focus(); else { switchTab('pasar'); q.focus(); } return; }
+        if (k === 'post') return startPost();
+        if (k === 'menu') return popMenu([['post', me && me.kind === 'member' ? 'Posting dari stok' : 'Posting akun', 'plus'], ['refresh', 'Muat ulang', 'refresh'], window.Notification && Notification.permission !== 'granted' && ['notif', 'Aktifkan notifikasi HP', 'bell'], ['link', 'Salin link website', 'link'], ['theme', root.dataset.th === 'dark' ? 'Tema terang' : 'Tema gelap', root.dataset.th === 'dark' ? 'sun' : 'moon'], showAdminTab() && ['adminhub', 'Panel admin', 'shield'], H.mode === 'apk' ? ['close', 'Kembali ke JB KU', 'out'] : ['logout', 'Keluar', 'out']]);
+      }
+      const tb = e.target.closest('.mk-nav [data-tab]'); if (tb) { buzz(6); return switchTab(tb.dataset.tab); }
+      if (e.target.closest('#mkQx')) { q.value = ''; $('#mkQx').hidden = true; S.q = ''; loadFeed(true); return; }
+      const ch = e.target.closest('#mkChips [data-g]'); if (ch) { S.game = ch.dataset.g; paintChips(); loadFeed(true); ch.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' }); return; }
+      const st = e.target.closest('[data-store]'); if (st) return openStore(st.dataset.store);
+      if (e.target.closest('[data-view="pasar"] .mk-feed')) return feedClick(e, $('[data-view="pasar"]'));
+      const mi = e.target.closest('#mkMine'); if (mi) {
+        const a = e.target.closest('[data-a]'); if (!a) return; const row = a.closest('[data-id]'); const p = row && findPost(row.dataset.id);
+        if (a.dataset.a === 'copyLink') { copy(H.link()); return toast('Link website disalin'); }
+        if (a.dataset.a === 'shareLink') { const d = { title: 'JB KU Market', text: 'Cari & jual akun game di JB KU Market', url: H.link() }; if (navigator.share) navigator.share(d).catch(() => { }); else { copy(H.link()); toast('Link website disalin'); } return; }
+        if (p && a.dataset.a === 'detail') return openDetail(p.id);
+        if (p && a.dataset.a === 'kebab') return postMenu(p);
+      }
+    }
+
+  /* =====================================================================
+     FASE 2 — CHAT PRIBADI (realtime, status mengetik/kirim foto/berpikir/melihat, foto & video)
+     FASE 3 — OP, admin rekber terverifikasi, grup 3 orang, pesan resmi admin
+     ===================================================================== */
+  Object.assign(P, {
+    clip: '<path d="M20.5 11.5 12 20a5.5 5.5 0 0 1-7.8-7.8l8.5-8.5a3.7 3.7 0 0 1 5.2 5.2l-8.5 8.5a1.8 1.8 0 0 1-2.6-2.6L14.6 7"/>',
+    cam: '<path d="M4 8h3l1.6-2.5h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/>',
+    video: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10.5 5-3v9l-5-3z"/>',
+    deal: '<path d="M3 10.5 7 6.5l3 1.5 2.5-1.5L17 6.5l4 4-6.5 6.5a1.6 1.6 0 0 1-2.3 0L10 14.8"/><path d="M3 10.5 9.5 17a1.6 1.6 0 0 0 2.3 0M8.5 12.5 11 15"/>',
+    lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+    group: '<circle cx="9" cy="9" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="8" r="2.6"/><path d="M15.5 13.3A4.6 4.6 0 0 1 21 17.8"/>',
+    down: '<path d="M12 5v14m-6-6 6 6 6-6"/>', qris: '<rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><path d="M13.5 13.5h3v3h-3zM18 18h2.5v2.5M20.5 13.5V16"/>',
+    money: '<rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 9.5v5M18 9.5v5"/>', cog: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/>'
+  });
+  let actx = null;
+  function beep(n) {
+    try { if (LS.get('mk_mute', false)) return; const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; actx = actx || new AC(); if (actx.state === 'suspended') actx.resume();
+      const t0 = actx.currentTime, tone = (f, to, at, d, v) => { const o = actx.createOscillator(), g = actx.createGain(); o.type = 'sine'; o.frequency.setValueAtTime(f, t0 + at); o.frequency.exponentialRampToValueAtTime(to, t0 + at + d); g.gain.setValueAtTime(.0001, t0 + at); g.gain.exponentialRampToValueAtTime(v, t0 + at + .012); g.gain.exponentialRampToValueAtTime(.0001, t0 + at + d); o.connect(g); g.connect(actx.destination); o.start(t0 + at); o.stop(t0 + at + d + .02); };
+      if (n === 'send') tone(620, 1100, 0, .09, .08); else if (n === 'in') { tone(880, 880, 0, .08, .06); tone(1320, 1320, .08, .12, .05); } else { tone(740, 740, 0, .1, .08); tone(990, 990, .11, .1, .07); tone(1480, 1480, .22, .16, .06); }
+    } catch (e) { }
+  }
+  const ROLES = { Developer: '#7b4fd6', Owner: '#d39a00', 'Admin utama': '#e5383b', Partner: '#00897b', Terpercaya: '#1e88e5' };
+  const ROLE_LIST = ['Developer', 'Owner', 'Admin utama', 'Partner', 'Terpercaya'];
+  const VTICK = '<svg class="mk-vt" viewBox="0 0 24 24" aria-label="Terverifikasi"><path d="M12 1.8l2.6 1.9 3.2-.2 1 3.1 2.6 1.9-1 3.1 1 3.1-2.6 1.9-1 3.1-3.2-.2L12 22.2l-2.6-1.9-3.2.2-1-3.1-2.6-1.9 1-3.1-1-3.1 2.6-1.9 1-3.1 3.2.2z" fill="#1D9BF0"/><path d="m8 12.2 2.7 2.7 5.5-5.5" stroke="#fff" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const roleBadge = r => r ? `<span class="mk-role" style="--rc:${ROLES[r] || '#1e88e5'}">${E(r)}</span>` : '';
+  const ST = { type: 'sedang mengetik', photo: 'sedang mengirim foto', video: 'sedang mengirim video', think: 'sedang berpikir', view: 'sedang melihat chat' };
+  const CH = MK.CH = { inbox: [], admins: null, fee: null, sb: null, rtOk: false, cur: null, seen: {}, unread: 0, filter: 'all', states: {} };
+  const adminOf = id => (CH.admins || []).find(a => a.owner_id === id);
+  const myAdmin = () => me && adminOf(me.id);
+  const canManage = () => isAdmin();
+  const showAdminTab = () => isAdmin() || !!myAdmin();
+
+  /* ---------- realtime (supabase-js) + cadangan polling ---------- */
+  function rtClient() {
+    if (CH.sbP) return CH.sbP;
+    CH.sbP = new Promise(res => {
+      if (window.supabase && window.supabase.createClient) return res();
+      const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js'; s.async = true; s.onload = res; s.onerror = res; document.head.append(s); setTimeout(res, 9000);
+    }).then(() => { try { if (window.supabase && window.supabase.createClient) CH.sb = window.supabase.createClient(C.url, C.key, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }, realtime: { params: { eventsPerSecond: 20 } } }); } catch (e) { CH.sb = null; } return CH.sb; });
+    return CH.sbP;
+  }
+  async function startRealtime() {
+    const sb = await rtClient(); if (!sb || !me || CH.inboxCh) return;
+    const my = me.id;
+    CH.inboxCh = sb.channel('mk-inbox-' + my.slice(-12) + '-' + Math.random().toString(36).slice(2, 7))
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'mk_msgs' }, ev => { if (me && me.id === my) onRemoteMsg(ev.new); })
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'mk_members' }, ev => { if (me && me.id === my) onMemberUpd(ev.new); })
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'mk_chats' }, ev => { const c = ev.new; const r = CH.inbox.find(x => x.id === c.id); if (r) { Object.assign(r, c); if (CH.cur && CH.cur.c.id === c.id) { Object.assign(CH.cur.c, c); paintChatHead(); paintAdminBar(); } } })
+      .subscribe(st => { CH.rtOk = st === 'SUBSCRIBED'; if (st === 'SUBSCRIBED') loadInbox(true); });
+  }
+  function stopRealtime() { try { if (CH.inboxCh && CH.sb) CH.sb.removeChannel(CH.inboxCh); } catch (e) { } CH.inboxCh = null; CH.rtOk = false; }
+
+  /* ---------- inbox ---------- */
+  let inboxT = 0;
+  async function loadInbox(quiet) {
+    clearTimeout(inboxT); if (!me) return;
+    try {
+      const r = await rpc('mk_inbox', { p_user: me.id }); const before = CH.inbox; CH.inbox = r || []; CH.err = '';
+      if (quiet && before.length) CH.inbox.forEach(c => { const o = before.find(x => x.id === c.id); if (c.unread > ((o && o.unread) || 0) && c.last_by !== me.id && !(CH.cur && CH.cur.c.id === c.id) && !(!o && c.deal && c.deal.by === me.id)) headsUp(c); });
+    } catch (e) { CH.err = errMsg(e); }
+    paintInbox(); paintBadge();
+    inboxT = setTimeout(() => loadInbox(true), CH.rtOk ? 45000 : 7000);
+  }
+  function paintBadge() {
+    const n = CH.inbox.reduce((a, c) => a + (+c.unread || 0), 0); CH.unread = n;
+    const b = $('.mk-nav [data-tab="chat"] .mk-nb'); if (b) { b.hidden = !n; b.textContent = n > 99 ? '99+' : n; }
+    H.badge && H.badge(n);
+  }
+  const otherOf = c => (c.members || []).find(m => m.id !== (me && me.id)) || {};
+  const chatName = c => c.kind === 'group' ? (c.title || 'Grup rekber') : (otherOf(c).name || 'Chat');
+  const chatAv = (c, cls = 'mk-av') => c.kind === 'group' ? `<span class="${cls} mk-gav">${ic('shield')}</span>` : avHtml(otherOf(c).name, otherOf(c).avatar, cls);
+  const prevTxt = c => { const k = c.last_kind; const t = k === 'image' ? `${ic('cam')}${E(c.last_msg || 'Foto')}` : k === 'video' ? `${ic('video')}${E(c.last_msg || 'Video')}` : k === 'op' ? `${ic('deal')}${E(c.last_msg)}` : k === 'admin' ? `${VTICK}<b class="mk-adm-pv">Admin:</b> ${E((c.last_msg || '').split('\n')[0])}` : E(c.last_msg || (c.kind === 'group' ? 'Grup rekber dibuat' : 'Mulai chat')); return t; };
+  function paintInbox() {
+    const el = $('#mkInbox'); if (!el) return;
+    const q = (CH.q || '').toLowerCase();
+    let L = CH.inbox.filter(c => !q || chatName(c).toLowerCase().includes(q) || String(c.last_msg || '').toLowerCase().includes(q));
+    if (CH.filter === 'unread') L = L.filter(c => +c.unread > 0); if (CH.filter === 'group') L = L.filter(c => c.kind === 'group');
+    const chips = $('#mkCChips'); if (chips) { const ng = CH.inbox.filter(c => c.kind === 'group').length, nu = CH.inbox.filter(c => +c.unread > 0).length; chips.innerHTML = [['all', 'Semua'], ['unread', 'Belum dibaca' + (nu ? ` <i>${nu}</i>` : '')], ['group', 'Rekber' + (ng ? ` <i>${ng}</i>` : '')]].map(([k, l]) => `<button class="mk-chip ${CH.filter === k ? 'on' : ''}" data-cf="${k}">${l}</button>`).join(''); }
+    if (!me) { el.innerHTML = `<div class="mk-empty"><div class="mk-ei">${ic('chat')}</div><b>Masuk dulu</b>Masuk sebagai guest untuk mulai chat.</div>`; return; }
+    if (!L.length) { el.innerHTML = CH.err ? `<div class="mk-empty"><div class="mk-ei">${ic('info')}</div><b>Gagal memuat chat</b>${E(CH.err)}</div>` : `<div class="mk-empty"><div class="mk-ei">${ic('chat')}</div><b>${CH.filter === 'all' && !q ? 'Belum ada chat' : 'Tidak ada chat'}</b>${CH.filter === 'all' && !q ? 'Buka postingan akun lalu ketuk "Chat Penjual" untuk mulai ngobrol.' : ''}</div>`; return; }
+    el.innerHTML = L.map(c => { const u = +c.unread || 0, st = liveState(c), mine = c.last_by === me.id, o = otherOf(c), adm = c.kind === 'dm' && adminOf(o.id);
+      return `<button class="mk-row" data-chat="${E(c.id)}">${chatAv(c)}<div class="mk-rb"><div class="mk-rt"><b>${E(chatName(c))}${adm ? VTICK : ''}</b><time class="${u ? 'g' : ''}">${E(rowTime(c.last_at))}</time></div><div class="mk-rs"><span class="${st ? 'mk-typ' : ''}">${st ? E(st) + '…' : (mine && c.last_kind !== 'sys' ? tickFor(c, c.last_at) : '') + prevTxt(c)}</span>${c.kind === 'group' ? `<span class="mk-pin">${ic('lock')}</span>` : ''}${u ? `<b class="mk-badge">${u > 99 ? '99+' : u}</b>` : ''}</div></div></button>`; }).join('');
+  }
+  const liveState = c => { const s = CH.states[c.id]; if (!s) return ''; const k = Object.keys(s).find(u => u !== me.id && Date.now() - s[u].t < 6500 && s[u].s && s[u].s !== 'view'); if (!k) return ''; const n = (c.members || []).find(m => m.id === k); return (c.kind === 'group' && n ? n.name.split(' ')[0] + ' ' : '') + ST[s[k].s]; };
+  function tickFor(c, at) { const others = (c.members || []).filter(m => m.id !== me.id); const read = others.length && others.every(m => m.read_at && D(m.read_at) >= D(at)); return `<span class="mk-tk ${read ? 'rd' : 'sn'}"><svg viewBox="0 0 18 12">${read ? '<path d="M1 6.5 4.2 9.6 10.6 2.4M7.4 9.6l.9.9L16.6 2.4"/>' : '<path d="M3 6.5 6.2 9.6 12.6 2.4"/>'}</svg></span>`; }
+
+  /* ---------- notifikasi dalam aplikasi ---------- */
+  let huT = 0;
+  function headsUp(c) {
+    let h = $('.mk-hu'); if (!h) { h = document.createElement('button'); h.className = 'mk-hu'; root.append(h); h.addEventListener('click', () => { h.classList.remove('on'); openChat(h.dataset.id); }); }
+    h.dataset.id = c.id; h.innerHTML = `${chatAv(c, 'mk-av')}<span><b>${E(chatName(c))}</b><small>${c.last_kind === 'admin' ? 'Pesan resmi admin' : E(String(c.last_msg || '').split('\n')[0])}</small></span>`;
+    void h.offsetWidth; h.classList.add('on'); buzz([18, 40, 18]); beep('msg');
+    clearTimeout(huT); huT = setTimeout(() => h.classList.remove('on'), 4200);
+    if (document.hidden && H.notify) H.notify(chatName(c), c.last_msg || 'Pesan baru');
+  }
+
+  /* ---------- buka / buat chat ---------- */
+  async function openDM(to, post) {
+    if (!me) return toast('Masuk dulu sebagai guest untuk chat', 1);
+    if (to.id === me.id) return toast('Ini toko kamu sendiri');
+    toast('Membuka chat…');
+    try {
+      const pi = post ? { id: post.id, game: post.game, code: post.code, price: post.price, store: post.store, img: post.images && post.images[0] ? (post.images[0].t || post.images[0].u) : '' } : {};
+      const c = await rpc('mk_dm', { p_me: me.id, p_me_name: me.name, p_me_av: me.avatar || '', p_to: to.id, p_to_name: to.name, p_to_av: to.avatar || '', p_post: post ? post.id : null, p_postinfo: pi });
+      $('.mk-toast').classList.remove('on');
+      openChat(c.id, { c, quote: post ? pi : null });
+    } catch (e) { toast(errMsg(e), 1); }
+  }
+  MK.openDM = openDM;
+
+  async function openChat(id, o = {}) {
+    if (CH.cur && CH.cur.c.id === id) return;
+    const cached = CH.inbox.find(x => x.id === id);
+    const v = { c: o.c || cached || { id, kind: 'dm', members: [] }, msgs: [], members: (cached && cached.members) || [], quote: o.quote || null, pend: new Map(), lastAt: '', st: {}, older: true };
+    const pg = page(`<header class="mk-ph2 mk-chd"><button class="mk-ib" data-p="back" aria-label="Kembali">${ic('back')}</button><button class="mk-pt" data-k="info"><span id="mkCav"></span><div><b id="mkCn"></b><small id="mkCs"></small></div></button><button class="mk-ib" data-k="more" aria-label="Opsi">${ic('more')}</button></header>
+<div class="mk-abar" id="mkAbar" hidden></div>
+<div class="mk-pb mk-cw" id="mkCw" style="--doodle:${DOODLE}"><div class="mk-cl" id="mkCl"><div class="mk-loadm"><i class="mk-spin"></i></div></div><div class="mk-tybox" id="mkTy"></div></div>
+<button class="mk-dn" id="mkDn" hidden aria-label="Ke pesan terbaru">${ic('down')}<i hidden></i></button>
+<div class="mk-qt" id="mkQt" hidden></div>
+<footer class="mk-cf"><button class="mk-op" data-k="op" aria-label="Buat OP" id="mkOpB"><b>OP</b></button><div class="mk-inp2"><textarea id="mkTx" rows="1" placeholder="Ketik pesan" aria-label="Ketik pesan" maxlength="3000"></textarea><button class="mk-ib sm" data-k="att" aria-label="Lampirkan">${ic('clip')}</button><button class="mk-ib sm" data-k="cam" aria-label="Kamera" id="mkCamB">${ic('cam')}</button></div><button class="mk-send" data-k="send" aria-label="Kirim" id="mkSd">${SEND}</button></footer>`, 'mk-chat');
+    v.pg = pg; CH.cur = v; pg.el.dataset.id = id;
+    const cw = $('#mkCw', pg.el), tx = $('#mkTx', pg.el);
+    pg.onClose = () => { setState(''); leaveChannel(v); clearTimeout(v.pollT); clearInterval(v.hb); if (CH.cur === v) CH.cur = null; loadInbox(true); };
+    paintChatHead(); paintQuote();
+    pg.el.addEventListener('click', e => chatClick(e, v));
+    cw.addEventListener('scroll', () => { const near = cw.scrollHeight - cw.scrollTop - cw.clientHeight < 120; v.atBottom = near; $('#mkDn', pg.el).hidden = near; if (near) { v.newBelow = 0; $('#mkDn i', pg.el).hidden = true; markRead(v); } if (cw.scrollTop < 80 && v.older && !v.loadingOld && v.msgs.length >= 50) loadOlder(v); }, { passive: true });
+    let tyT = 0, thT = 0;
+    tx.addEventListener('input', () => { tx.style.height = 'auto'; tx.style.height = Math.min(120, tx.scrollHeight) + 'px'; setState(tx.value.trim() ? 'type' : 'think'); clearTimeout(tyT); clearTimeout(thT); tyT = setTimeout(() => setState('think'), 2600); thT = setTimeout(() => setState('view'), 9000); });
+    tx.addEventListener('focus', () => { if (!tx.value) setState('think'); clearTimeout(thT); thT = setTimeout(() => setState('view'), 9000); });
+    tx.addEventListener('blur', () => { clearTimeout(tyT); setState('view'); });
+    tx.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && matchMedia('(pointer:fine)').matches) { e.preventDefault(); sendText(v); } });
+    // muat data
+    try {
+      const [cs, ms, mb] = await Promise.all([rest('mk_chats?select=*&id=eq.' + id), rest(`mk_msgs?select=*&chat_id=eq.${id}&order=created_at.desc&limit=50`), rest('mk_members?select=user_id,name,avatar,role,read_at,state,state_at&chat_id=eq.' + id)]);
+      if (CH.cur !== v) return;
+      if (cs[0]) v.c = { ...v.c, ...cs[0] };
+      v.members = mb.map(m => ({ id: m.user_id, name: m.name, avatar: m.avatar, role: m.role, read_at: m.read_at, state: m.state, state_at: m.state_at })); v.c.members = v.members;
+      v.msgs = ms.reverse(); v.older = ms.length === 50; v.lastAt = v.msgs.length ? v.msgs[v.msgs.length - 1].created_at : '';
+      renderAll(v); paintChatHead(); paintAdminBar(); markRead(v, true); seenPoll(v);
+    } catch (e) { $('#mkCl', pg.el).innerHTML = `<div class="mk-empty"><b>Gagal memuat chat</b>${E(errMsg(e))}</div>`; }
+    joinChannel(v); setState('view'); v.hb = setInterval(() => { if (!document.hidden) setState(v.myState || 'view', true); expireStates(v); }, 4000);
+    poll(v);
+  }
+  MK.openChat = openChat;
+
+  function paintChatHead() {
+    const v = CH.cur; if (!v) return; const c = v.c, pg = v.pg.el;
+    $('#mkCav', pg).innerHTML = c.kind === 'group' ? `<span class="mk-av mk-gav">${ic('shield')}</span>` : avHtml(otherOf(c).name, otherOf(c).avatar);
+    const o = otherOf(c), adm = c.kind === 'dm' && adminOf(o.id);
+    $('#mkCn', pg).innerHTML = E(chatName(c)) + (adm ? VTICK : '');
+    const s = $('#mkCs', pg), live = liveState(c);
+    if (live) { s.className = 'mk-typ'; s.innerHTML = E(live) + '<span class="mk-dots"><i></i><i></i><i></i></span>'; }
+    else if (c.kind === 'group') { s.className = ''; s.textContent = (c.members || []).map(m => m.id === me.id ? 'Kamu' : m.name + (m.role === 'admin' ? ' (Admin)' : '')).join(', '); }
+    else { const t = CH.seen[o.id]; s.className = ''; s.textContent = t && Date.now() - D(t) < 75000 ? 'online' : t ? `terakhir dilihat ${dayLbl(t).toLowerCase()} pukul ${jam(t)}` : (adm ? 'Admin rekber terverifikasi' : 'ketuk untuk info'); }
+    const op = $('#mkOpB', pg); if (op) op.hidden = c.kind !== 'dm';
+  }
+  function paintQuote() {
+    const v = CH.cur; if (!v) return; const q = $('#mkQt', v.pg.el);
+    if (!v.quote) { q.hidden = true; return; }
+    q.hidden = false; q.innerHTML = `<div class="mk-qc">${v.quote.img ? `<img src="${E(v.quote.img)}" alt="">` : ''}<div><b>${E(v.quote.game || 'Akun')}${v.quote.code ? ' #' + E(v.quote.code) : ''}</b><small>${rp(v.quote.price)} · ${E(v.quote.store || '')}</small></div><button class="mk-ib sm" data-k="unq" aria-label="Batal">${ic('x')}</button></div>`;
+  }
+  function paintAdminBar() {
+    const v = CH.cur; if (!v) return; const b = $('#mkAbar', v.pg.el), c = v.c;
+    if (c.kind !== 'group') { b.hidden = true; return; }
+    const d = c.deal || {}, isA = c.admin_id === me.id, stt = { open: 'Menunggu transfer', paid: 'Dana masuk · proses', done: 'Selesai', cancel: 'Dibatalkan' }[c.status] || '';
+    b.hidden = false;
+    b.innerHTML = `<div class="mk-deal"><span>${ic('deal')}</span><div><b>OP ${rp(d.price)} <small>+ admin ${rp(d.fee)}</small></b><small>Total transfer buyer <b>${rp(d.total)}</b> · <i class="st-${E(c.status)}">${E(stt)}</i></small></div></div>${isA && c.status !== 'done' ? `<div class="mk-aact"><button data-ad="paid" class="ok">${ic('check')}Dana masuk</button><button data-ad="unpaid" class="no">${ic('x')}Belum masuk</button><button data-ad="qris">${ic('qris')}QRIS</button><button data-ad="done">${ic('shield')}Selesai</button></div>` : ''}`;
+  }
+
+  /* ---------- render pesan ---------- */
+  const linkify = s => E(s).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  const nameColor = id => colOf(id);
+  function msgHtml(m, prev, v, live) {
+    const c = v.c, mine = m.sender_id === me.id, mem = (v.members || []).find(x => x.id === m.sender_id) || {};
+    const first = !prev || prev.sender_id !== m.sender_id || prev.kind === 'sys' || prev.kind === 'admin' || dayKey(prev.created_at) !== dayKey(m.created_at) || D(m.created_at) - D(prev.created_at) > 3e5;
+    const t = jam(m.created_at), pend = m._pend;
+    if (m.kind === 'sys') return `<div class="mk-sys" data-mid="${E(m.id)}">${ic('lock')} ${E(m.body)}</div>`;
+    if (m.kind === 'admin') {
+      const a = adminOf(m.sender_id) || { name: m.sender_name, role: (m.meta || {}).role }, act = (m.meta || {}).a;
+      const body = live ? E(m.body).split('\n').map((ln, i) => `<span class="mk-ln" style="--d:${i * 110}ms">${ln || '&nbsp;'}</span>`).join('') : E(m.body).split('\n').map(ln => `<span class="mk-ln0">${ln || '&nbsp;'}</span>`).join('');
+      return `<div class="mk-admsg ${act ? 'a-' + E(act) : ''} ${live ? 'live' : ''}" data-mid="${E(m.id)}"><div class="mk-admh"><span class="mk-admi">${ic('shield')}</span><div><b>PESAN RESMI ADMIN ${VTICK}</b><small>${E(a.name)} ${roleBadge(a.role)}</small></div></div><div class="mk-admb">${body}</div>${m.media && m.media.u ? `<button class="mk-qris" data-img="${E(m.id)}"><img src="${E(m.media.u)}" alt="QRIS admin" loading="lazy"><span>${ic('qris')}Ketuk untuk perbesar / simpan QRIS</span></button>` : (act === 'welcome' || act === 'qris') ? '<div class="mk-noq">QRIS admin belum diunggah — minta admin kirim QRIS.</div>' : ''}<div class="mk-admf"><span>${ic('lock')} Dikirim otomatis oleh sistem admin JB KU Market</span><time>${t}</time></div></div>`;
+    }
+    if (m.kind === 'op') {
+      const o = (m.meta || {}).op || {};
+      return `<div class="mk-mw ${mine ? 'out' : 'in'}${first ? ' first' : ''}" data-mid="${E(m.id)}"><div class="mk-m mk-opc"><div class="mk-oph">${ic('deal')}<b>OP DEAL</b></div><div class="mk-opr"><span>Harga akun</span><b>${rp(o.price)}</b></div><div class="mk-opr"><span>Tarif admin</span><b>${rp(o.fee)}</b></div><div class="mk-opr t"><span>Total transfer buyer</span><b>${rp(o.total)}</b></div><div class="mk-opa">Rekber: <b>${E(o.admin)}</b> ${VTICK} ${roleBadge(o.role)}</div><button class="mk-opg" data-grp="${E(o.group)}">${ic('group')}Buka grup rekber</button><span class="mk-mt">${t}${mine ? (pend ? CLOCK : '') : ''}</span></div></div>`;
+    }
+    const nm = c.kind === 'group' && !mine && first ? `<div class="mk-mn" style="color:${nameColor(m.sender_id)}">${E(mem.name || m.sender_name)}${mem.role && mem.role !== 'member' ? ` <span class="mk-rl">${mem.role === 'buyer' ? 'Buyer' : mem.role === 'seller' ? 'Seller' : 'Admin'}</span>` : ''}${adminOf(m.sender_id) ? VTICK : ''}</div>` : '';
+    const q = m.meta && m.meta.post && m.meta.post.game ? `<div class="mk-mq">${m.meta.post.img ? `<img src="${E(m.meta.post.img)}" alt="">` : ''}<div><b>${E(m.meta.post.game)}${m.meta.post.code ? ' #' + E(m.meta.post.code) : ''}</b><small>${rp(m.meta.post.price)} · ${E(m.meta.post.store || '')}</small></div></div>` : '';
+    let media = '';
+    if (m.kind === 'image' && m.media) media = `<button class="mk-mimg" data-img="${E(m.id)}" style="aspect-ratio:${m.media.w && m.media.h ? Math.max(.6, Math.min(1.8, m.media.w / m.media.h)).toFixed(3) : 1}"><img src="${E(m.media.t || m.media.u)}" alt="Foto" loading="lazy" onload="this.classList.add('ok')">${pend ? `<span class="mk-prog"><span class="mk-ring" style="--p:${m._p || 0}"></span></span>` : ''}</button>`;
+    if (m.kind === 'video' && m.media) media = `<div class="mk-mvid" style="aspect-ratio:${m.media.w && m.media.h ? Math.max(.56, Math.min(1.8, m.media.w / m.media.h)).toFixed(3) : 1.6}"><video src="${E(m.media.u)}" preload="metadata" playsinline controls></video>${pend ? `<span class="mk-prog"><span class="mk-ring" style="--p:${m._p || 0}"></span></span>` : ''}${m.media.d ? `<span class="mk-dur">${ic('video')}${Math.floor(m.media.d / 60)}:${two(Math.round(m.media.d % 60))}</span>` : ''}</div>`;
+    const txt = m.body ? `<span class="mk-mtx">${live && !mine ? linkify(m.body).split(' ').map((w, i) => i < 80 ? `<span class="mk-w" style="--d:${i * 28}ms">${w}</span>` : w).join(' ') : linkify(m.body)}</span>` : '';
+    const tk = mine ? (pend ? CLOCK : m._fail ? '<span class="mk-fail">!</span>' : `<span data-tk>${tickFor(v.c, m.created_at)}</span>`) : '';
+    return `<div class="mk-mw ${mine ? 'out' : 'in'}${first ? ' first' : ''}${live ? ' live' : ''}" data-mid="${E(m.id)}"><div class="mk-m${media ? ' md' : ''}">${nm}${q}${media}${txt}<span class="mk-mt">${t}${tk}</span></div></div>`;
+  }
+  function renderAll(v) {
+    const cl = $('#mkCl', v.pg.el); let h = v.older && v.msgs.length >= 50 ? '<div class="mk-loadm" id="mkOld"><i class="mk-spin"></i></div>' : '<div class="mk-sys">🔒 Pesan di JB KU Market. Jangan pernah kirim kode OTP & selalu transaksi lewat rekber admin.</div>';
+    let prev = null, last = '';
+    for (const m of v.msgs) { const k = dayKey(m.created_at); if (k !== last) { h += `<div class="mk-day" data-day="${k}">${E(dayLbl(m.created_at))}</div>`; last = k; } h += msgHtml(m, prev, v, false); prev = m; }
+    cl.innerHTML = h; const cw = $('#mkCw', v.pg.el); cw.scrollTop = cw.scrollHeight; v.atBottom = true;
+    $$('img', cl).forEach(i => { if (!i.complete) i.addEventListener('load', () => { if (v.atBottom) cw.scrollTop = cw.scrollHeight; }, { once: true }); });
+  }
+  function appendMsg(v, m, live) {
+    if (v.msgs.some(x => x.id === m.id)) return updMsg(v, m);
+    const prev = v.msgs[v.msgs.length - 1]; v.msgs.push(m);
+    const cl = $('#mkCl', v.pg.el), cw = $('#mkCw', v.pg.el), stick = v.atBottom !== false || m.sender_id === me.id;
+    if (!prev || dayKey(prev.created_at) !== dayKey(m.created_at)) cl.insertAdjacentHTML('beforeend', `<div class="mk-day">${E(dayLbl(m.created_at))}</div>`);
+    cl.insertAdjacentHTML('beforeend', msgHtml(m, prev, v, live));
+    if (prev && prev.sender_id === m.sender_id) { const pe = cl.querySelector(`[data-mid="${CSS.escape(prev.id)}"]`); void pe; }
+    if (stick) requestAnimationFrame(() => cw.scrollTo({ top: cw.scrollHeight, behavior: live ? 'smooth' : 'auto' }));
+    else { v.newBelow = (v.newBelow || 0) + 1; const d = $('#mkDn', v.pg.el); d.hidden = false; const i = $('i', d); i.hidden = false; i.textContent = v.newBelow; }
+  }
+  function updMsg(v, m, oldId) {
+    const i = v.msgs.findIndex(x => x.id === (oldId || m.id)); if (i < 0) return;
+    const keepLocal = v.msgs[i]._local; v.msgs[i] = { ...m, _local: keepLocal };
+    const el = $(`[data-mid="${CSS.escape(oldId || m.id)}"]`, v.pg.el); if (!el) return;
+    const t = document.createElement('div'); t.innerHTML = msgHtml(v.msgs[i], v.msgs[i - 1], v, false); const n = t.firstElementChild;
+    if (keepLocal) $$('img', n).forEach(im => { const o = $('img', el); if (o) im.src = o.src; im.classList.add('ok'); });
+    el.replaceWith(n);
+  }
+  function refreshTicks(v) { $$('[data-tk]', v.pg.el).forEach(s => { const id = s.closest('[data-mid]').dataset.mid, m = v.msgs.find(x => x.id === id); if (m) s.innerHTML = tickFor(v.c, m.created_at); }); }
+  async function loadOlder(v) {
+    v.loadingOld = true; const cw = $('#mkCw', v.pg.el), h0 = cw.scrollHeight;
+    try { const r = await rest(`mk_msgs?select=*&chat_id=eq.${v.c.id}&created_at=lt.${encodeURIComponent(v.msgs[0].created_at)}&order=created_at.desc&limit=50`); v.older = r.length === 50; v.msgs = r.reverse().concat(v.msgs); renderAll(v); cw.scrollTop = cw.scrollHeight - h0; }
+    catch (e) { } v.loadingOld = false;
+  }
+
+  /* ---------- pesan masuk ---------- */
+  function onRemoteMsg(m) {
+    const v = CH.cur;
+    if (v && m.chat_id === v.c.id && m.kind === 'admin' && m.meta) { const a = m.meta.a; if (a === 'paid') v.c.status = 'paid'; if (a === 'done') v.c.status = 'done'; paintAdminBar(); }
+    if (v && m.chat_id === v.c.id) { if (v.pend.has(m.id)) return; const live = m.sender_id !== me.id; appendMsg(v, m, live); if (D(m.created_at) > D(v.lastAt || 0)) v.lastAt = m.created_at; if (live) { clearState(v, m.sender_id); markRead(v); beep('in'); } }
+    const r = CH.inbox.find(c => c.id === m.chat_id);
+    if (!r) { if (m.sender_id !== me.id) loadInboxSoon(); return; }
+    Object.assign(r, { last_msg: m.kind === 'image' ? (m.body || 'Foto') : m.kind === 'video' ? (m.body || 'Video') : m.body, last_kind: m.kind, last_by: m.sender_id, last_at: m.created_at });
+    if (m.sender_id !== me.id && !(v && v.c.id === m.chat_id && !document.hidden)) { r.unread = (+r.unread || 0) + 1; headsUp(r); }
+    CH.inbox.sort((a, b) => D(b.last_at) - D(a.last_at)); paintInbox(); paintBadge();
+  }
+  let lisT = 0; const loadInboxSoon = () => { clearTimeout(lisT); lisT = setTimeout(() => loadInbox(true), 600); };
+  function onMemberUpd(mm) {
+    const r = CH.inbox.find(c => c.id === mm.chat_id); if (r) { const x = (r.members || []).find(m => m.id === mm.user_id); if (x) x.read_at = mm.read_at; }
+    const v = CH.cur; if (v && v.c.id === mm.chat_id) { const x = v.members.find(m => m.id === mm.user_id); if (x) { x.read_at = mm.read_at; if (mm.user_id !== me.id && !CH.rtOk) setRemoteState(v, mm.user_id, mm.state, mm.state_at); } refreshTicks(v); }
+    if (r) paintInbox();
+  }
+  async function poll(v) {
+    clearTimeout(v.pollT); if (CH.cur !== v) return;
+    if (!CH.rtOk && !document.hidden) {
+      try {
+        const q = v.lastAt ? `&created_at=gt.${encodeURIComponent(v.lastAt)}` : '';
+        const [ms, mb] = await Promise.all([rest(`mk_msgs?select=*&chat_id=eq.${v.c.id}${q}&order=created_at.asc&limit=100`), rest('mk_members?select=user_id,read_at,state,state_at&chat_id=eq.' + v.c.id)]);
+        if (CH.cur !== v) return;
+        ms.forEach(m => { if (!v.msgs.some(x => x.id === m.id) && !v.pend.has(m.id)) onRemoteMsg(m); if (D(m.created_at) > D(v.lastAt || 0)) v.lastAt = m.created_at; });
+        mb.forEach(x => { const m = v.members.find(y => y.id === x.user_id); if (m) m.read_at = x.read_at; if (x.user_id !== me.id) setRemoteState(v, x.user_id, x.state, x.state_at); });
+        refreshTicks(v);
+      } catch (e) { }
+    }
+    v.pollT = setTimeout(() => poll(v), CH.rtOk ? 20000 : 2200);
+  }
+  async function seenPoll(v) {
+    if (CH.cur !== v) return; const ids = v.members.map(m => m.id).filter(i => i !== me.id);
+    try { Object.assign(CH.seen, await rpc('mk_seen', { p_ids: ids })); paintChatHead(); } catch (e) { }
+    setTimeout(() => seenPoll(v), 20000);
+  }
+  let readT = 0;
+  function markRead(v, now) {
+    if (!v || document.hidden || v.atBottom === false) return; clearTimeout(readT);
+    readT = setTimeout(async () => { const t = new Date().toISOString(); try { await rest(`mk_members?chat_id=eq.${v.c.id}&user_id=eq.${encodeURIComponent(me.id)}`, { method: 'PATCH', body: { read_at: t } }); } catch (e) { } const r = CH.inbox.find(c => c.id === v.c.id); if (r) { r.unread = 0; paintBadge(); } }, now ? 50 : 900);
+  }
+
+  /* ---------- status: mengetik / kirim foto / berpikir / melihat ---------- */
+  function joinChannel(v) {
+    rtClient().then(sb => {
+      if (!sb || CH.cur !== v) return;
+      v.ch = sb.channel('mkc:' + v.c.id, { config: { broadcast: { self: false } } })
+        .on('broadcast', { event: 'st' }, ({ payload }) => { if (payload && payload.u !== me.id) setRemoteState(v, payload.u, payload.s, new Date().toISOString()); })
+        .subscribe(st => { v.chOk = st === 'SUBSCRIBED'; if (v.chOk) setState(v.myState || 'view', true); });
+    });
+  }
+  function leaveChannel(v) { try { if (v.ch && CH.sb) { v.ch.send({ type: 'broadcast', event: 'st', payload: { u: me.id, s: '' } }); CH.sb.removeChannel(v.ch); } } catch (e) { } }
+  let stT = 0, stLast = 0;
+  function setState(s, force) {
+    const v = CH.cur; if (!v || !me) return; if (s === v.myState && !force) return; v.myState = s;
+    if (v.ch && v.chOk) { try { v.ch.send({ type: 'broadcast', event: 'st', payload: { u: me.id, s } }); } catch (e) { } }
+    if (!v.chOk) { clearTimeout(stT); const go = () => { stLast = Date.now(); rest(`mk_members?chat_id=eq.${v.c.id}&user_id=eq.${encodeURIComponent(me.id)}`, { method: 'PATCH', body: { state: s, state_at: new Date().toISOString() } }).catch(() => { }); }; const w = 1500 - (Date.now() - stLast); if (w <= 0) go(); else stT = setTimeout(go, w); }
+  }
+  function setRemoteState(v, u, s, at) {
+    if (!at || Date.now() - D(at) > 7000) s = '';
+    const m = CH.states[v.c.id] || (CH.states[v.c.id] = {}); const old = m[u] && m[u].s;
+    m[u] = { s: s || '', t: Date.now() };
+    if (old !== s) paintTyping(v);
+  }
+  function clearState(v, u) { const m = CH.states[v.c.id]; if (m && m[u]) { m[u].s = 'view'; paintTyping(v); } }
+  function expireStates(v) { const m = CH.states[v.c.id]; if (!m) return; let ch = false; Object.values(m).forEach(x => { if (x.s && Date.now() - x.t > 7000) { x.s = ''; ch = true; } }); if (ch) paintTyping(v); }
+  function paintTyping(v) {
+    paintChatHead(); paintInbox();
+    const box = $('#mkTy', v.pg.el), m = CH.states[v.c.id] || {}, act = Object.keys(m).filter(u => u !== me.id && ['type', 'photo', 'video', 'think'].includes(m[u].s) && Date.now() - m[u].t < 7000);
+    if (!act.length) { if (box.firstChild) { box.firstChild.classList.add('out'); setTimeout(() => { if (!Object.keys(m).some(u => u !== me.id && ['type', 'photo', 'video', 'think'].includes(m[u].s))) box.innerHTML = ''; }, 220); } return; }
+    const u = act[0], s = m[u].s, nm = (v.members.find(x => x.id === u) || {}).name || '';
+    const inner = s === 'photo' ? `<span class="mk-tyi pulse">${ic('cam')}</span>mengirim foto<span class="mk-dots"><i></i><i></i><i></i></span>` : s === 'video' ? `<span class="mk-tyi pulse">${ic('video')}</span>mengirim video<span class="mk-dots"><i></i><i></i><i></i></span>` : s === 'think' ? `<span class="mk-think"><i>💭</i></span>sedang berpikir` : '<span class="mk-dots big"><i></i><i></i><i></i></span>';
+    box.innerHTML = `<div class="mk-tyb">${v.c.kind === 'group' ? `<small style="color:${nameColor(u)}">${E(nm)}</small>` : ''}<div class="mk-tyc">${inner}</div></div>`;
+    const cw = $('#mkCw', v.pg.el); if (v.atBottom !== false) cw.scrollTop = cw.scrollHeight;
+  }
+
+  /* ---------- kirim ---------- */
+  async function insertMsg(v, m) {
+    v.pend.set(m.id, m);
+    try {
+      const body = { id: m.id, chat_id: v.c.id, sender_id: me.id, sender_name: me.name, kind: m.kind, body: m.body || '', media: m.media || {}, meta: m.meta || {} };
+      const r = (await rest('mk_msgs', { method: 'POST', headers: { Prefer: 'return=representation' }, body }))[0];
+      v.pend.delete(m.id); if (r) { updMsg(v, r); if (D(r.created_at) > D(v.lastAt || 0)) v.lastAt = r.created_at; }
+      beep('send');
+    } catch (e) { v.pend.delete(m.id); m._pend = 0; m._fail = 1; updMsg(v, m); toast('Gagal kirim: ' + errMsg(e), 1); }
+  }
+  function localMsg(v, kind, body, media, meta) { return { id: uuid(), chat_id: v.c.id, sender_id: me.id, sender_name: me.name, kind, body, media: media || {}, meta: meta || {}, created_at: new Date().toISOString(), _pend: 1, _local: 1 }; }
+  function sendText(v) {
+    const tx = $('#mkTx', v.pg.el), t = tx.value.trim(); if (!t) return;
+    const meta = v.quote ? { post: v.quote } : {}; v.quote = null; paintQuote();
+    tx.value = ''; tx.style.height = 'auto'; tx.focus(); setState('view');
+    const m = localMsg(v, 'text', t, null, meta); appendMsg(v, m, false); buzz(8); insertMsg(v, m);
+  }
+  function pickFiles(accept, multi, capture) { return new Promise(res => { const i = document.createElement('input'); i.type = 'file'; i.accept = accept; i.multiple = !!multi; if (capture) i.setAttribute('capture', 'environment'); i.onchange = () => res([...i.files]); i.click(); }); }
+  async function attach(v, mode) {
+    setState(mode === 'video' ? 'video' : 'photo');
+    const files = await pickFiles(mode === 'video' ? 'video/*' : mode === 'cam' ? 'image/*' : 'image/*', mode === 'img', mode === 'cam');
+    if (!files.length) return setState('view');
+    previewSend(v, files.slice(0, 10), mode === 'video' ? 'video' : 'image');
+  }
+  function previewSend(v, files, kind) {
+    const urls = files.map(f => URL.createObjectURL(f));
+    const ov = document.createElement('div'); ov.className = 'mk-pv';
+    ov.innerHTML = `<header class="mk-ph2" style="background:transparent;border:0;color:#fff"><button class="mk-ib" data-pv="x" style="color:#fff" aria-label="Batal">${ic('x')}</button><div class="mk-pt"><div><b>${kind === 'video' ? 'Kirim video' : files.length > 1 ? `Kirim ${files.length} foto` : 'Kirim foto'}</b><small>ke ${E(chatName(v.c))}</small></div></div></header>
+<div class="mk-pvm">${kind === 'video' ? `<video src="${urls[0]}" controls playsinline></video>` : `<img src="${urls[0]}" alt="">`}</div>
+${files.length > 1 ? `<div class="mk-pvs">${urls.map((u, i) => `<button data-pi="${i}" class="${i ? '' : 'on'}"><img src="${u}" alt=""></button>`).join('')}</div>` : ''}
+<div class="mk-cf" style="background:transparent;border:0"><div class="mk-inp2" style="background:#1f2c34;color:#fff"><textarea id="mkPvc" rows="1" placeholder="Tambah keterangan…" maxlength="1000" style="color:#fff"></textarea></div><button class="mk-send" data-pv="send" aria-label="Kirim">${SEND}</button></div>`;
+    v.pg.el.append(ov);
+    const api = { close() { unback(api); ov.remove(); } }; back(api);
+    if (kind === 'video' && files[0].size > 28 * 1048576) { toast('Video maksimal 28 MB', 1); }
+    ov.addEventListener('click', e => {
+      const p = e.target.closest('[data-pi]'); if (p) { $('.mk-pvm img', ov).src = urls[+p.dataset.pi]; $$('[data-pi]', ov).forEach(b => b.classList.toggle('on', b === p)); return; }
+      const k = e.target.closest('[data-pv]'); if (!k) return;
+      if (k.dataset.pv === 'x') { H.goBack(api); setState('view'); urls.forEach(u => URL.revokeObjectURL(u)); return; }
+      if (kind === 'video' && files[0].size > 28 * 1048576) return toast('Video terlalu besar (maks 28 MB)', 1);
+      const cap = $('#mkPvc', ov).value.trim(); H.goBack(api); sendMedia(v, files, urls, kind, cap);
+    });
+  }
+  async function vidMeta(url) { return new Promise(res => { const vd = document.createElement('video'); vd.preload = 'metadata'; vd.muted = true; vd.onloadedmetadata = () => res({ w: vd.videoWidth, h: vd.videoHeight, d: vd.duration || 0 }); vd.onerror = () => res({}); vd.src = url; setTimeout(() => res({}), 5000); }); }
+  async function sendMedia(v, files, urls, kind, cap) {
+    setState(kind === 'video' ? 'video' : 'photo');
+    const jobs = [];
+    for (let i = 0; i < files.length; i++) {
+      let media = { u: urls[i], t: urls[i] };
+      if (kind === 'video') Object.assign(media, await vidMeta(urls[i]));
+      else { try { const im = await new Promise((r, j) => { const x = new Image(); x.onload = () => r(x); x.onerror = j; x.src = urls[i]; }); media.w = im.naturalWidth; media.h = im.naturalHeight; } catch (e) { } }
+      const m = localMsg(v, kind, i === files.length - 1 ? cap : '', media); m._p = 3; appendMsg(v, m, false); jobs.push([m, files[i]]);
+    }
+    for (const [m, f] of jobs) {
+      const prog = p => { m._p = p; const r = $(`[data-mid="${CSS.escape(m.id)}"] .mk-ring`, v.pg.el); if (r) r.style.setProperty('--p', p); };
+      try {
+        const base = `chat/${v.c.id}/${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+        if (kind === 'video') { prog(20); const ext = (f.name.split('.').pop() || 'mp4').toLowerCase().replace(/[^a-z0-9]/g, '') || 'mp4'; const u = await putObj(`${base}.${ext}`, f, f.type || 'video/mp4'); m.media = { ...m.media, u, t: u, size: f.size }; }
+        else { prog(30); const r = await upImage(f, base, 0); m.media = { ...m.media, ...r }; }
+        prog(90); await insertMsg(v, m);
+      } catch (e) { m._pend = 0; m._fail = 1; updMsg(v, m); toast('Gagal kirim ' + (kind === 'video' ? 'video' : 'foto') + ': ' + errMsg(e), 1); }
+    }
+    setState('view');
+  }
+
+  /* ---------- klik di halaman chat ---------- */
+  function chatClick(e, v) {
+    const k = e.target.closest('[data-k]'), key = k && k.dataset.k;
+    if (key === 'send') return sendText(v);
+    if (key === 'unq') { v.quote = null; return paintQuote(); }
+    if (key === 'att') return sheet(`<h3>Kirim</h3><div class="mk-sa"><button data-s="img">${ic('img')}Foto dari galeri</button><button data-s="video">${ic('video')}Video</button><button data-s="cam">${ic('cam')}Kamera</button></div>`, (s, b, api) => { api.close(); attach(v, s); });
+    if (key === 'cam') return attach(v, 'cam');
+    if (key === 'op') return openOP(v);
+    if (key === 'info') return chatInfo(v);
+    if (key === 'more') return sheet(`<h3>${E(chatName(v.c))}</h3><div class="mk-sa"><button data-s="info">${ic('info')}Info ${v.c.kind === 'group' ? 'grup' : 'kontak'}</button>${v.c.kind === 'dm' ? `<button data-s="op">${ic('deal')}Buat OP & rekber</button>` : ''}${v.c.post_id ? `<button data-s="post">${ic('tag')}Lihat akun yang dibahas</button>` : ''}${v.c.kind === 'group' ? `<button data-s="lock" class="dis">${ic('lock')}Keluar grup (dikunci)</button>` : ''}</div>`, (s, b, api) => { api.close(); if (s === 'info') chatInfo(v); if (s === 'op') openOP(v); if (s === 'post') openPostById(v.c.post_id); if (s === 'lock') toast('Grup rekber tidak bisa ditinggalkan', 1); });
+    if (e.target.closest('#mkDn')) { const cw = $('#mkCw', v.pg.el); cw.scrollTo({ top: cw.scrollHeight, behavior: 'smooth' }); return; }
+    const g = e.target.closest('[data-grp]'); if (g) return openChat(g.dataset.grp);
+    const ad = e.target.closest('[data-ad]'); if (ad) return adminSay(v, ad.dataset.ad);
+    const im = e.target.closest('[data-img]'); if (im) { const m = v.msgs.find(x => x.id === im.dataset.img); if (m && m.media) viewer({ images: [m.media], store: m.sender_name || chatName(v.c), bumped_at: m.created_at }, 0); return; }
+    const mq = e.target.closest('.mk-mq'); if (mq && v.c.post_id) return openPostById(v.c.post_id);
+    const fl = e.target.closest('.mk-fail'); if (fl) { const m = v.msgs.find(x => x.id === fl.closest('[data-mid]').dataset.mid); if (m && m.kind === 'text') { m._fail = 0; m._pend = 1; updMsg(v, m); insertMsg(v, m); } }
+  }
+  async function openPostById(id) { let p = findPost(id); if (!p) { try { p = (await rest(`mk_posts?select=${SEL}&id=eq.${id}`))[0]; if (p) S.posts.push(p); } catch (e) { } } if (p) openDetail(p.id); else toast('Postingan sudah dihapus'); }
+  function chatInfo(v) {
+    const c = v.c, d = c.deal || {};
+    const pg = page(pageHead(c.kind === 'group' ? 'Info grup' : 'Info kontak', '') + `<div class="mk-pb"><div class="mk-prof">${c.kind === 'group' ? `<span class="mk-av mk-gav" style="width:96px;height:96px">${ic('shield')}</span>` : avHtml(otherOf(c).name, otherOf(c).avatar)}<b>${E(chatName(c))}</b><small>${c.kind === 'group' ? `Grup rekber · ${(c.members || []).length} anggota` : adminOf(otherOf(c).id) ? 'Admin rekber terverifikasi' : 'Penjual / pembeli'}</small></div>
+${c.kind === 'group' ? `<div class="mk-link"><div class="mk-lt">${ic('deal')}Kesepakatan OP</div><div class="mk-opr"><span>Harga akun</span><b>${rp(d.price)}</b></div><div class="mk-opr"><span>Tarif admin (dibayar buyer)</span><b>${rp(d.fee)}</b></div><div class="mk-opr t"><span>Total transfer</span><b>${rp(d.total)}</b></div></div>` : ''}
+${c.post && c.post.game ? `<div class="mk-sec">Akun yang dibahas</div><button class="mk-seller" data-pid="${E(c.post_id || '')}">${c.post.img ? `<span class="mk-av" style="border-radius:10px"><img src="${E(c.post.img)}" alt=""></span>` : ''}<div class="mk-rb"><b>${E(c.post.game)}${c.post.code ? ' #' + E(c.post.code) : ''}</b><small>${rp(c.post.price)} · ${E(c.post.store || '')}</small></div></button>` : ''}
+<div class="mk-sec">${(c.members || []).length} anggota</div>${(c.members || []).map(m => { const a = adminOf(m.id); return `<div class="mk-gr">${avHtml(m.name, m.avatar)}<div class="mk-rb"><b>${m.id === me.id ? 'Kamu' : E(m.name)} ${a ? VTICK : ''}</b><small>${m.role === 'buyer' ? 'Buyer' : m.role === 'seller' ? 'Seller' : m.role === 'admin' ? 'Admin rekber' : 'Anggota'} ${a ? roleBadge(a.role) : ''}</small></div></div>`; }).join('')}
+${c.kind === 'group' ? `<div class="mk-lockx">${ic('lock')}<div><b>Keluar grup dikunci</b><small>Demi keamanan, buyer, seller & admin tidak bisa keluar dari grup rekber.</small></div></div>` : ''}</div>`);
+    pg.el.addEventListener('click', e => { const p = e.target.closest('[data-pid]'); if (p && p.dataset.pid) openPostById(p.dataset.pid); });
+  }
+
+  /* ---------- FASE 3: OP + pilih admin ---------- */
+  async function loadAdmins() { try { CH.admins = await rest('mk_admins?select=*&order=sort.asc,created_at.asc'); } catch (e) { CH.admins = CH.admins || []; } paintNavAdmin(); return CH.admins; }
+  async function loadFee() { try { const r = await rest('mk_settings?select=value&key=eq.fee'); CH.fee = (r[0] && r[0].value) || []; } catch (e) { CH.fee = CH.fee || [{ min: 0, fee: 5000 }, { min: 100000, fee: 10000 }, { min: 500000, fee: 15000 }, { min: 1000000, pct: 2 }]; } return CH.fee; }
+  const feeOf = p => { let b = null; (CH.fee || []).forEach(r => { if (p >= (+r.min || 0) && (!b || (+r.min || 0) >= (+b.min || 0))) b = r; }); if (!b) return 0; return b.pct != null ? Math.ceil(p * +b.pct / 100) : (+b.fee || 0); };
+  const feeTxt = r => r.pct != null ? `${r.pct}%` : rp(r.fee);
+  async function openOP(v) {
+    const c = v.c; if (c.kind !== 'dm') return;
+    await Promise.all([CH.fee ? 0 : loadFee(), loadAdmins()]);
+    const buyer = (v.members.find(m => m.id === c.buyer_id) || {}).name || 'Buyer', seller = (v.members.find(m => m.id === c.seller_id) || {}).name || 'Seller';
+    let price = +((c.post || {}).price) || 0;
+    const s = sheet(`<h3>${ic('deal')} Tentukan harga OP</h3><p>Harga pasti yang sudah disepakati. Tarif admin dibayar <b>buyer</b>.</p>
+<label class="mk-opin"><span>Rp</span><input id="opP" inputmode="numeric" value="${price ? price.toLocaleString('id-ID') : ''}" placeholder="0" aria-label="Harga OP"></label>
+<div class="mk-link" style="margin-top:6px"><div class="mk-opr"><span>Harga akun</span><b id="opA">-</b></div><div class="mk-opr"><span>Tarif admin</span><b id="opF">-</b></div><div class="mk-opr t"><span>Total transfer buyer</span><b id="opT">-</b></div><small style="color:var(--sub);font-size:12.5px">Buyer: <b>${E(buyer)}</b> · Seller: <b>${E(seller)}</b></small></div>
+<details class="mk-tier"><summary>Lihat tabel tarif admin</summary>${(CH.fee || []).map(r => `<div class="mk-opr"><span>Mulai ${rp(r.min)}</span><b>${feeTxt(r)}</b></div>`).join('')}</details>
+<div class="mk-row2" style="margin-top:14px"><button class="mk-btn blk mk-rp" data-s="next" id="opN">Lanjut pilih admin ${ic('back', '')}</button></div>`, (k, b, api) => {
+      if (k !== 'next' || !price) return; api.close(); pickAdmin(v, price);
+    });
+    const i = $('#opP', s.el), nx = $('#opN', s.el); $('.mk-ic', nx).style.transform = 'rotate(180deg)';
+    const upd = () => { price = num(i.value); i.value = price ? price.toLocaleString('id-ID') : ''; const f = feeOf(price); $('#opA', s.el).textContent = rp(price); $('#opF', s.el).textContent = rp(f); $('#opT', s.el).textContent = rp(price + f); nx.toggleAttribute('disabled', price < 1000); };
+    i.addEventListener('input', upd); upd(); setTimeout(() => i.focus(), 250);
+  }
+  async function pickAdmin(v, price) {
+    const c = v.c, L = (CH.admins || []).filter(a => a.active && a.owner_id !== c.buyer_id && a.owner_id !== c.seller_id);
+    if (!L.length) return toast('Belum ada admin rekber aktif', 1);
+    try { Object.assign(CH.seen, await rpc('mk_seen', { p_ids: L.map(a => a.owner_id) })); } catch (e) { }
+    const fee = feeOf(price);
+    sheet(`<h3>Pilih admin rekber</h3><p>OP <b>${rp(price)}</b> + tarif admin ${rp(fee)} = <b>${rp(price + fee)}</b>. Grup 3 orang (buyer, seller, admin) dibuat otomatis.</p><div class="mk-adl">${L.map(a => { const on = CH.seen[a.owner_id] && Date.now() - D(CH.seen[a.owner_id]) < 75000; return `<button class="mk-adr mk-rp" data-s="${E(a.owner_id)}">${avHtml(a.name, a.avatar)}<div class="mk-rb"><b>${E(a.name)} ${VTICK}</b><small>${roleBadge(a.role)} ${on ? '<i class="mk-on"></i>online' : 'offline'}${a.qris ? '' : ' · QRIS belum ada'}</small>${a.bio ? `<small>${E(a.bio)}</small>` : ''}</div>${ic('back', 'mk-go')}</button>`; }).join('')}</div>`, async (id, b, api) => {
+      const a = adminOf(id); if (!a) return;
+      api.close(); if (!(await confirmBox('Buat grup rekber?', `Admin ${a.name} (${a.role}) akan masuk grup bersama buyer & seller. Grup tidak bisa ditinggalkan. Total transfer buyer ${rp(price + fee)}.`, 'Buat grup'))) return;
+      toast('Membuat grup rekber…');
+      try { const g = await rpc('mk_rekber', { p_dm: c.id, p_by: me.id, p_admin: id, p_price: price }); buzz([20, 50, 20]); await loadInbox(true); H.goBack(v.pg); setTimeout(() => openChat(g.id), 340); }
+      catch (e) { toast(errMsg(e), 1); }
+    });
+  }
+  async function adminSay(v, act) {
+    const L = { paid: ['Konfirmasi dana masuk?', 'Pesan resmi "Dana masuk" + peringatan modus ripper akan dikirim.'], unpaid: ['Dana belum masuk?', 'Buyer akan diminta cek ulang transfer.'], qris: ['Kirim ulang QRIS?', 'QRIS kamu dikirim lagi ke grup.'], done: ['Tandai transaksi selesai?', 'Postingan akun ditandai terjual & transaksi ditutup.'] }[act];
+    if (!(await confirmBox(L[0], L[1], 'Kirim'))) return;
+    try { await rpc('mk_admin_say', { p_chat: v.c.id, p_admin: me.id, p_act: act }); if (!CH.rtOk) poll(v); if (act === 'paid') v.c.status = 'paid'; if (act === 'done') v.c.status = 'done'; paintAdminBar(); }
+    catch (e) { toast(errMsg(e), 1); }
+  }
+
+  /* ---------- panel admin ---------- */
+  function paintNavAdmin() {
+    const nav = $('.mk-nav'); if (!nav) return; const has = !!$('[data-tab="admin"]', nav);
+    if (showAdminTab() && !has) nav.insertAdjacentHTML('beforeend', `<button data-tab="admin" role="tab"><span class="mk-ni">${ic('shield')}</span>Admin</button>`);
+  }
+  function openAdminHub() {
+    const mA = myAdmin();
+    const pg = page(pageHead('Admin', mA ? `${mA.name} · ${mA.role}` : 'Panel admin JB KU Market') + `<div class="mk-pb"><div class="mk-sa2">
+${mA ? `<button class="mk-row" data-h="me">${avHtml(mA.name, mA.avatar)}<div class="mk-rb"><b>${E(mA.name)} ${VTICK}</b><small>${roleBadge(mA.role)} · Profil & QRIS saya</small></div></button>` : ''}
+${canManage() ? `<button class="mk-row" data-h="admins"><span class="mk-av mk-gav">${ic('shield')}</span><div class="mk-rb"><b>Admin rekber & role</b><small>${(CH.admins || []).length} admin · angkat, ubah role, QRIS</small></div></button>
+<button class="mk-row" data-h="fee"><span class="mk-av mk-gav">${ic('money')}</span><div class="mk-rb"><b>Tarif admin</b><small>Tabel tier fee rekber (dibayar buyer)</small></div></button>
+<button class="mk-row" data-h="guests"><span class="mk-av mk-gav">${ic('users')}</span><div class="mk-rb"><b>Data Guest</b><small>Jumlah login & terakhir masuk @namastore</small></div></button>` : ''}
+</div></div>`);
+    pg.el.addEventListener('click', e => { const h = e.target.closest('[data-h]'); if (!h) return; const k = h.dataset.h; if (k === 'guests') openGuests(); if (k === 'admins') openAdmins(); if (k === 'fee') openFeeEditor(); if (k === 'me') editAdmin(mA, true); });
+  }
+  async function openAdmins() {
+    await loadAdmins();
+    const pg = page(pageHead('Admin rekber', 'Centang biru · role · QRIS') + `<div class="mk-pb" id="adL"></div><button class="mk-fab" data-k="add" aria-label="Tambah admin" style="bottom:calc(16px + env(safe-area-inset-bottom))">${ic('plus')}</button>`);
+    const paint = () => { $('#adL', pg.el).innerHTML = (CH.admins || []).length ? CH.admins.map(a => `<button class="mk-row" data-ed="${E(a.owner_id)}">${avHtml(a.name, a.avatar)}<div class="mk-rb"><div class="mk-rt"><b>${E(a.name)} ${VTICK}</b>${a.active ? '' : '<time>nonaktif</time>'}</div><div class="mk-rs"><span>${roleBadge(a.role)}&nbsp;${a.qris ? 'QRIS ✓' : '<i style="color:var(--bad);font-style:normal">QRIS belum ada</i>'}</span></div></div></button>`).join('') : `<div class="mk-empty"><div class="mk-ei">${ic('shield')}</div><b>Belum ada admin rekber</b>Ketuk + untuk mengangkat member JB KU menjadi admin.</div>`; };
+    paint(); pg.onRefresh = paint;
+    pg.el.addEventListener('click', e => { const ed = e.target.closest('[data-ed]'); if (ed) return editAdmin(adminOf(ed.dataset.ed), false, paint); if (e.target.closest('[data-k="add"]')) addAdmin(paint); });
+  }
+  function addAdmin(done) {
+    const L = (H.members ? H.members() : []).filter(m => !adminOf(m.id));
+    if (!L.length) return toast(H.members ? 'Semua member sudah jadi admin' : 'Tambah admin hanya dari APK JB KU', 1);
+    let q = '';
+    const s = sheet(`<h3>Angkat admin dari member JB KU</h3><div class="mk-search" style="margin:0 16px 8px">${ic('search')}<input id="amq" placeholder="Cari member…"></div><div class="mk-adl" id="aml"></div>`, (id, b, api) => { const m = L.find(x => x.id === id); if (!m) return; api.close(); editAdmin({ owner_id: m.id, name: m.name, avatar: m.avatar || '', role: 'Terpercaya', active: true, qris: '', bio: '', sort: (CH.admins || []).length, _new: 1 }, false, done); });
+    const paint = () => { $('#aml', s.el).innerHTML = L.filter(m => !q || m.name.toLowerCase().includes(q)).map(m => `<button class="mk-adr" data-s="${E(m.id)}">${avHtml(m.name, m.avatar)}<div class="mk-rb"><b>${E(m.name)}</b><small>${E(m.sub || 'Member JB KU')}</small></div>${ic('plus', 'mk-go')}</button>`).join(''); };
+    paint(); $('#amq', s.el).addEventListener('input', e => { q = e.target.value.toLowerCase(); paint(); });
+  }
+  function editAdmin(a, self, done) {
+    if (!a) return; let qris = a.qris || '';
+    const pg = page(pageHead(a._new ? 'Admin baru' : self ? 'Profil admin saya' : 'Ubah admin', a.name) + `<div class="mk-pb"><div class="mk-prof">${avHtml(a.name, a.avatar)}<b>${E(a.name)} ${VTICK}</b><small>Centang biru tampil di chat, grup & pilihan admin</small></div>
+<label class="mk-fld" style="margin-top:16px"><span>Nama tampil</span><input id="aN" value="${E(a.name)}" maxlength="30"></label>
+${self && !canManage() ? `<div class="mk-fld"><span>Role</span><div>${roleBadge(a.role)}</div></div>` : `<label class="mk-fld"><span>Role</span><select id="aR">${ROLE_LIST.map(r => `<option ${r === a.role ? 'selected' : ''}>${r}</option>`).join('')}</select></label><div class="mk-hint" style="margin-top:-8px">${ROLE_LIST.map(roleBadge).join(' ')}</div>`}
+<label class="mk-fld"><span>Bio singkat (opsional)</span><input id="aB" value="${E(a.bio || '')}" maxlength="60" placeholder="Fast respon 24 jam"></label>
+<div class="mk-sec">QRIS pembayaran</div><div class="mk-qup" id="aQ"></div>
+${self && !canManage() ? '' : `<label class="mk-sw"><input type="checkbox" id="aA" ${a.active !== false ? 'checked' : ''}><span></span>Aktif (bisa dipilih buyer/seller)</label>`}
+${!a._new && canManage() ? `<button class="mk-btn bad blk" data-k="del" style="margin:18px 16px;width:calc(100% - 32px)">${ic('trash')}Copot admin</button>` : ''}</div>
+<div class="mk-pf"><button class="mk-btn blk mk-rp" data-k="save">${ic('check')}Simpan</button></div>`);
+    const paintQ = () => { $('#aQ', pg.el).innerHTML = qris ? `<button class="mk-qris" data-k="q"><img src="${E(qris)}" alt="QRIS"><span>${ic('img')}Ganti QRIS</span></button>` : `<button class="mk-ua2" data-k="q">${ic('qris')}<b>Unggah QRIS</b><small>Foto/scan QRIS yang jelas</small></button>`; };
+    paintQ();
+    pg.el.addEventListener('click', async e => {
+      const k = e.target.closest('[data-k]'); if (!k) return;
+      if (k.dataset.k === 'q') { const f = (await pickFiles('image/*'))[0]; if (!f) return; toast('Mengunggah QRIS…'); try { const r = await upImage(f, 'qris/' + a.owner_id.replace(/[^a-z0-9_]/gi, '') + '-' + Date.now().toString(36), 0); qris = r.u; paintQ(); toast('QRIS siap, ketuk Simpan'); } catch (er) { toast(errMsg(er), 1); } }
+      if (k.dataset.k === 'del') { if (!(await confirmBox('Copot admin?', `${a.name} tidak bisa dipilih lagi untuk rekber. Grup lama tetap ada.`, 'Copot', true))) return; try { await rest('mk_admins?owner_id=eq.' + encodeURIComponent(a.owner_id), { method: 'DELETE' }); await loadAdmins(); toast('Admin dicopot'); H.goBack(pg); done && done(); } catch (er) { toast(errMsg(er), 1); } }
+      if (k.dataset.k === 'save') {
+        const row = { owner_id: a.owner_id, name: $('#aN', pg.el).value.trim() || a.name, avatar: a.avatar || '', role: $('#aR', pg.el) ? $('#aR', pg.el).value : a.role, bio: $('#aB', pg.el).value.trim(), qris, active: $('#aA', pg.el) ? $('#aA', pg.el).checked : a.active !== false, sort: a.sort || 0 };
+        try { await rest('mk_admins?on_conflict=owner_id', { method: 'POST', headers: { Prefer: 'resolution=merge-duplicates,return=minimal' }, body: [row] }); await loadAdmins(); toast('Tersimpan ✓'); H.goBack(pg); done && done(); }
+        catch (er) { toast(errMsg(er), 1); }
+      }
+    });
+  }
+  async function openFeeEditor() {
+    await loadFee(); let rows = JSON.parse(JSON.stringify(CH.fee || []));
+    const pg = page(pageHead('Tarif admin', 'Dibayar buyer · berlaku untuk OP baru') + `<div class="mk-pb"><p class="mk-hint" style="margin:14px 16px">Tier dipilih dari "mulai harga" terbesar yang ≤ harga OP. Isi nominal Rp atau persen.</p><div id="fL"></div><button class="mk-btn ghost" data-k="add" style="margin:8px 16px">${ic('plus')}Tambah tier</button><div class="mk-sec">Simulasi</div><label class="mk-fld"><span>Harga OP</span><input id="fS" inputmode="numeric" value="250.000"></label><div class="mk-hint" id="fR"></div></div><div class="mk-pf"><button class="mk-btn blk" data-k="save">${ic('check')}Simpan tarif</button></div>`);
+    const paint = () => {
+      $('#fL', pg.el).innerHTML = rows.map((r, i) => `<div class="mk-fee" data-i="${i}"><label><small>Mulai harga</small><input data-f="min" inputmode="numeric" value="${(+r.min || 0).toLocaleString('id-ID')}"></label><label><small>Tipe</small><select data-f="t"><option value="fee" ${r.pct == null ? 'selected' : ''}>Rp</option><option value="pct" ${r.pct != null ? 'selected' : ''}>%</option></select></label><label><small>Nilai</small><input data-f="v" inputmode="decimal" value="${r.pct != null ? r.pct : (+r.fee || 0).toLocaleString('id-ID')}"></label><button class="mk-ib sm" data-rm="${i}" aria-label="Hapus">${ic('trash')}</button></div>`).join('');
+      sim();
+    };
+    const read = () => { rows = $$('.mk-fee', pg.el).map(el => { const min = num($('[data-f="min"]', el).value), t = $('[data-f="t"]', el).value, v = $('[data-f="v"]', el).value; return t === 'pct' ? { min, pct: Math.max(0, Math.min(50, parseFloat(String(v).replace(',', '.')) || 0)) } : { min, fee: num(v) }; }); };
+    const sim = () => { const p = num($('#fS', pg.el).value), old = CH.fee; CH.fee = rows; const f = feeOf(p); CH.fee = old; $('#fR', pg.el).innerHTML = `Harga ${rp(p)} → tarif <b>${rp(f)}</b> → buyer transfer <b>${rp(p + f)}</b>`; };
+    paint();
+    pg.el.addEventListener('input', e => { if (e.target.closest('.mk-fee') || e.target.id === 'fS') { read(); sim(); } });
+    pg.el.addEventListener('click', async e => {
+      const rm = e.target.closest('[data-rm]'); if (rm) { read(); rows.splice(+rm.dataset.rm, 1); return paint(); }
+      const k = e.target.closest('[data-k]'); if (!k) return;
+      if (k.dataset.k === 'add') { read(); rows.push({ min: ((rows[rows.length - 1] || {}).min || 0) + 500000, fee: 20000 }); return paint(); }
+      if (k.dataset.k === 'save') { read(); rows.sort((a, b) => a.min - b.min); if (!rows.length || rows[0].min !== 0) rows.unshift({ min: 0, fee: rows[0] ? (rows[0].fee || 0) : 0 }); try { await rest('mk_settings?key=eq.fee', { method: 'PATCH', body: { value: rows } }); CH.fee = rows; toast('Tarif disimpan ✓'); H.goBack(pg); } catch (er) { toast(errMsg(er), 1); } }
+    });
+  }
+
+  /* ---------- tab Chat ---------- */
+  function chatView() {
+    return `<section class="mk-view" data-view="chat"><div class="mk-search">${ic('search')}<input id="mkCq" type="search" placeholder="Cari chat…" aria-label="Cari chat" autocomplete="off"></div><div class="mk-chips" id="mkCChips"></div><div id="mkInbox"><div class="mk-loadm"><i class="mk-spin"></i></div></div><div style="height:90px"></div></section>`;
+  }
+  function chatBoot() {
+    CH.inbox = []; CH.cur = null; CH.states = {}; stopRealtime(); clearTimeout(inboxT);
+    const q = $('#mkCq'); if (q) q.addEventListener('input', () => { CH.q = q.value; paintInbox(); });
+    if (!me) { paintInbox(); return; }
+    loadAdmins(); loadFee(); loadInbox(); startRealtime();
+  }
+  function chatRootClick(e) {
+    const r = e.target.closest('[data-chat]'); if (r) { openChat(r.dataset.chat); return true; }
+    const f = e.target.closest('[data-cf]'); if (f) { CH.filter = f.dataset.cf; paintInbox(); return true; }
+    return false;
+  }
+
+  /* ---------- boot ---------- */
+  MK.mount = function (host, user) {
+    H = host; me = user;
+    if (!root) {
+      root = document.createElement('div'); root.id = 'mk'; root.className = 'mk-hide'; document.body.append(root);
+      root.addEventListener('pointerdown', ripple, { passive: true }); root.addEventListener('click', onRootClick);
+      try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme); } catch (e) { }
+      document.addEventListener('visibilitychange', () => { if (!document.hidden && root && !root.classList.contains('mk-hide')) ping(); else flushViews(); });
+      window.addEventListener('pagehide', flushViews);
+    }
+    applyTheme();
+    if (root._uid !== (me && me.id)) { root._uid = me && me.id; Object.assign(S, { tab: 'pasar', posts: [], end: false, stores: null, mine: null, newer: 0, tmp: [], q: '', game: '', _mineFresh: 0 }); shell(); paintNavAdmin(); chatBoot(); loadFeed(true); loadGames(); }
+    return root;
+  };
+  MK.show = function () { root.hidden = false; void root.offsetWidth; root.classList.remove('mk-hide'); ping(); if (me && me.kind === 'member') setTimeout(MK.reconcile, 600); };
+  MK.hide = function () { if (!root) return; root.classList.add('mk-hide'); flushViews(); clearTimeout(pingT); setTimeout(() => { if (root.classList.contains('mk-hide')) root.hidden = true; }, 340); };
+  MK.root = () => root;
+  MK.closeAllPages = () => { [...S.pages].reverse().forEach(p => p.close()); };
+  MK.splash = function (ms = 700) { const s = document.createElement('div'); s.className = 'mk-splash'; s.innerHTML = `${LOGO()}<div class="mk-from">dari<b>JB KU</b></div>`; root.append(s); setTimeout(() => { s.classList.add('out'); setTimeout(() => s.remove(), 400); }, ms); };
+  MK._ = { $, $$, E, ic, LOGO, toast, rpc, rest, LS, errMsg, applyTheme: () => applyTheme(), setRoot: r => { root = r; } };
+})();
+</script>
+<script>
+/* ===== JB KU MARKET — website untuk anak JB (guest @namastore, tanpa verifikasi) ===== */
+(() => {
+  const { LS, E, LOGO, ic, rpc, errMsg, toast } = MK._;
+  const stack = []; let guard = true, fromPop = false;
+  try { history.replaceState({ mk: 0 }, ''); history.pushState({ mk: 1 }, ''); } catch (e) { }
+  addEventListener('popstate', () => {
+    const top = stack[stack.length - 1];
+    if (top) { fromPop = true; try { top.close(); } finally { fromPop = false; } try { history.pushState({ mk: 1 }, ''); } catch (e) { } }
+    else guard = false;
+  });
+  const host = {
+    mode: 'web',
+    backPush: api => { stack.push(api); if (!guard) { guard = true; try { history.pushState({ mk: 1 }, ''); } catch (e) { } } },
+    backPop: api => { const i = stack.indexOf(api); if (i >= 0) stack.splice(i, 1); void fromPop; },
+    goBack: api => api.close(),
+    link: () => location.origin + location.pathname,
+    stocks: () => [], specs: () => [],
+    badge: n => { document.title = (n ? '(' + (n > 99 ? '99+' : n) + ') ' : '') + 'JB KU Market'; },
+    notify: (t, b) => { try { if (window.Notification && Notification.permission === 'granted') new Notification(t, { body: b, tag: 'mk-chat' }); } catch (e) { } },
+    themeColor: c => { const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = c; },
+    logout: async () => {
+      const ok = await new Promise(res => { const r = MK.root(), ov = document.createElement('div'); ov.className = 'mk-sh'; ov.innerHTML = `<div class="mk-shb"><div class="mk-grab"></div><h3>Keluar dari akun guest?</h3><p>Kamu bisa masuk lagi kapan saja dengan nama store yang sama.</p><div class="mk-row2"><button class="mk-btn ghost" data-s="0">Batal</button><button class="mk-btn bad" data-s="1">Keluar</button></div></div>`; r.append(ov); ov.addEventListener('click', e => { const b = e.target.closest('[data-s]'); if (e.target === ov || b) { ov.remove(); res(!!b && b.dataset.s === '1'); } }); });
+      if (!ok) return; LS.set('mk_guest', null); try { sessionStorage.removeItem('mk_in'); } catch (e) { } location.replace(location.pathname);
+    }
+  };
+  const clean = s => String(s || '').trim().replace(/^@+/, '').replace(/\s+/g, '').replace(/[^A-Za-z0-9_.]/g, '').slice(0, 24);
+  const asUser = g => ({ id: 'g_' + g.id, kind: 'guest', name: '@' + (g.name || g.handle), avatar: g.avatar || '', wa: LS.get('mk_gwa', ''), admin: false });
+  const root = MK.mount(host, null); MK.show();
+  MK.splash(900);
+
+  async function enter(g, count) {
+    if (count) { try { const r = await rpc('mk_guest_login', { p_handle: g.handle, p_name: g.name }); if (r && r.id) g = { id: r.id, handle: r.handle, name: r.name }; LS.set('mk_guest', g); sessionStorage.setItem('mk_in', '1'); } catch (e) { } }
+    MK.mount(host, asUser(g)); MK.show();
+  }
+  function welcome() {
+    const w = document.createElement('div'); w.className = 'mk-wel';
+    w.innerHTML = `<div class="mk-fx" style="display:flex;flex-direction:column;align-items:center;flex:1;width:100%"><div class="mk-hero"><i style="width:22px;height:22px;top:14%;left:12%"></i><i style="width:14px;height:14px;bottom:18%;right:14%"></i><i style="width:10px;height:10px;top:22%;right:20%"></i>${LOGO()}</div>
+<h1>Selamat datang di JB KU Market</h1><p>Tempat anak JB cari &amp; jual akun game. Posting akun sepuasnya, lihat stok toko lain, dan transaksi aman lewat rekber admin terverifikasi.</p>
+<p>Ketuk "Setuju dan lanjutkan" untuk menerima <b>Ketentuan Market</b>: dilarang menipu, selalu gunakan rekber admin, jangan pernah kirim kode OTP.</p><span class="mk-sp"></span>
+<button class="mk-btn mk-rp" data-w="go">Setuju dan lanjutkan</button></div>`;
+    root.append(w);
+    w.addEventListener('click', e => { if (e.target.closest('[data-w="go"]')) { w.remove(); login(); } });
+  }
+  function login() {
+    const w = document.createElement('div'); w.className = 'mk-wel';
+    w.innerHTML = `<div class="mk-fx" style="display:flex;flex-direction:column;align-items:center;flex:1;width:100%"><h2>Masukkan nama store</h2><p>JB KU Market akan membuat akun guest dengan nama store kamu. Langsung masuk, tanpa verifikasi.</p>
+<label class="mk-at"><span>@</span><input id="mkN" autocomplete="nickname" autocapitalize="off" spellcheck="false" maxlength="24" placeholder="Namastore" aria-label="Nama store"></label><div class="mk-err" id="mkE"></div>
+<p style="font-size:13px">Huruf, angka, titik &amp; garis bawah. Contoh: <b>@RenStore</b></p><span class="mk-sp"></span>
+<button class="mk-btn mk-rp" data-w="in" disabled>Lanjut</button></div>`;
+    root.append(w);
+    const i = w.querySelector('#mkN'), b = w.querySelector('[data-w="in"]'), er = w.querySelector('#mkE');
+    setTimeout(() => i.focus(), 300);
+    i.addEventListener('input', () => { const c = clean(i.value); if (c !== i.value) i.value = c; b.disabled = c.length < 3; er.textContent = c && c.length < 3 ? 'Minimal 3 karakter' : ''; });
+    i.addEventListener('keydown', e => { if (e.key === 'Enter' && !b.disabled) b.click(); });
+    b.addEventListener('click', async () => {
+      const n = clean(i.value); if (n.length < 3) return;
+      b.disabled = true; b.innerHTML = '<i class="mk-spin" style="width:20px;height:20px;border-width:2.5px;border-color:rgba(255,255,255,.4);border-top-color:#fff"></i>';
+      try {
+        const r = await rpc('mk_guest_login', { p_handle: n.toLowerCase(), p_name: n });
+        const g = { id: r.id, handle: r.handle, name: r.name || n }; LS.set('mk_guest', g); try { sessionStorage.setItem('mk_in', '1'); } catch (e) { }
+        w.style.transition = 'opacity .3s'; w.style.opacity = 0; setTimeout(() => w.remove(), 300);
+        await enter(g, false); toast(`Masuk sebagai @${g.name} ✓`);
+      } catch (e) { er.textContent = errMsg(e); b.disabled = false; b.textContent = 'Lanjut'; }
+    });
+  }
+  const g = LS.get('mk_guest', null);
+  setTimeout(() => { if (g && g.id) { let fresh = true; try { fresh = !sessionStorage.getItem('mk_in'); } catch (e) { } enter(g, fresh); } else welcome(); }, 250);
+  void E; void ic;
+})();
+</script>
+</body></html>
